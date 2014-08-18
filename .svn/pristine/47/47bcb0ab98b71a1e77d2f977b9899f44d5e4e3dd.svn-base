@@ -1,0 +1,22 @@
+<ul class="cs-upload-item ul-inline">
+    <li>
+        <i name='file-icon' class="file-icon"></i>
+    </li>
+    <li class="cs-upload-item-name">
+        <div>
+            <div name="name" class="cs-file-name help-inline" title="">香山红叶.jpg</div>
+            <label class="cs-percent text-right inline-hide"> 40%</label>
+        </div>
+        <div class="progress progress-striped progress-success hide ">
+            <div style="width: 2%" name="prograss-bar" class="bar"></div>
+        </div>
+    </li>
+    <li>
+        <span class="label label-info " name="status"></span>
+
+        <div class='btn-group inline-hide'>
+            <button class='btn btn-link btn-first' title='暂停'><i class='icon-pause'></i></button>
+            <button class='btn btn-link btn-second' title='移除'><i class='icon-remove'></i></button>
+        </div>
+    </li>
+</ul>

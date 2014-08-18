@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>SharePersonalFileDTO</h3>
+		<p><span>说明:</span>复制个人网盘文件至企业网盘</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>forderList</li>
+								<li>List&lt;<a href="NetworkFolderDTO.htm">NetworkFolderDTO</a>&gt;</li>
+								<li class="r">文件夹list</li>
+								<li>fileList</li>
+								<li>List&lt;<a href="NetworkFileDTO.htm">NetworkFileDTO</a>&gt;</li>
+								<li class="r">文件list</li>
+								<li>userId</li>
+								<li>long</li>
+								<li class="r">用户id</li>
+								<li>userName</li>
+								<li>String</li>
+								<li class="r">用户名</li>
+								<li>enterpriseId</li>
+								<li>long</li>
+								<li class="r">企业id</li>
+								<li>folderId</li>
+								<li>long</li>
+								<li class="r">复制到企业网盘文件夹id</li>
+								<li class="b">cloudDiskIp</li>
+								<li class="b">String</li>
+								<li class="b r">@deprecated</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

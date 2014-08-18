@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>ShareFolderDTO</h3>
+		<p><span>说明:</span>企业网盘文件夹dto</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li><a href="FolderDTO.htm">FolderDTO</a></li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>enterpriseId</li>
+								<li>long</li>
+								<li class="r">企业id</li>
+								<li>userId</li>
+								<li>long</li>
+								<li class="r">用户id</li>
+								<li>maxSize</li>
+								<li>Long</li>
+								<li class="r">空间限制，单位KB</li>
+								<li class="b">shareLinkId</li>
+								<li class="b">Long</li>
+								<li class="b r">外链id</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

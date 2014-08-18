@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>登录REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#企业管理员登录服务">企业管理员登录服务</a></li>
+					<li><a href="#企业用户登录服务">企业用户登录服务</a></li>
+					<li><a href="#修改企业管理员登录密码">修改企业管理员登录密码</a></li>
+					<li><a href="#退出登录">退出登录</a></li>
+					<li><a href="#修改用户状态">修改用户状态</a></li>
+					<li><a href="#修改用户密码">修改用户密码</a></li>
+					<li><a href="#检查token是否有效">检查token是否有效</a></li>
+					<li><a href="#客服的客户服务计数减1">客服的客户服务计数减1</a></li>
+					<li><a href="#重新登录">重新登录</a></li>
+					<li><a href="#验证用户登录密码">验证用户登录密码</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="企业管理员登录服务"></a>企业管理员登录服务</p>
+				<p><span>请求地址:</span>"/pub/ent/admin/login"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseLoginDTO.htm">EnterpriseLoginDTO</a> 企业用户登录DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>toeken 用户令牌</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorCheckHashkey 数据未通过安全验证</li>
+							<li>errorWrongEnterpriseName 企业名错误</li>
+							<li>errorAuditFail 该企业服务已停止</li>
+							<li>errorAccountExpired 该企业服务已过期</li>
+							<li>errorWrongAccount 用户名错误</li>
+							<li>errorWrongPWD 密码错误</li>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="企业用户登录服务"></a>企业用户登录服务</p>
+				<p><span>请求地址:</span>"/pub/ent/enterpriseUserLogin"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseLoginDTO.htm">EnterpriseLoginDTO</a> 企业用户登录DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>toeken 用户令牌</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorCheckHashkey 数据未通过安全验证</li>
+							<li>errorAuditFail 该企业服务已停止</li>
+							<li>errorAccountExpired 该企业服务已过期</li>
+							<li>errorWrongAccount 企业名或用户名错误</li>
+							<li>errorUserLocked 用户被锁定，禁止登陆</li>
+							<li>errorPayExpired 购买的服务已过期</li>
+							<li>errorWrongPWD 密码错误</li>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业管理员登录密码"></a>修改企业管理员登录密码</p>
+				<p><span>请求地址:</span>"/sc/ent/changeAdminPassword"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/PasswordChangeDTO.htm">PasswordChangeDTO</a> 用户密码修改DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorCheckHashkey 数据未通过安全验证</li>
+							<li>errorWrongPWD 旧密码错误</li>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="退出登录"></a>退出登录</p>
+				<p><span>请求地址:</span>"/sc/login/logout"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorCheckToken token验证失败</li>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改用户状态"></a>修改用户状态</p>
+				<p><span>请求地址:</span>"/sc/login/changeUserStatus"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserStatusDTO.htm">UserStatusDTO</a> 用户状态DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改用户密码"></a>修改用户密码</p>
+				<p><span>请求地址:</span>"/sc/login/changePassword"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/PasswordChangeDTO.htm">PasswordChangeDTO</a> 用户密码修改</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorCheckHashkey 数据未通过安全验证</li>
+							<li>errorWrongOldPWD 旧密码错误</li>
+				</ul>
+				<p class="p-fun"><a name="检查token是否有效"></a>检查token是否有效</p>
+				<p><span>请求地址:</span>"/sc/login/checkToken"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>token 用户令牌</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>true</li>
+							<li>false</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="客服的客户服务计数减1"></a>客服的客户服务计数减1</p>
+				<p><span>请求地址:</span>"/sc/login/reductionCustomerCounter"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorUserIsOffline 用户不在线</li>
+				</ul>
+				<p class="p-fun"><a name="重新登录"></a>重新登录</p>
+				<p><span>请求地址:</span>"/sc/login/reLogin"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ReLoginDTO.htm">ReLoginDTO</a> 重新登录DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>token 用户令牌</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="验证用户登录密码"></a>验证用户登录密码</p>
+				<p><span>请求地址:</span>"/sc/ent/checkUserPassword"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li></li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorCheckHashkey 数据未通过安全验证</li>
+							<li>errorWrongPWD 密码错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

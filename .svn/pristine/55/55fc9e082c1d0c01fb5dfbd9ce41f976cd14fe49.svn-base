@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Services>
+        <P2PServer>${P2PServer}</P2PServer>
+        <RED5Server>${RED5Server}</RED5Server>
+		<RED5Server2>${RED5Server2}</RED5Server2>
+    </Services>
+</Config>

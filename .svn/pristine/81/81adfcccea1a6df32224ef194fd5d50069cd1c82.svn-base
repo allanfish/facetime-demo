@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>文件REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#浏览图片，取图片尺寸及地址">浏览图片，取图片尺寸及地址</a></li>
+					<li><a href="#将文件转成html，浏览文件">将文件转成html，浏览文件</a></li>
+					<li><a href="#将文件转成pdf，浏览文件">将文件转成pdf，浏览文件</a></li>
+					<li><a href="#将文件转成swf，浏览文件">将文件转成swf，浏览文件</a></li>
+					<li><a href="#将文件转成html，在线编辑文件">将文件转成html，在线编辑文件</a></li>
+					<li><a href="#保存文件到网盘">保存文件到网盘</a></li>
+					<li><a href="#新建文档">新建文档</a></li>
+					<li><a href="#接收聊天文件">接收聊天文件</a></li>
+					<li><a href="#制作图像，修改图片大小">制作图像，修改图片大小</a></li>
+					<li><a href="#制作头像，剪切图像">制作头像，剪切图像</a></li>
+					<li><a href="#取用户使用过的头像">取用户使用过的头像</a></li>
+					<li><a href="#取企业使用过的logo">取企业使用过的logo</a></li>
+					<li><a href="#取个人网盘中图片的缩略图">取个人网盘中图片的缩略图</a></li>
+					<li><a href="#删除使用过的头像或logo">删除使用过的头像或logo</a></li>
+					<li><a href="#打包下载文件">打包下载文件</a></li>
+					<li><a href="#复制个人网盘文件至企业网盘，发送更新消息">复制个人网盘文件至企业网盘，发送更新消息</a></li>
+					<li><a href="#获取文件的流">获取文件的流</a></li>
+					<li><a href="#下载文件">下载文件</a></li>
+					<li><a href="#检查文件">检查文件</a></li>
+					<li><a href="#分段下载文件">分段下载文件</a></li>
+					<li><a href="#获取媒体文件流">获取媒体文件流</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="浏览图片，取图片尺寸及地址"></a>浏览图片，取图片尺寸及地址</p>
+				<p><span>请求地址:</span>"/sc/file/viewFileAsImage"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileDTO.htm">ViewFileDTO</a>的JSON：文件转换浏览信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：
+	  转换成功，<a href="../dto/ViewFileResultDTO.htm#url">ViewFileResultDTO.url</a>为图片地址，<a href="../dto/ViewFileResultDTO.htm#width">ViewFileResultDTO.width</a>
+	  为图片宽度px，<a href="../dto/ViewFileResultDTO.htm#height">ViewFileResultDTO.height</a>为图片高度px</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNoPermission：没有浏览权限</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNotSupported：该文件不支持图片预览</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorFileNotFound：文件不存在</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = error500：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="将文件转成html，浏览文件"></a>将文件转成html，浏览文件</p>
+				<p><span>请求地址:</span>"/sc/file/viewFileAsHtml"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileDTO.htm">ViewFileDTO</a>的JSON：文件转换浏览信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：
+	  转换成功，<a href="../dto/ViewFileResultDTO.htm#url">ViewFileResultDTO.url</a>为html地址</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#QUEUED">CommConstants.QUEUED</a>
+	  ：文档已加入等待队列，等待转换</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>
+	  ：文档转换失败</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNoPermission：没有浏览权限</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNotSupported：该文件不支持转成html</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorFileNotFound：文件不存在</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = error500：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="将文件转成pdf，浏览文件"></a>将文件转成pdf，浏览文件</p>
+				<p><span>请求地址:</span>"/sc/file/viewFileAsPdf"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileDTO.htm">ViewFileDTO</a>的JSON：文件转换浏览信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：
+	  转换成功，<a href="../dto/ViewFileResultDTO.htm#url">ViewFileResultDTO.url</a>为pdf地址</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#QUEUED">CommConstants.QUEUED</a>
+	  ：文档已加入等待队列，等待转换</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>
+	  ：文档转换失败</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNoPermission：没有浏览权限</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNotSupported：该文件不支持转成pdf</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorFileNotFound：文件不存在</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = error500：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="将文件转成swf，浏览文件"></a>将文件转成swf，浏览文件</p>
+				<p><span>请求地址:</span>"/sc/file/viewFileAsSwf"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileDTO.htm">ViewFileDTO</a>的JSON：文件转换浏览信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：
+	  转换成功，<a href="../dto/ViewFileResultDTO.htm#url">ViewFileResultDTO.url</a>为分段swf地址，
+	  <a href="../dto/ViewFileResultDTO.htm#pageCount">ViewFileResultDTO.pageCount</a>为文件页数</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#QUEUED">CommConstants.QUEUED</a>
+	  ：文档已加入等待队列，等待转换</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>
+	  ：文档转换失败</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNoPermission：没有浏览权限</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNotSupported：该文件不支持转成swf</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorFileNotFound：文件不存在</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = error500：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="将文件转成html，在线编辑文件"></a>将文件转成html，在线编辑文件</p>
+				<p><span>请求地址:</span>"/sc/file/editFileAsHtml"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileDTO.htm">ViewFileDTO</a>的JSON：文件转换浏览信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = errorFileLocked
+	  +:用户名：文件被他人锁定</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：
+	  转换成功，<a href="../dto/ViewFileResultDTO.htm#content">ViewFileResultDTO.content</a>为文件html内容</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#QUEUED">CommConstants.QUEUED</a>
+	  ：文档已加入等待队列，等待转换</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>
+	  ：文档转换失败</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNoPermission：没有编辑权限</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNotSupported：该文件不支持转成html</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorFileNotFound：文件不存在</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = error500：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="保存文件到网盘"></a>保存文件到网盘</p>
+				<p><span>请求地址:</span>"/sc/file/saveFileToDisk"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/SaveFileDTO.htm">SaveFileDTO</a>的JSON：保存文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>的JSON：保存成功的文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="新建文档"></a>新建文档</p>
+				<p><span>请求地址:</span>"/sc/file/saveHtml"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/SaveFileDTO.htm">SaveFileDTO</a>的JSON：保存文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/FileDTO.htm">FileDTO</a>的JSON：保存成功的文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+							<li>errorSameFile文件重复</li>
+							<li>errorFolderDeleted：父文件已被删除</li>
+				</ul>
+				<p class="p-fun"><a name="接收聊天文件"></a>接收聊天文件</p>
+				<p><span>请求地址:</span>"/sc/file/acceptFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/AcceptFileDTO.htm">AcceptFileDTO</a>的JSON：保存文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFilesDTO.htm">NetworkFilesDTO</a>的JSON：保存成功的文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="制作图像，修改图片大小"></a>制作图像，修改图片大小</p>
+				<p><span>请求地址:</span>"/sc/file/resizeUserPicture/"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ImageDTO.htm">ImageDTO</a>的JSON：图片信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ImageDTO.htm">ImageDTO</a>的JSON：修改后的图片信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="制作头像，剪切图像"></a>制作头像，剪切图像</p>
+				<p><span>请求地址:</span>"/sc/file/cropUserPicture/"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ImageDTO.htm">ImageDTO</a>的JSON：图片信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserIconDTO.htm">UserIconDTO</a>的JSON：制作后的头像信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取用户使用过的头像"></a>取用户使用过的头像</p>
+				<p><span>请求地址:</span>"/sc/file/getUserIcons/"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserIconsDTO.htm">UserIconsDTO</a>的JSON：头像list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业使用过的logo"></a>取企业使用过的logo</p>
+				<p><span>请求地址:</span>"/sc/file/getEnterpriseLogos"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserIconsDTO.htm">UserIconsDTO</a>的JSON：logo list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取个人网盘中图片的缩略图"></a>取个人网盘中图片的缩略图</p>
+				<p><span>请求地址:</span>"/sc/file/getDiskImageThumbs"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/FileThumbsDTO.htm">FileThumbsDTO</a>的JSON：缩略图list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除使用过的头像或logo"></a>删除使用过的头像或logo</p>
+				<p><span>请求地址:</span>"/sc/file/deleteUserIcon"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserIconDTO.htm">UserIconDTO</a>的JSON：头像或者logo</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：删除成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="打包下载文件"></a>打包下载文件</p>
+				<p><span>请求地址:</span>"/sc/file/downZipFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/DownFileDTO.htm">DownFileDTO</a>的JSON：文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>压缩文件地址</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有下载权限</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="复制个人网盘文件至企业网盘，发送更新消息"></a>复制个人网盘文件至企业网盘，发送更新消息</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/sharePersonalFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/SharePersonalFileDTO.htm">SharePersonalFileDTO</a>的JSON：复制个人网盘文件至企业网盘DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：复制成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取文件的流"></a>获取文件的流</p>
+				<p><span>请求地址:</span>"/sc/file/getFileStream"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>文件路径</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>文件流</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+				<p class="p-fun"><a name="下载文件"></a>下载文件</p>
+				<p><span>请求地址:</span>"/file/fileDownload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FileDownloadDTO.htm">FileDownloadDTO</a>的JSON：文件下载信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>文件流</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+				<p class="p-fun"><a name="检查文件"></a>检查文件</p>
+				<p><span>请求地址:</span>"/sc/disk/checkDiskFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../status/RESTurl.htm#fileId">RESTurl.fileId</a>：文件id</li>
+							<li><a href="../status/RESTurl.htm#type">RESTurl.type</a>：文件类型</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>返回带有三个参数的字符串: 状态&大小byte&版本, 其中状态: 正常:0 , 删除:1 , 锁住:2 , 其他错误: 3</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="分段下载文件"></a>分段下载文件</p>
+				<p><span>请求地址:</span>"/file/sectionFileDownload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FileDownloadDTO.htm">FileDownloadDTO</a>的JSON：文件下载信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>分段的文件流</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+				<p class="p-fun"><a name="获取媒体文件流"></a>获取媒体文件流</p>
+				<p><span>请求地址:</span>"/file/getMediaStream"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileDTO.htm">ViewFileDTO</a>的JSON：文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>文件流</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

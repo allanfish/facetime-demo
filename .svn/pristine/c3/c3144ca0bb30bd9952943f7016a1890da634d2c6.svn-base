@@ -1,0 +1,209 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.qycloud.oatos</groupId>
+	<artifactId>oatos-server</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+
+	<name>oatos-server</name>
+	<url>http://www.oatos.com</url>
+
+	<modules>
+		<module>server</module>
+		<module>filemanager</module>
+		<module>fileconverter</module>
+		<module>filecache</module>
+	</modules>
+
+	<properties>
+		<oatos-version>1.0</oatos-version>
+		<java-version>1.6</java-version>
+		<org.springframework-version>3.2.1.RELEASE</org.springframework-version>
+		<maven.test.skip>true</maven.test.skip>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<Memcached.Servers>192.168.1.68:11211</Memcached.Servers>
+		<Memcached.AID>oatos_54</Memcached.AID>
+		<Memcached.Password>test@123</Memcached.Password>
+
+		<AppService>http://localhost:8980/server/oatos/</AppService>
+		<FileManagerService>http://localhost:8980/filemanager/oatos/</FileManagerService>
+		<DocConvertService>http://localhost:8980/fileconverter/oatos/</DocConvertService>
+		<CacheDiskPath>D:/cache/</CacheDiskPath>
+		<NetworkDiskPath>D:/server/</NetworkDiskPath>
+		<SwfToolsPath>D:/programs/swftools/</SwfToolsPath>
+		<MaxOfficeTask>2</MaxOfficeTask>
+		<MaxSwfTask>8</MaxSwfTask>
+		<SendMessage>http://localhost/sendmessage</SendMessage>
+		
+		<jdbc.url>jdbc:mysql://192.168.1.68:3306/oatos_test</jdbc.url>
+		<jdbc.username>726f6f74</jdbc.username>
+		<jdbc.password>67756f67756f</jdbc.password>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<!-- 55环境 -->
+		<profile>
+			<id>54</id>
+			<properties>
+				<profileId>54</profileId>
+				<Memcached.Servers>localhost:11211</Memcached.Servers>
+				<AppService>http://192.168.1.54/server/oatos/</AppService>
+				<FileManagerService>http://192.168.1.54/filemanager/oatos/</FileManagerService>
+				<DocConvertService>http://localhost/fileconverter/oatos/</DocConvertService>
+				<CacheDiskPath>/var/udata/cache/</CacheDiskPath>
+				<NetworkDiskPath>/var/udata/manager/</NetworkDiskPath>
+				<SwfToolsPath>/usr/local/bin/</SwfToolsPath>
+				<SendMessage>http://192.168.1.55/os/sendmessage</SendMessage>
+
+				<jdbc.url>jdbc:mysql://192.168.1.58:3306/oatos_test</jdbc.url>
+			</properties>
+		</profile>
+		<!-- 68环境 -->
+		<profile>
+			<id>68</id>
+			<properties>
+				<profileId>68</profileId>
+				<Memcached.Servers>192.168.1.54:11211</Memcached.Servers>
+				<AppService>http://localhost:8080/server/oatos/</AppService>
+				<FileManagerService>http://localhost:8080/filemanager/oatos/</FileManagerService>
+				<DocConvertService>http://localhost/fileconverter/oatos/</DocConvertService>
+				<CacheDiskPath>/var/udata/cache/</CacheDiskPath>
+				<NetworkDiskPath>/var/udata/manager/</NetworkDiskPath>
+				<SwfToolsPath>/usr/local/bin/</SwfToolsPath>
+				<SendMessage>http://localhost/os/sendmessage</SendMessage>
+
+				<jdbc.url>jdbc:mysql://192.168.1.58:3306/oatos_test</jdbc.url>
+			</properties>
+		</profile>
+		<!-- 广州服务器 -->
+		<profile>
+			<id>gz</id>
+			<properties>
+				<profileId>gz</profileId>
+				<Memcached.Servers>localhost:20016</Memcached.Servers>
+				<Memcached.AID>oatos_gz</Memcached.AID>
+				<Memcached.Password>test@123</Memcached.Password>
+
+				<AppService>http://203.88.210.236:19080/server/oatos/</AppService>
+				<FileManagerService>http://203.88.210.236:19080/filemanager/oatos/</FileManagerService>
+				<DocConvertService>http://localhost/fileconverter/oatos/</DocConvertService>
+				<CacheDiskPath>/var/udata/cache/</CacheDiskPath>
+				<NetworkDiskPath>/var/udata/manager/</NetworkDiskPath>
+				<SwfToolsPath>/usr/local/bin/</SwfToolsPath>
+				<SendMessage>http://app.oatos.com/os/sendmessage</SendMessage>
+
+				<jdbc.url>jdbc:mysql://localhost:3306/oatos_ent</jdbc.url>
+				<jdbc.username>6f61746f7375736572</jdbc.username>
+				<jdbc.password>636f6e2165637431313038</jdbc.password>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<!-- dto -->
+		<dependency>
+			<groupId>com.conlect.oatos</groupId>
+			<artifactId>dto</artifactId>
+			<version>${oatos-version}</version>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.unitils</groupId>
+			<artifactId>unitils-spring</artifactId>
+			<version>3.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>4.1.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

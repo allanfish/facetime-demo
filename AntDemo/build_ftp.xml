@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project name="AntDemo" default="exec.ssh3" basedir=".">
+
+	<property environment="env" />
+	<property file="build.properties" />
+	<property name="ssh.token" value="${ftp.user}:${ftp.pwd}@${ftp.server}" />
+	<property name="unionorgids" value="6020" />
+
+	<!-- ================================= 
+          target: get file from ssh server              
+         ================================= -->
+	<target name="scp" description="description">
+		<scp trust="true" file="${ssh.token}:${hostfile.dir}/C1111*" todir="${basedir}" verbose="true" />
+	</target>
+
+	<!-- ================================= 
+          target: put files to ssh server              
+         ================================= -->
+	<target name="ssh.put" description="description">
+		<scp trust="true" todir="${ssh.token}:${hostfile.dir}" verbose="true">
+			<fileset dir="${basedir}" includes="ant*.xml" />
+		</scp>
+	</target>
+
+	<target name="exec.ssh3">
+		<execssh cmd="  cd ${remote.dir};
+						rm -f union_file*.zip ;
+						zip -vr3 union_file_${YYYYMMDD}.zip 
+			            04100000/${YYYYMMDD}/* 0610/${YYYYMMDD}/* 2900/${YYYYMMDD}/* 
+						3310/${YYYYMMDD}/* 3910/${YYYYMMDD}/* 3930/${YYYYMMDD}/* 3970/${YYYYMMDD}/* 
+						5810/${YYYYMMDD}/* 5840/${YYYYMMDD}/* 5950/${YYYYMMDD}/* 6020/${YYYYMMDD}/* 6030/${YYYYMMDD}/*
+						C${YYMMDD} H${YYMMDD}" />
+		<scp trust="true" file="${ssh.token}:${hostfile.dir}/union_file*.zip" todir="${local.dir}" verbose="true" />
+	</target>
+
+
+	<target name="exec.ssh">
+		<execssh cmd="  cd ${hostfile.dir};
+						zip -v9 union_host.zip  C111122* H111122*;" />
+		<scp trust="true" file="${ssh.token}:${hostfile.dir}/union_host*.zip" todir="${basedir}" verbose="true" />
+	</target>
+
+
+
+
+
+	<!-- macrodef for ssh exec-->
+	<macrodef name="execssh" description="execute remote ssh cmd">
+		<attribute name="cmd" description="which cmd to exec" />
+		<sequential>
+			<sshexec host="${ftp.server}"
+			         trust="true"
+			         port="22"
+			         username="${ftp.user}"
+			         password="${ftp.pwd}"
+			         command="@{cmd}" />
+		</sequential>
+	</macrodef>
+
+	<!-- macrodef for ftp put action -->
+	<macrodef name="ftp.put">
+		<attribute name="remotedir" />
+		<attribute name="localdir" />
+		<attribute name="patternid" />
+		<sequential>
+			<ftp action="put"
+			     server="${ftp.server}"
+			     userid="${ftp.user}"
+			     password="${ftp.pwd}"
+			     remotedir="@{remotedir}"
+			     depends="true">
+				<fileset dir="@{localdir}">
+					<patternset refid="@{patternid}" />
+				</fileset>
+			</ftp>
+		</sequential>
+	</macrodef>
+
+	<!-- macrodef for ftp get action -->
+	<macrodef name="ftp.get">
+		<attribute name="localdir" />
+		<attribute name="remotedir" />
+		<attribute name="patternid" />
+		<sequential>
+			<ftp action="get"
+			     server="${ftp.server}"
+			     userid="${ftp.user}"
+			     password="${ftp.pwd}"
+			     remotedir="@{remotedir}"
+			     port="22"
+			     passive="true">
+				<fileset dir="@{localdir}">
+					<patternset refid="@{patternid}" />
+				</fileset>
+			</ftp>
+		</sequential>
+	</macrodef>
+
+	<!--Ant target: like Java method -->
+	<target name="main">
+		<echo message="hello world" />
+	</target>
+</project>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.FavoriteFileMapper">
+	
+	
+	<resultMap id="ShareFileResultMap" type="ShareFile">
+		<id property="fileId" column="file_id" />
+		<result property="folderId" column="folder_id" />
+		<result property="enterpriseId" column="ent_id" />
+		<result property="name" column="file_name" />
+		<result property="type" column="file_type" />
+		<result property="size" column="file_size" />
+		<result property="guid" column="file_guid" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="deleted" column="deleted" />
+		<result property="shareLinkId" column="link_id" />
+		<result property="thumb" column="thumb" />
+		<result property="remark" column="remark" />
+		<result property="version" column="version" />
+		<result property="createUserId" column="create_user_id" />
+		<result property="pageCount" column="page_count" />
+	</resultMap>	
+	
+	<sql id="SelectShareFileColumn">
+		SELECT file.file_id, file.folder_id, file.ent_id, file.file_name, file.file_type, file.file_size, file.file_guid, file.create_time, file.update_time, file.deleted, file.version, file.thumb, file.remark, file.create_user_id, file.page_count
+		FROM share_file file
+		INNER JOIN favorite_file favorite ON file.file_id = favorite.file_id
+	</sql>
+
+	<insert id="addFavoriteFile" parameterType="map" >
+		INSERT INTO 
+		favorite_file(user_id,file_id)
+		VALUES 
+		<foreach collection="favoriteFileList" item="item" index="index" separator=",">
+		(#{userId}, #{item})
+		</foreach>
+	</insert>
+	
+	<delete id="delFavoriteFile" parameterType="map">
+		DELETE FROM
+		favorite_file 
+		WHERE
+		user_id = #{userId} AND file_id = #{fileId}
+	</delete>
+	
+	<select id="getFavoriteFile" parameterType="long" resultMap="ShareFileResultMap">
+		SELECT file.file_id, file.folder_id, file.ent_id, file.file_name, file.file_type, file.file_size, file.file_guid, file.create_time, file.update_time, file.deleted, file.version, file.thumb, file.remark, file.create_user_id, file.page_count
+		FROM share_file file
+		INNER JOIN favorite_file favorite ON file.file_id = favorite.file_id
+		where favorite.user_id = #{userId}
+	</select>
+	
+    <select id="getFavoriteFileIdByUserId" parameterType="long" resultType="long">
+       select file_id from favorite_file
+       where user_id = #{userId}
+    </select>
+	
+ </mapper>

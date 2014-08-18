@@ -1,0 +1,335 @@
+#user-layout .back-color {
+    background-color: #CCF9FE;
+}
+#colleague_view .accordion-heading .accordion-toggle {
+    display: inline-block;
+}
+
+#colleague_view .accordion-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#departmentTree .userList {
+    padding-left: 40px;
+    list-style: none;
+}
+
+.userList li img {
+    width: 37px;
+    height: 37px;
+    border: 1px solid #FFFFFF;
+    float: right;
+}
+
+#colleague_view .user-search {
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+
+#colleague_view .nav-tabs {
+    border-bottom: 2px solid #5AB8F6;
+}
+
+#colleague_view .nav-tabs > li {
+    width: 50%;
+}
+
+#colleague_view .nav-tabs > li > a {
+    color: #A4AFC1;
+    text-align: center;
+}
+
+#colleague_view .nav-tabs > li.active > a {
+    background-color: #5AB8F6;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#colleague_view .nav-tabs > li > a > span {
+    display: none;
+}
+
+#colleague_view .nav-tabs > li.active > a > span {
+    display: inline;
+}
+
+#departmentTree .accordion-heading {
+    text-align: center;
+}
+
+.inner-department {
+    padding-left: 40px;
+}
+
+.top-accordion-inner {
+    max-height: 330px;
+    overflow-y: auto;
+}
+
+#usual_colleague_view .contact-del {
+    float: left;
+}
+#usual_colleague_view .operate-panel {
+    margin-left: 12px;
+}
+#usual_colleague_view .dealContact {
+    display:inline-block;
+    height: 30px;
+    margin-left: 3px;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #808C9C;
+}
+#usual_colleague_view .dealContact i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+#usualContactTreeWrap .userList .userName {
+    font-size: 14px;
+    font-weight: bold;
+    color: #808C9C;
+}
+#usualContactTreeWrap .row-fluid > div + div + div label{
+    width: 85px;
+    font-size: 12px;
+    color: #A4AFC1;
+}
+#usualContactTreeWrap .row-fluid > div + div + div label span{
+    font-weight: bold;
+}
+#usualContactTreeWrap li .span1 {
+    margin-top: 14px;
+}
+#usualContactTreeWrap li .span1 i{
+    cursor: pointer;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div{
+    width: 43px;
+    height: 39px;
+    margin-top: 4px;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div.online {
+    background-color: #6ADA48;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div.busy {
+    background-color: #D53233;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div.leave {
+    background-color: #2F2BE2;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div.offline,div.logout {
+    background-color: #959990;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div.corbet {
+    background-color: #E2DC2B;
+}
+#usualContactTreeWrap .userList li > div > .span2 > div.offline,div.logout > img{
+    filter: alpha(opacity=60);
+    -moz-opacity:0.6;
+    opacity: 0.6;
+}
+#usualContactTreeWrap .userList .contact-del {
+    margin-top: 10px;
+    margin-left: 3px;
+    margin-right: -4px;
+}
+
+
+#user-layout .collapse {
+    position: static;
+}
+
+.popover-content {
+    padding: 7px;
+}
+
+.name-card {
+    width: 231px;
+    height: 151px;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #7F92A0;
+}
+
+.name-card p {
+    line-height: 20px;
+    margin-bottom: 0px;
+}
+
+.name-card p span {
+    font-weight: bold;
+}
+
+.name-card .avatar {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #7C92A0;
+}
+
+.name-card > div + p + div > div + div.span8 {
+    margin-left: -15px;
+    font-weight: bold;
+}
+
+.name-card div p > span + span {
+    float: right;
+    margin-right: 15px;
+}
+
+.name-card .card-user-name {
+    font-family: "宋体", Arial;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 20px;
+}
+
+.name-card .online {
+    color: #6ADA48;
+}
+.name-card .busy {
+    color: #D53233;
+}
+.name-card .leave {
+    color: #2F2BE2;
+}
+.name-card .offline,.logout {
+    color: #959990;
+}
+.name-card .corbet {
+    color: #E2DC2B;
+}
+
+.chat-window {
+    width: 270px;
+    height: 270px;
+    border: 1px solid #999999;
+}
+
+.chat-body {
+    height: 235px;
+    overflow-y: scroll;
+}
+
+.chat-body > div > div > span + span {
+    float: right;
+    margin-right: 10px;
+}
+
+.chat-body > div > .message_title {
+    font-weight: 900;
+}
+
+.chat-body > div > .sender {
+    color: #4A3DF9;
+}
+
+.chat-body > div > .receiver {
+    color: #3C9135;
+}
+
+.chat-body .chat-item {
+    margin-top: 3px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.chat-body .chat-item .message_title {
+    margin-bottom: 1px;
+}
+
+.chat-window .chat-top-bar span {
+    margin-left: 2px;
+}
+
+.chat-windows {
+    width: 422px;
+    height: 270px;
+    border: 1px solid #999999;
+}
+
+.chat-foot {
+    height: 34px;
+    background-color: #F6F9FE;
+    line-height: 34px;
+    border-top: 1px solid #C6D0DC;
+}
+
+
+.chat-foot input {
+    width: 200px;
+    height: 18px;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.chat-foot span {
+    float: right;
+    margin-top: -2px;
+    margin-right: 4px;
+}
+
+.chat-windows .tabs-left > .nav-tabs {
+    margin-right: 0px;
+}
+
+.chat-windows ul {
+    height: 252px;
+}
+
+.takePhotoView {
+    width: 480px;
+    height: 480px;
+}
+
+.departmentUserTree {
+    width: 100%;
+    overflow: auto;
+}
+
+.ui_title_bar,.ui_title,.ui_title_buttons {
+    height: 33px;
+    line-height: 33px;
+}
+
+.ui_title {
+    padding-right: 50px;
+}
+
+.dialog-head {
+  width: 220px;
+  height: 33px;
+  line-height: 33px;
+}
+.dialog-head > div + div {
+  float: left;
+}
+.dialog-avatar {
+  width: 29px;
+  height: 25px;
+  line-height: 25px;
+  margin-top: 3px;
+  float: left;
+  border: 1px solid #FFFFFF;
+}
+.Status {
+  height: 25px;
+  float:left;
+  border-right: 3px solid red;
+}
+.img-avatar {
+  width: 25px;
+  height: 25px;
+  float:left;
+  border-left: 1px solid #FFFFFF;
+}
+.img-avatar img {
+  width: 25px;
+  height: 25px;
+  margin-top: -5px;
+}

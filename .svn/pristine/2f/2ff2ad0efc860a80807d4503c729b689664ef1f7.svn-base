@@ -1,0 +1,19 @@
+# application service
+AppService=http://192.168.1.68:8080/server/oatos/
+#file cache service
+FileCacheService=http://localhost:8980/filecache/oatos/
+FileManagerService=http://192.168.1.68:8080/filemanager/oatos/
+#p2p host
+P2PHost=203.88.210.236:80
+#conference host
+ConferenceHost=203.88.210.240:16035
+
+#disk path
+NetworkDiskPath=D:/var/udata/cache/
+
+AppName=/os
+
+# \u7cfb\u7edf\u6d88\u606f\u914d\u7f6e
+SysMsgTimerAllow=true
+## \u5355\u4f4d\u79d2
+SysMsgTimerPeriod=1800

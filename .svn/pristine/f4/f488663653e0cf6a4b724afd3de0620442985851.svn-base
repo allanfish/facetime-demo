@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		 <property name="configLocation" value="classpath:quartz.properties" /> 
+		<property name="triggers">
+			<list>
+				<ref bean="testJob1"/>
+			</list>
+		</property>
+		<property name="startupDelay" value="0"></property>
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+	</bean>
+
+	<!-- ********************************************stopDevJob******************************************** -->
+	<bean id="testJob1" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="testJobDetail1" />
+		<property name="cronExpression" value="0/20 * * * * ? *" />
+	</bean>
+	<bean id="testJobDetail1" class="com.grgbanking.view.scheduling.MethodInvokingJobDetailFactoryBean">
+		<property name="concurrent" value="false" />
+		<property name="shouldRecover" value="true"></property>
+		<property name="targetObject" ref="testJobBus1" />
+		<property name="targetMethod" value="executeInternal"></property>
+	</bean>
+	<bean id="testJobBus1" class="com.grgbanking.view.scheduling.TestJobBus1">		
+	</bean>
+  
+  <!-- ********************************************initDirJob******************************************** 
+	<bean id="initDirJob" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="initDirJobDetail" />
+		
+		<property name="repeatCount" value="0"></property>
+	</bean>
+	<bean id="initDirJobDetail" class="com.grgbanking.view.scheduling.MethodInvokingJobDetailFactoryBean">
+		<property name="concurrent" value="false" />
+		<property name="shouldRecover" value="true"></property>
+		<property name="targetObject" ref="initDirJobObject" />
+		<property name="targetMethod" value="executeInternal"></property>
+	</bean>
+	<bean id="initDirJobObject" class="com.zjft.shepherd.scheduling.BootstrapJob">
+		<property name="targetJob" value="initDirJobBus" />
+	</bean>
+	<bean id="initDirJobBus" class="com.zjft.shepherd.scheduling.InitDirJob">
+		<property name="shepherdData" ref="shepherdData" />
+	</bean>
+	-->
+
+</beans>

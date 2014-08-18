@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<version>
+    <!--针对ios操作系统的默认配置 -->
+    <ios>
+        <versionNumber>
+			<v>1.4.2</v>
+        </versionNumber>
+        <download>http://www.oatos.com/ios</download>
+    </ios>
+    
+    <!--针对android操作系统的默认配置 -->
+    <android>
+        <versionNumber>
+			<v>1.4.2</v>
+        </versionNumber>
+        <download>http://app.oatos.com/os/mobile/android.html</download>
+    </android>
+</version>

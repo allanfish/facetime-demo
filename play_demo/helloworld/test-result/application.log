@@ -1,0 +1,23 @@
+14 四月 2012 17:41:56,539 INFO  ~ Starting D:\workspace\study\helloworld
+14 四月 2012 17:41:57,959 INFO  ~ 
+14 四月 2012 17:41:57,959 INFO  ~ Go to http://localhost:9000/@tests to run the tests
+14 四月 2012 17:41:57,959 INFO  ~ 
+14 四月 2012 17:41:57,959 WARN  ~ You're running Play! in DEV mode
+14 四月 2012 17:41:58,350 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+14 四月 2012 17:54:41,825 INFO  ~ Connected to jdbc:hsqldb:mem:playembed
+14 四月 2012 17:54:43,074 INFO  ~ Application 'helloworld' is now started !
+14 四月 2012 17:56:07,221 ERROR ~ 
+
+@6a3g01ff2
+Internal Server Error (500) for request GET /news/list
+
+Template not found (In /app/controllers/News.java around line 8)
+The template News/list.html does not exist.
+
+play.exceptions.TemplateNotFoundException: Template not found : News/list.html
+	at play.mvc.Controller.renderTemplate(Controller.java:496)
+	at play.mvc.Controller.render(Controller.java:521)
+	at controllers.News.list(News.java:8)
+	at play.utils.Java.invokeStatic(Java.java:129)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:139)
+	at Invocation.HTTP Request(Play!)

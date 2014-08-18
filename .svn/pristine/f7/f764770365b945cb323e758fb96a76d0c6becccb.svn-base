@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.ConferenceDocMapper">
+
+	<resultMap id="ConferenceDocResultMap" type="ConferenceDoc">
+		<id property="fileId" column="file_id" />
+		<result property="conferenceId" column="conference_id" />
+		<result property="name" column="file_name" />
+		<result property="guid" column="file_guid" />
+		<result property="size" column="file_size" />
+		<result property="type" column="file_type" />
+		<result property="createTime" column="create_time" />
+		<result property="diskFileId" column="disk_file_id" />
+		<result property="userId" column="user_id" />
+		<result property="enterpriseId" column="ent_id" />
+		<result property="pageCount" column="page_count" />
+	</resultMap>
+
+	<insert id="addConferenceDoc" parameterType="ConferenceDoc">
+		INSERT INTO conference_doc (file_id, conference_id, file_name, file_guid, file_size, file_type, create_time, disk_file_id, user_id, ent_id, page_count)
+		VALUES (#{fileId}, #{conferenceId}, #{name}, #{guid}, #{size}, #{type}, now(), #{diskFileId}, #{userId}, #{enterpriseId}, #{pageCount})
+    </insert>
+    
+	<insert id="addConferenceDocs">
+		INSERT INTO conference_doc (file_id, conference_id, file_name, file_guid, file_size, file_type, create_time, disk_file_id, user_id, ent_id, page_count)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.fileId}, #{item.conferenceId}, #{item.name}, #{item.guid}, #{item.size}, #{item.type}, now(), #{item.diskFileId}, #{item.userId}, #{item.enterpriseId}, #{item.pageCount})
+		</foreach>
+    </insert>
+
+	<select id="getConferenceDocByConId" parameterType="long" resultMap="ConferenceDocResultMap">
+		SELECT file_id, conference_id, file_name, file_guid, file_size, file_type, create_time, disk_file_id, user_id, ent_id, page_count
+		FROM conference_doc
+		WHERE conference_id = #{conferenceId}
+    </select>
+
+	<delete id="deleteConferenceDocs">
+		DELETE FROM conference_doc
+		WHERE file_id IN
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item.fileId}
+		</foreach>
+	</delete>
+	
+	<select id="getConferenceDocByConIdAndName" parameterType="ConferenceDoc" resultMap="ConferenceDocResultMap">
+		SELECT file_id, conference_id, file_name, file_guid, file_size, file_type, create_time, disk_file_id, user_id, ent_id, page_count
+		FROM conference_doc
+		WHERE conference_id = #{conferenceId} AND file_name = #{name}
+    </select>
+	
+	<update id="updateDocPageCount" parameterType="ConferenceDoc">
+		UPDATE conference_doc 
+		SET page_count = #{pageCount}
+		WHERE file_id = #{fileId}
+	</update>
+
+	<select id="getConferenceDocById" parameterType="long" resultMap="ConferenceDocResultMap">
+		SELECT file_id, conference_id, file_name, file_guid, file_size, file_type, create_time, disk_file_id, user_id, ent_id, page_count
+		FROM conference_doc
+		WHERE file_id = #{fileId}
+    </select>
+</mapper>

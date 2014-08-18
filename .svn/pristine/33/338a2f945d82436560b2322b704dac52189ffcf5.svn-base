@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="userDao" class="com.itcast.model.UserDaoImpl">
+		<proxy ref="logProxy"></proxy>
+		<proxy ref="transactionProxy"></proxy>
+	</bean>
+	<bean id="logProxy" class="com.itcast.spring.proxy.LogInterceptor"></bean>
+	<bean id="transactionProxy" class="com.itcast.spring.proxy.TransactionInterceptor"></bean>
+</beans>

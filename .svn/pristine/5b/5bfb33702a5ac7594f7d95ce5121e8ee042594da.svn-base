@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="main">
+			<h3></h3>
+			<p><span>说明:</span></p>
+			<div class="div-field">
+				<ul>
+					<li>属性</li>
+					<li>类型</li>
+					<li class="r">值</li>
+												<li><a name="static"></a>static</li>
+							<li>public</li>
+							<li class="r">1</li>
+							<li><a name="static"></a>static</li>
+							<li>public</li>
+							<li class="r">2</li>
+							<li><a name="static"></a>static</li>
+							<li>public</li>
+							<li class="r">3</li>
+							<li><a name="static"></a>static</li>
+							<li>public</li>
+							<li class="r">4</li>
+						<li class="b"><a name="static"></a>static</li>
+						<li class="b">public</li>
+						<li class="b r">5</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

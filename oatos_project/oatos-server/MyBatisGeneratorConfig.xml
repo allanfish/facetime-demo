@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="D:\oatos-sys\SharedLib\server\mysql-connector-java-5.1.15-bin.jar" />
+	<context id="context1" defaultModelType="flat" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.58:3306/oatos_dev" userId="root"
+			password="guoguo" />
+		<javaModelGenerator targetPackage="com.qycloud.oatos.server.domain.entity"
+			targetProject="server\src\main\java" />
+		<sqlMapGenerator targetPackage="com.qycloud.oatos.server.dao"
+			targetProject="server\src\main\resources" />
+		<javaClientGenerator targetPackage="com.qycloud.oatos.server.dao"
+			targetProject="server\src\main\java" type="XMLMAPPER" />
+		<table tableName="admin" domainObjectName="Admin"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false">
+		</table>
+	</context>
+</generatorConfiguration>

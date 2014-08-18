@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>视频会议REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#修改会议">修改会议</a></li>
+					<li><a href="#取会议信息包括参会者">取会议信息包括参会者</a></li>
+					<li><a href="#取会议列表">取会议列表</a></li>
+					<li><a href="#修改会议成员状态">修改会议成员状态</a></li>
+					<li><a href="#添加会议成员">添加会议成员</a></li>
+					<li><a href="#添加会议文档中心文件">添加会议文档中心文件</a></li>
+					<li><a href="#批量添加会议文档中心文件">批量添加会议文档中心文件</a></li>
+					<li><a href="#获取会议文档中心文件">获取会议文档中心文件</a></li>
+					<li><a href="#判断会议文档文件是否存在,及网盘空间">判断会议文档文件是否存在,及网盘空间</a></li>
+					<li><a href="#修改会议">修改会议</a></li>
+					<li><a href="#按文件id取单个视频会议文档信息">按文件id取单个视频会议文档信息</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="修改会议"></a>修改会议</p>
+				<p><span>请求地址:</span>"/sc/conference/updateConferenceStatus"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDTO.htm">ConferenceDTO</a>会议DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取会议信息包括参会者"></a>取会议信息包括参会者</p>
+				<p><span>请求地址:</span>"/sc/conference/getConferenceById"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>conferenceId会议Id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDTO.htm">ConferenceDTO</a>视频会议DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取会议列表"></a>取会议列表</p>
+				<p><span>请求地址:</span>"/sc/conference/getConferenceByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ConferencesDTO.htm">ConferencesDTO</a>视频会议列表</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改会议成员状态"></a>修改会议成员状态</p>
+				<p><span>请求地址:</span>"/sc/conference/updateConferenceMember"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceMemberDTO.htm">ConferenceMemberDTO</a> 会议参与人员DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="添加会议成员"></a>添加会议成员</p>
+				<p><span>请求地址:</span>"/sc/conference/addConferenceMembers"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceMembersDTO.htm">ConferenceMembersDTO</a> 会议参与人员DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="添加会议文档中心文件"></a>添加会议文档中心文件</p>
+				<p><span>请求地址:</span>"/sc/conference/addConferenceDoc"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocDTO.htm">ConferenceDocDTO</a> 视频会议文档DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocDTO.htm">ConferenceDocDTO</a>视频会议文档DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="批量添加会议文档中心文件"></a>批量添加会议文档中心文件</p>
+				<p><span>请求地址:</span>"/sc/conference/addConferenceDocs"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocsDTO.htm">ConferenceDocsDTO</a> 视频会议文档DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocsDTO.htm">ConferenceDocsDTO</a>视频会议文档DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取会议文档中心文件"></a>获取会议文档中心文件</p>
+				<p><span>请求地址:</span>"/sc/conference/getConferenceDocsByConId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>conferenceId 视频会议ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocsDTO.htm">ConferenceDocsDTO</a>视频会议文档DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="判断会议文档文件是否存在,及网盘空间"></a>判断会议文档文件是否存在,及网盘空间</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/checkConferenceDocUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocDTO.htm">ConferenceDocDTO</a> 视频会议文档DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部 错误</li>
+							<li>errorSameFile 重复文件</li>
+				</ul>
+				<p class="p-fun"><a name="修改会议"></a>修改会议</p>
+				<p><span>请求地址:</span>"/sc/conference/updateConference"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/CreateConferenceDTO.htm">CreateConferenceDTO</a> 创建会议DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部 错误</li>
+							<li>errorConferenceMemberOver 会议人数超出</li>
+				</ul>
+				<p class="p-fun"><a name="按文件id取单个视频会议文档信息"></a>按文件id取单个视频会议文档信息</p>
+				<p><span>请求地址:</span>"/sc/conference/getConferenceDocById"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>文件id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocDTO.htm">ConferenceDocDTO</a>的JSON：视频会议文档信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

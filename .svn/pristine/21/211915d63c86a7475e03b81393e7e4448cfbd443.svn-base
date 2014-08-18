@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>RolePermissionDTO</h3>
+		<p><span>说明:</span>角色企业网盘权限</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>folderId</li>
+								<li>long</li>
+								<li class="r">文件夹ID</li>
+								<li>roleId</li>
+								<li>long</li>
+								<li class="r">角色ID</li>
+								<li>list</li>
+								<li>boolean</li>
+								<li class="r">文件列表可见</li>
+								<li>read</li>
+								<li>boolean</li>
+								<li class="r">预览文件</li>
+								<li>write</li>
+								<li>boolean</li>
+								<li class="r">编辑文件，新建，修改文件夹</li>
+								<li>delete</li>
+								<li>boolean</li>
+								<li class="r">删除文件和文件夹</li>
+								<li>upload</li>
+								<li>boolean</li>
+								<li class="r">上传文件</li>
+								<li>download</li>
+								<li>boolean</li>
+								<li class="r">下载文件</li>
+								<li>share</li>
+								<li>boolean</li>
+								<li class="r">共享文件和文件夹</li>
+								<li class="b">local</li>
+								<li class="b">boolean</li>
+								<li class="b r">文件本地交互</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

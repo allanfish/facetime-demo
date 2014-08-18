@@ -1,0 +1,8 @@
+#{extends 'main.html'/}
+#{set title:'sayHello'/}
+
+<h1>Hello ${myName ?: 'Guest'}!</h1>
+
+<a href='@{Application.index()}'>Back to form</a>
+
+<a href="@{News.list()}">Show News List</a>

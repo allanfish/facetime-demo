@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.EnterpriseMapper">
+
+	<resultMap id="EnterpriseResultMap" type="Enterprise">
+		<id property="enterpriseId" column="ent_id" />
+		<result property="enterpriseName" column="ent_name" />
+		<result property="phone" column="phone" />
+		<result property="fax" column="fax" />
+		<result property="address" column="address" />
+		<result property="postcode" column="postcode" />
+		<result property="website" column="website" />
+		<result property="adminPassword" column="admin_pwd" />
+		<result property="maxEmployees" column="max_employee" />
+		<result property="logo" column="ent_logo" />
+		<result property="skin" column="ent_skin" />
+		<result property="employeePassword" column="emp_pwd" />
+		<result property="productKey" column="prod_key" />
+		<result property="cloudDiskIp" column="cloud_disk_ip" />
+		<result property="diskSize" column="share_disk_size" />
+		<result property="registerTime" column="register_time" />
+		<result property="expirationTime" column="expiration_time" />
+		<result property="mobile" column="mobile" />
+		<result property="mail" column="mail" />
+		<result property="contact" column="contact" />
+		<result property="shareDiskVersion" column="share_disk_version" />
+		<result property="personalDiskSize" column="personal_disk_size" />
+		<result property="maxShareLinkDownload" column="max_share_link_download" />
+		<result property="shareLinkDownCount" column="share_link_down_count" />
+		<result property="status" column="status" />
+		<result property="payStatus" column="pay_status" />
+		<result property="orderEnabled" column="order_enabled" />
+	</resultMap>
+
+	<sql id="enterpriseAllColumnSql">
+		SELECT ent_id, ent_name, phone, fax, address, postcode,
+		website, admin_pwd, max_employee, ent_logo, ent_skin, emp_pwd,
+		prod_key, cloud_disk_ip, share_disk_size, register_time,
+		expiration_time, mobile, mail, contact, share_disk_version,
+		personal_disk_size, max_share_link_download, share_link_down_count,
+		status,pay_status,order_enabled
+	</sql>
+
+	<insert id="addEnterprise" parameterType="Enterprise">
+		INSERT INTO enterprise
+		(ent_id, ent_name, phone, fax, address, postcode, website, admin_pwd,
+		max_employee, ent_logo, ent_skin, emp_pwd, prod_key, cloud_disk_ip,
+		share_disk_size, register_time, expiration_time, mobile, mail,
+		contact, personal_disk_size, max_share_link_download,
+		status,pay_status, order_enabled)
+		VALUES (#{enterpriseId}, #{enterpriseName},
+		#{phone}, #{fax}, #{address}, #{postcode}, #{website}, #{adminPassword},
+		#{maxEmployees}, null, null, #{employeePassword}, #{productKey},
+		#{cloudDiskIp}, #{diskSize}, now(), #{expirationTime}, #{mobile}, #{mail},
+		#{contact}, #{personalDiskSize}, #{maxShareLinkDownload},
+		#{status}, #{payStatus}, #{orderEnabled})
+	</insert>
+
+	<update id="updateEnterprise" parameterType="Enterprise">
+		UPDATE 
+			enterprise
+		SET 
+			ent_name = #{enterpriseName}, 
+			phone = #{phone}, fax = #{fax}, 
+			address= #{address}, 
+			postcode = #{postcode}, 
+			website = #{website},
+			max_employee =#{maxEmployees}, 
+			ent_logo = #{logo}, 
+			ent_skin = #{skin}, 
+			emp_pwd =#{employeePassword},
+			share_disk_size = #{diskSize}, 
+			expiration_time =#{expirationTime},
+			mobile = #{mobile}, 
+			mail = #{mail}, 
+			contact =#{contact}, 
+			personal_disk_size = #{personalDiskSize},
+			max_share_link_download = #{maxShareLinkDownload}, 
+			status = #{status},
+			pay_status = #{payStatus},
+			prod_key = #{productKey},
+			order_enabled = #{orderEnabled}
+		WHERE 
+			ent_id = #{enterpriseId}
+	</update>
+
+	<select id="getEnterpriseById" parameterType="long" resultMap="EnterpriseResultMap">
+		<include refid="enterpriseAllColumnSql" />
+		FROM enterprise
+		WHERE ent_id = #{enterpriseId}
+	</select>
+
+	<select id="getEnterpriseByName" parameterType="String"
+		resultMap="EnterpriseResultMap">
+		<include refid="enterpriseAllColumnSql" />
+		FROM enterprise
+		WHERE ent_name = #{enterpriseName}
+	</select>
+
+	<update id="changeAdminPassword" parameterType="map">
+		UPDATE
+		enterprise
+		SET admin_pwd = #{adminPassword}
+		WHERE ent_id = #{enterpriseId}
+	</update>
+
+	<select id="getAllEnterprise" resultMap="EnterpriseResultMap">
+		<include refid="enterpriseAllColumnSql" />
+		FROM enterprise
+	</select>
+
+	<update id="updateProductKey" parameterType="map">
+		UPDATE enterprise
+		SET prod_key = #{productKey}
+		WHERE ent_id = #{enterpriseId}
+	</update>
+
+	<update id="updateShareLinkDownCount" parameterType="map">
+		UPDATE
+		enterprise
+		SET share_link_down_count = share_link_down_count + #{fileSize}
+		WHERE ent_id = #{enterpriseId}
+	</update>
+
+	<update id="updateEntService" parameterType="Enterprise">
+		update
+		enterprise
+		set share_disk_size = #{diskSize},
+		personal_disk_size=#{personalDiskSize}, max_employee =
+		#{maxEmployees}, max_share_link_download = #{maxShareLinkDownload},
+		pay_status = #{payStatus}
+	    where ent_id = #{enterpriseId}
+	</update>
+	
+	<update id="updatePayStatus" parameterType="map">
+		update enterprise
+		set pay_status = #{payStatus}
+		where ent_id = #{enterpriseId}
+	</update>
+
+	<delete id="deleteEnterprise" parameterType="long">
+		DELETE FROM enterprise 
+		WHERE ent_id = #{enterpriseId}
+    </delete>	
+	
+</mapper>

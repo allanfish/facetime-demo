@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.UserMapper">
+
+	<resultMap id="UserResultMap" type="User">
+		<id property="userId" column="user_id" />
+		<result property="conlectMail" column="conlect_mail" />
+		<result property="registerMail" column="register_mail" />
+		<result property="userName" column="user_name" />
+		<result property="userLable" column="user_lable" />
+		<result property="registTime" column="regist_time" />
+		<result property="userType" column="user_type" />
+		<result property="userSex" column="user_sex" />
+		<result property="userAge" column="user_age" />
+		<result property="userBithday" column="user_bithday" />
+		<result property="userCountry" column="user_country" />
+		<result property="userProvince" column="user_province" />
+		<result property="userCity" column="user_city" />
+		<result property="userPage" column="user_page" />
+		<result property="userMobile" column="user_mobile" />
+		<result property="userOccupation" column="user_occupation" />
+		<result property="userSchool" column="user_school" />
+		<result property="userHeaderPhoto" column="user_header_photo" />
+		<result property="userBloodType" column="user_blood_type" />
+		<result property="userPhone" column="user_phone" />
+		<result property="diskSize" column="disk_size" />
+		<result property="diskSpace" column="disk_space" />
+		<result property="emailEnabled" column="email_enabled" />
+		<result property="phoneEnabled" column="phone_enabled" />
+		<result property="district" column="district" />
+		<result property="degree" column="degree" />
+		<result property="animal" column="animal_sign" />
+		<result property="star" column="star_sign" />
+		<result property="realName" column="real_name" />
+		<result property="engishName" column="engish_name" />
+		<result property="major" column="major" />
+		<result property="locked" column="locked" />
+		<result property="enterpriseId" column="ent_id" />
+		<result property="departmentId" column="dept_id" />
+		<result property="employeeNumber" column="emp_nub" />
+		<result property="download" column="download" />
+		<result property="accessExternal" column="access_external" />
+		<result property="customerService" column="customer_service" />
+		<result property="status" column="status" />
+		<result property="jobTitle" column="job_title" />
+		<result property="hobby" column="hobby" />
+		<result property="payStatus" column="pay_status"/>
+		<result property="deviceToken" column="device_token"/>
+		<result property="contactDisplay" column="contact_display"/>
+	</resultMap>
+
+	<sql id="mailUserSelectSql">
+		SELECT user_id, conlect_mail, register_mail, user_name, user_lable,
+		regist_time, user_type, user_sex, user_age, user_bithday,
+		user_country, user_province, user_city, user_page, user_mobile,
+		user_occupation, user_school, user_header_photo, user_blood_type,
+		user_phone, disk_size, disk_space, email_enabled, phone_enabled,
+		animal_sign, star_sign, degree, real_name, engish_name, district,
+		major, locked, ent_id, dept_id, emp_nub, download, access_external,
+		customer_service, status, job_title, hobby, pay_status,device_token,contact_display
+	</sql>
+	
+	<sql id="mailUserAndContactUserSelectSql">
+		SELECT mail_user.user_id, conlect_mail, register_mail, user_name, user_lable,
+		regist_time, user_type, user_sex, user_age, user_bithday,
+		user_country, user_province, user_city, user_page, user_mobile,
+		user_occupation, user_school, user_header_photo, user_blood_type,
+		user_phone, disk_size, disk_space, email_enabled, phone_enabled,
+		animal_sign, star_sign, degree, real_name, engish_name, district,
+		major, locked, ent_id, dept_id, emp_nub, download, access_external,
+		customer_service, status, job_title, hobby, pay_status,device_token,contact_display
+	</sql>
+
+    <!-- / sql -->
+	<select id="getUser" parameterType="long" resultMap="UserResultMap">
+	   <include refid="mailUserSelectSql"/>
+		FROM mail_user
+		WHERE user_id = #{userId}
+    </select>
+
+	<update id="updateUser" parameterType="User">
+		UPDATE mail_user set
+		register_mail = #{registerMail},
+		conlect_mail = #{conlectMail},
+		user_name = #{userName},
+		user_lable = #{userLable},
+		user_sex = #{userSex},
+		user_age = #{userAge},
+		user_bithday = #{userBithday},
+		user_country = #{userCountry},
+		user_province = #{userProvince},
+		user_city = #{userCity},
+		user_page = #{userPage},
+		user_mobile = #{userMobile},
+		user_occupation = #{userOccupation}, 
+		user_school = #{userSchool},
+		user_blood_type = #{userBloodType},
+		user_phone = #{userPhone},
+		animal_sign = #{animal},
+		star_sign = #{star},
+		degree = #{degree},
+		real_name = #{realName},
+		engish_name = #{engishName},
+		district = #{district},
+		major = #{major},
+		user_header_photo = #{userHeaderPhoto},
+		locked = #{locked},
+		dept_id = #{departmentId},
+		emp_nub = #{employeeNumber},
+		download = #{download},
+		access_external = #{accessExternal},
+		customer_service = #{customerService},
+		job_title = #{jobTitle},
+		hobby = #{hobby},
+		pay_status = #{payStatus},
+		device_token = #{deviceToken},
+		contact_display = #{contactDisplay}
+		WHERE user_id = #{userId}
+    </update>
+
+	<insert id="addUser" parameterType="User">
+		INSERT INTO mail_user(user_id, user_name, register_mail, user_lable, regist_time, user_type, disk_size, disk_space,
+		user_age, user_sex, ent_id, dept_id, emp_nub, status, job_title, download, access_external, customer_service, real_name,contact_display)
+		VALUES(#{userId}, #{userName}, #{registerMail}, #{userLable}, now(), #{userType}, #{diskSize}, #{diskSpace},
+		-1, #{userSex}, #{enterpriseId}, #{departmentId}, #{employeeNumber}, #{status}, #{jobTitle}, #{download}, #{accessExternal}, #{customerService}, #{realName},#{contactDisplay})
+	</insert>
+
+    <select id="getUserByEntId" parameterType="long" resultMap="UserResultMap">
+		<include refid="mailUserSelectSql"/>
+		FROM mail_user
+		WHERE ent_id = #{entId}
+    </select>
+
+    <select id="getCustomerServiceByEntId" parameterType="long" resultMap="UserResultMap">
+     <include refid="mailUserSelectSql"/>
+		FROM mail_user
+		WHERE ent_id = #{entId} AND customer_service = 1
+    </select>
+
+	<delete id="deleteUser" parameterType="long">
+		DELETE FROM mail_user 
+		WHERE user_id = #{userId}
+	</delete>
+	
+	<update id="updateUserStatus" parameterType="map">
+		UPDATE mail_user set
+		status = #{status}
+		WHERE user_id = #{userId}
+    </update>
+	
+	<update id="updateDiskSize" parameterType="map">
+		update mail_user
+		set disk_size = #{diskSize}
+		where user_id = #{userId}
+	</update>
+    
+    <select id="getUserCountByEntId" parameterType="long" resultType="long">
+		SELECT IFNULL(COUNT(*), 0) FROM mail_user
+		WHERE ent_id = #{entId}
+	</select>
+
+    <select id="getUserByEntIdAndDeptIdAndRoleId" parameterType="map" resultMap="UserResultMap">
+		<include refid="mailUserSelectSql"/>
+		FROM mail_user t1
+		WHERE ent_id = #{entId} and dept_id = #{deptId}
+		and exists(
+		  select t2.user_id
+		  from user_role t2
+		  where t2.user_id = t1.user_id  
+		  and t2.role_id = #{roleId}
+		)
+    </select>
+    
+    <select id="getAllUserId" resultType="long">
+       <![CDATA[ select user_id from mail_user ]]>
+    </select>
+    
+    <select id="getPersonDiskUseSizeSum" parameterType="long" resultType="long">
+		select sum(disk_size)
+		from mail_user
+		where ent_id = #{ent_id}
+	</select>
+	
+    <select id="getUserByDeptId" parameterType="long" resultMap="UserResultMap">
+     <include refid="mailUserSelectSql"/>
+		FROM mail_user
+		WHERE dept_id = #{deptId}
+    </select>
+    
+    <update id="addDeviceTokenByUserId" parameterType="map">
+    UPDATE  
+    mail_user
+    SET device_token = #{deviceToken}
+    WHERE 
+    user_id = #{userId}
+    </update>
+    
+    <select id="getUserByGroupId" parameterType="long" resultMap="UserResultMap">
+    <include refid="mailUserAndContactUserSelectSql"/>
+    	FROM mail_user inner join usual_contact 
+    	ON mail_user.user_id = usual_contact.user_id
+    	WHERE
+    	usual_contact.group_id = #{groupId}
+    </select>
+	
+	<select id="getUserInfoListByUserId" parameterType ="long" resultMap="UserResultMap">
+	<include refid="mailUserAndContactUserSelectSql"/>
+	 FROM mail_user inner join usual_contact 
+	 on mail_user.user_id = usual_contact.contact_user_id 
+	 WHERE usual_contact.user_id =#{userId}
+	</select>
+	
+</mapper>

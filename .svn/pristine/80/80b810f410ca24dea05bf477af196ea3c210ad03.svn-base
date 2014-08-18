@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.MailMapper">
+
+	<resultMap id="MailResultMap" type="Mail">
+		<id property="mailId" column="mail_id" />
+		<result property="mailFolderId" column="mail_folder_id" />
+		<result property="mailAccountId" column="mail_account_id" />
+		<result property="messageId" column="message_id" />
+		<result property="messageNum" column="message_num" />
+		<result property="subject" column="subject" />
+		<result property="sender" column="sender" />
+		<result property="recieve" column="recieve" />
+		<result property="cc" column="cc" />
+		<result property="bcc" column="bcc" />
+		<result property="content" column="content" />
+		<result property="sendDate" column="send_date" />
+		<result property="size" column="size" />
+		<result property="haveAttach" column="have_attach" />
+		<result property="haveRead" column="have_read" />
+	</resultMap>
+
+	<sql id="mailSelectSql">
+		SELECT mail_id, mail_folder_id, mail_account_id,
+		message_id, message_num, subject, sender, recieve, cc, bcc, content,
+		send_date, size, have_attach, have_read
+	</sql>
+
+	<sql id="mailInsertSql">
+		INSERT INTO mail(mail_id, mail_folder_id, mail_account_id,
+		message_id,message_num,
+		subject, sender, recieve, cc, bcc,
+		content, send_date, size,
+		have_attach,have_read)
+	</sql>
+
+	<insert id="addMail" parameterType="Mail">
+		<include refid="mailInsertSql" />
+		VALUES(#{mailId}, #{mailFolderId}, #{mailAccountId}, #{messageId}, #{messageNum}, #{subject}, #{sender},
+		#{recieve}, #{cc}, #{bcc}, #{content}, #{sendDate}, #{size}, #{haveAttach}, #{haveRead})
+	</insert>
+
+	<insert id="addMails">
+		<include refid="mailInsertSql" />
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.mailId}, #{item.mailFolderId}, #{item.mailAccountId}, #{item.messageId}, #{item.messageNum}, #{item.subject}, #{item.sender},
+			#{item.recieve}, #{item.cc}, #{item.bcc}, #{item.content}, #{item.sendDate}, #{item.size}, #{item.haveAttach}, #{item.haveRead})
+		</foreach>
+	</insert>
+
+	<delete id="deleteMails">
+		delete from mail
+		where mail_id IN
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<select id="getMailById" parameterType="long" resultMap="MailResultMap">
+		<include refid="mailSelectSql" />
+		FROM mail
+		WHERE mail_id =#{mailId}
+	</select>
+
+	<select id="getMailListById" resultMap="MailResultMap">
+		<include refid="mailSelectSql" />
+		FROM mail
+		WHERE mail_id in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<select id="getMailsByFolderId" parameterType="map" resultMap="MailResultMap">
+		<include refid="mailSelectSql" />
+		FROM mail
+		WHERE mail_folder_id =#{folderId}
+		ORDER BY send_date desc
+		LIMIT #{skipResults}, #{maxResults}
+	</select>
+
+	<update id="updateMail" parameterType="Mail">
+		UPDATE mail SET
+		have_read = #{haveRead}, have_attach = #{haveAttach}, content = #{content}
+		WHERE mail_id = #{mailId}
+	</update>
+
+	<update id="setMailRead" parameterType="long">
+		UPDATE mail
+		set have_read =  1
+		WHERE mail_id = #{mailId}
+	</update>
+
+</mapper>

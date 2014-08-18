@@ -1,0 +1,7 @@
+ftp.server=10.25.15.11
+ftp.user=bankdplyop
+ftp.pwd=NiHao007
+YYMMDD=111122
+YYYYMMDD=20111122
+remote.dir=/wls/appsystems/bddc-ams-jas/account
+local.dir=\\hsz-11550\share\_YUFEI

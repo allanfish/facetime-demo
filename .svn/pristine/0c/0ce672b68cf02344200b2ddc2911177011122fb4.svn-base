@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>文件上传REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#保存截图至个人网盘">保存截图至个人网盘</a></li>
+					<li><a href="#拍照并保存">拍照并保存</a></li>
+					<li><a href="#制作头像时拍照上传">制作头像时拍照上传</a></li>
+					<li><a href="#录音上传">录音上传</a></li>
+					<li><a href="#文件上传">文件上传</a></li>
+					<li><a href="#文件分段上传">文件分段上传</a></li>
+					<li><a href="#网盘文件同步分段上传">网盘文件同步分段上传</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="保存截图至个人网盘"></a>保存截图至个人网盘</p>
+				<p><span>请求地址:</span>"/sc/file/screenshot"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request文件流</li>
+							<li><a href="../status/RESTurl.htm#userId">RESTurl.userId</a>：用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>OK$ + 文件地址</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="拍照并保存"></a>拍照并保存</p>
+				<p><span>请求地址:</span>"/sc/file/tackPictureAndSave"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request文件流</li>
+							<li><a href="../status/RESTurl.htm#postJsonData">RESTurl.postJsonData</a>：<a href="../dto/TakePictureDTO.htm">TakePictureDTO</a>的JSON，保存文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>OK$ + 文件地址</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorVersionConflict：父文件夹已经删除</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="制作头像时拍照上传"></a>制作头像时拍照上传</p>
+				<p><span>请求地址:</span>"/swf/takePicture"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request文件流</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>OK$ + 文件地址</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="录音上传"></a>录音上传</p>
+				<p><span>请求地址:</span>"/swf/recordVoiceMail"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request文件流</li>
+							<li><a href="../status/RESTurl.htm#userId">RESTurl.userId</a>：用户id，接收者id，用户名，接收者名</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：上传成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="文件上传"></a>文件上传</p>
+				<p><span>请求地址:</span>"/file/fileUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request文件流</li>
+							<li><a href="../status/RESTurl.htm#postJsonData">RESTurl.postJsonData</a>：<a href="../dto/FileUploadDTO.htm">FileUploadDTO</a>的JSON，文件上传信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>1.文件上传之前，检查网盘空间，同名文件，权限 <a href="../dto/FileUploadDTO.htm#method">FileUploadDTO.method</a> =</li>
+							<li><a href="../status/RESTurl.htm#getStartPoint">RESTurl.getStartPoint</a></li>
+							<li>返回：</li>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：正常，可以开始上传文件</li>
+							<li>errorNoPermission：没有上传权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorVersionConflict：文件夹已经删除</li>
+							<li>其他返回值：系统错误</li>
+							<li>2.文件上传 <a href="../dto/FileUploadDTO.htm#method">FileUploadDTO.method</a>不传</li>
+							<li>返回：</li>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：文件上传完成</li>
+							<li>errorNoPermission：没有上传权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorVersionConflict：文件夹已经删除</li>
+							<li>其他返回值：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+				<p class="p-fun"><a name="文件分段上传"></a>文件分段上传</p>
+				<p><span>请求地址:</span>"/file/sectionFileUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request分段文件流</li>
+							<li><a href="../status/RESTurl.htm#postJsonData">RESTurl.postJsonData</a>：<a href="../dto/FileUploadDTO.htm">FileUploadDTO</a>的JSON，文件上传信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>1.文件上传之前，检查网盘空间，权限，同名文件，取上传开始位置 <a href="../dto/FileUploadDTO.htm#method">FileUploadDTO.method</a> =</li>
+							<li><a href="../status/RESTurl.htm#getStartPoint">RESTurl.getStartPoint</a></li>
+							<li>返回：</li>
+							<li>已上传分块数（整数）：正常，可以开始上传文件</li>
+							<li><a href="../status/CommConstants.htm#UPLOAD_SUCCESS">CommConstants.UPLOAD_SUCCESS</a>：文件上传完成</li>
+							<li>errorNoPermission：没有上传权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorVersionConflict：文件夹已经删除</li>
+							<li>其他返回值：系统错误</li>
+							<li>2.上传分块 <a href="../dto/FileUploadDTO.htm#method">FileUploadDTO.method</a>不传</li>
+							<li>返回：</li>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：分块上传完成</li>
+							<li><a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>：分块上传失败</li>
+							<li><a href="../status/CommConstants.htm#UPLOAD_SUCCESS">CommConstants.UPLOAD_SUCCESS</a>：文件上传完成</li>
+							<li>errorNoPermission：没有上传权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorVersionConflict：文件夹已经删除</li>
+							<li>其他返回值：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+				<p class="p-fun"><a name="网盘文件同步分段上传"></a>网盘文件同步分段上传</p>
+				<p><span>请求地址:</span>"/file/syncFileUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>request分段文件流</li>
+							<li><a href="../status/RESTurl.htm#postJsonData">RESTurl.postJsonData</a>：<a href="../dto/FileUploadDTO.htm">FileUploadDTO</a>的JSON，文件上传信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>1.文件上传之前，检查网盘空间，权限，同名文件，取上传开始位置 <a href="../dto/FileUploadDTO.htm#method">FileUploadDTO.method</a> =</li>
+							<li><a href="../status/RESTurl.htm#getStartPoint">RESTurl.getStartPoint</a></li>
+							<li>返回：</li>
+							<li>已上传分块数（整数）：正常，可以开始上传文件</li>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>的JSON：个人网盘文件同步上传完成</li>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件同步上传完成</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorNoPermission：没有本地同步权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>其他返回值：系统错误</li>
+							<li>2.上传分块 <a href="../dto/FileUploadDTO.htm#method">FileUploadDTO.method</a>不传</li>
+							<li>返回：</li>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：分块上传完成</li>
+							<li><a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>：分块上传失败</li>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>的JSON：个人网盘文件同步上传完成</li>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件同步上传完成</li>
+							<li>errorNoPermission：没有本地同步权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>其他返回值：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li></li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+index.title=Welcome to jappstart
+
+activate.title=Account Activation
+activate.header=Account activated!
+activate.error=Invalid activation key.
+
+admin.title=Admin
+admin.header=Admin
+admin.flush=<a href="/admin/flush">Flush Cache</a>
+
+create.title=Create Account
+create.legend=Create Account
+create.label.displayName=Display Name:
+create.label.username=Username:
+create.label.email=E-mail:
+create.label.password=Password:
+create.error.username=An account already exists with this username.
+
+createSuccess.title=Account Created
+createSuccess.header=Account created successfully!
+createSuccess.info=Please check your e-mail to activate your account.
+
+error.title=Error
+error.header=Error
+error.exception=Exception:
+error.status=Status Code:
+
+header.info=Logged in as:
+
+login.title=Login
+login.header=Please enter your username and password.
+login.error=Your login attempt was not successful, try again.
+login.nouser=The given username does not exist.
+login.label.username=Username:
+login.label.password=Password:
+login.label.remember=Remember me:
+login.create=Need to create an account? Click <a href="/register/create">here</a>.
+
+global.login=Please click <a href="/login">here</a> to login.
+global.logout=Already logged in. Please click <a href="/logout">here</a> to logout.
+global.submit=Submit
+global.reset=Reset
+
+mail.subject=Activate your jappstart account
+mail.body.html=<p>Please click on the link below to activate your jappstart account:<br/><br/><a href=\"{0}/register/activate/{1}\">{0}/register/activate/{1}</a></p>
+mail.body.txt=Please navigate to the URL below to activate your jappstart account:\n\n{0}/register/activate/{1}
+
+Pattern.register.displayName=Please enter a display name.
+Pattern.register.username=Please enter a username.
+Pattern.register.email=Please enter a valid e-mail address.
+Pattern.register.password=Password must be at least 5 characters.

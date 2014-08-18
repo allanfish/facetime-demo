@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.AdminDepartmentMapper">
+
+	<resultMap id="AdminDepartmentResultMap" type="AdminDepartment">
+		<result column="user_id" property="userId" />
+		<result column="dept_id" property="departmentId" />
+	</resultMap>
+
+	<insert id="addAdminDepartment" parameterType="AdminDepartment">
+		INSERT INTO admin_department (user_id, dept_id)
+		VALUES(#{userId}, #{departmentId})
+	</insert>
+
+	<insert id="addAdminDepartments">
+		INSERT INTO admin_department (user_id, dept_id)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.userId}, #{item.departmentId})
+		</foreach>
+	</insert>
+
+	<delete id="deleteAdminDepartmentsByUserId" parameterType="long">
+		DELETE FROM admin_department
+		WHERE user_id = #{userId}
+	</delete>
+
+	<select id="getAdminDepartmentsByUserId" parameterType="long"
+		resultMap="AdminDepartmentResultMap">
+		SELECT user_id, dept_id
+		FROM admin_department
+		WHERE user_id = #{userId}
+    </select>
+
+</mapper>

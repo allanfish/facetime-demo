@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+	<info organisation="com.facetime" module="ivydemo2">
+	</info>
+	<dependencies>
+		<dependency org="com.facetime" name="required" transitive="true" rev="1.0" />
+		<dependency org="taobao" name="dubbo" transitive="false" rev="2.0.10" />
+		<dependency org="aspectj" name="aspectjrt" transitive="false" rev="1.5.3" />
+		<dependency org="aspectj" name="aspectjweaver" transitive="false" rev="1.5.3" />
+		<dependency org="cglib" name="cglib-nodep" transitive="false" rev="2.1_3" />
+		<dependency org="net.sf" name="ehcache" transitive="false" rev="2.2.0" />
+		<dependency org="org.hibernate" name="hibernate-annotations" transitive="false" rev="3.3.0" />
+		<dependency org="org.hibernate" name="hibernate-commons-annotations" transitive="false" rev="3.3.0" />
+		<dependency org="org.hibernate" name="ejb3-persistence" transitive="false" rev="3.3.0" />
+		<dependency org="org.hibernate" name="hibernate" transitive="false" rev="3.2.5" />
+		<dependency org="jdbc" name="mysql" transitive="false" rev="5.0.7" />
+		<dependency org="jdbc" name="oracle" transitive="false" rev="latest.release" />
+		<dependency org="org.springframework" name="spring-webmvc" transitive="false" rev="2.5.6" />
+		<dependency org="org.springframework" name="spring-test" transitive="false" rev="2.5.6" />
+		<dependency org="org.springframework" name="spring" transitive="false" rev="2.5.6" />
+		<dependency org="com.caucho" name="hessian" transitive="false" rev="3.1.5" />
+		<dependency org="javassist" name="javassist" transitive="false" rev="3.12.1.GA" />
+		<dependency org="javax.transaction" name="jta" transitive="false" rev="1.1" />
+		<dependency org="h2database" name="h2database" transitive="false" rev="latest.release" />
+	</dependencies>
+</ivy-module>

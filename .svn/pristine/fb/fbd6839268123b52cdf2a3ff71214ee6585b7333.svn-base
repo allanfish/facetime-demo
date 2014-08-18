@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>MailQueryDTO</h3>
+		<p><span>说明:</span>查询邮箱文件夹下邮件的DTO</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>mailAccountId</li>
+								<li>long</li>
+								<li class="r">邮件帐户ID</li>
+								<li>mailId</li>
+								<li>long</li>
+								<li class="r">邮件ID</li>
+								<li>attachId</li>
+								<li>Long</li>
+								<li class="r">附件ID</li>
+								<li>attachFileName</li>
+								<li>String</li>
+								<li class="r">附件名</li>
+								<li>attachFileGuid</li>
+								<li>String</li>
+								<li class="r">附件的guid</li>
+								<li>folderurl</li>
+								<li>String</li>
+								<li class="r">文件夹url</li>
+								<li>messageId</li>
+								<li>String</li>
+								<li class="r">信息id</li>
+								<li>beginIndex</li>
+								<li>Integer</li>
+								<li class="r">开始</li>
+								<li>maxSize</li>
+								<li>Integer</li>
+								<li class="r">最大尺寸</li>
+								<li>haveRead</li>
+								<li>boolean</li>
+								<li class="r">是否已读</li>
+								<li>folderId</li>
+								<li>long</li>
+								<li class="r">文件夹id</li>
+								<li>subject</li>
+								<li>String</li>
+								<li class="r">主题</li>
+								<li>messageIds</li>
+								<li>List&lt;<a href="String.htm">String</a>&gt;</li>
+								<li class="r">信息的列表</li>
+								<li>mailIds</li>
+								<li>List&lt;<a href="Long.htm">Long</a>&gt;</li>
+								<li class="r">邮件ID列表</li>
+								<li>subjects</li>
+								<li>List&lt;<a href="String.htm">String</a>&gt;</li>
+								<li class="r">主题列表</li>
+								<li>latestReceiveDate</li>
+								<li>Date</li>
+								<li class="r">最后接受时间</li>
+								<li>minSentDate</li>
+								<li>Date</li>
+								<li class="r">最小发送时间</li>
+								<li>maxSentDate</li>
+								<li>Date</li>
+								<li class="r">最大发送时间</li>
+								<li class="b">isFirstTime</li>
+								<li class="b">boolean</li>
+								<li class="b r">是否第一次加载</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

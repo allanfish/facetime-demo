@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="main">
+			<h3></h3>
+			<p><span>说明:</span></p>
+			<div class="div-field">
+				<ul>
+					<li>属性</li>
+					<li>类型</li>
+					<li class="r">值</li>
+											<li class="b"><a name="ErrorType"></a>ErrorType</li>
+						<li class="b">enum</li>
+						<li class="b r">error404, error500, errorCheckToken, errorRequestData, errorCheckHashkey, errorWrongAccount, errorWrongPWD, errorWrongOldPWD, errorConnotSameBuddy, errorInactive, errorAlreadyActivated, errorCreateFriedGroup, errorFriendAlreadyExist, errorSameFile, errorSameFolder, errorNoSpace, errorUserIsOffline, errorConlectIsExist, errorNullOfGroup, errorExitMemeber, errorUserNoOver, errorUserAlreadyExist, errorEnterpriseNotExist, errorWrongEnterpriseName, errorEmployeeAlreadyExist, errorInvalidProductKey, errorEnterpriseAlreadyExist, errorFileNotFound,		errorFileLocked, errorNoPermission, errorUserLocked, errorNotSupported, errorMQDisconnected, errorFolderSpaceOver, errorProductKeyFree, errorAccountExpired, errorConferenceMemberOver, errorDownCountOver, errorFlowOver, errorExpirationTimeOver,		errorVersionConflict,		errorAuditing,		errorAuditFail, errorSameName,		errorUserNoExistInLdap,		errorWrongLDAPAccount,		errorLDAPUserLocked,		errorPayExpired,		errorEntDiskGreetThanFreeSize,		errorOrderNotExist,		errorPersonDiskOverflow,		errorPersonDiskUsedExceedAllocSize,		errorDeleteDepartUserExist,		errorFolderDeleted</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

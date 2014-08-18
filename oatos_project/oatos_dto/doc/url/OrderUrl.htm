@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>订单REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#保存订单">保存订单</a></li>
+					<li><a href="#支付完成">支付完成</a></li>
+					<li><a href="#获取企业服务状态信息">获取企业服务状态信息</a></li>
+					<li><a href="#根据交易编号获取订单信息">根据交易编号获取订单信息</a></li>
+					<li><a href="#获取企业购买服务列表">获取企业购买服务列表</a></li>
+					<li><a href="#获取服务价格列表">获取服务价格列表</a></li>
+					<li><a href="#获取企业购买的订单项列表">获取企业购买的订单项列表</a></li>
+					<li><a href="#返回企业当前的服务信息">返回企业当前的服务信息</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="保存订单"></a>保存订单</p>
+				<p><span>请求地址:</span>"/pub/order/saveOrder"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/OrderDTO.htm">OrderDTO</a> 订单 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="支付完成"></a>支付完成</p>
+				<p><span>请求地址:</span>"/pub/pay/complete"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/OrderDTO.htm">OrderDTO</a> 订单 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorOrderNotExist 订单不存在</li>
+				</ul>
+				<p class="p-fun"><a name="获取企业服务状态信息"></a>获取企业服务状态信息</p>
+				<p><span>请求地址:</span>"/pub/pay/info"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>EntId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/EntPayDTO.htm">EntPayDTO</a> 企业购买DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="根据交易编号获取订单信息"></a>根据交易编号获取订单信息</p>
+				<p><span>请求地址:</span>"/pub/order/getOrderByTradeNo"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>tradeNo 交易号</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/OrderDTO.htm">OrderDTO</a> 订单 DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorOrderNotExist 订单不存在</li>
+				</ul>
+				<p class="p-fun"><a name="获取企业购买服务列表"></a>获取企业购买服务列表</p>
+				<p><span>请求地址:</span>"/sc/service/getBuyServiceList"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>EntId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/BuyServiceListDTO.htm">BuyServiceListDTO</a> 企业购买服务listDTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取服务价格列表"></a>获取服务价格列表</p>
+				<p><span>请求地址:</span>"/sc/service/getServicePriceList"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>EntId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ServiceTypeListDTO.htm">ServiceTypeListDTO</a>服务类型DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取企业购买的订单项列表"></a>获取企业购买的订单项列表</p>
+				<p><span>请求地址:</span>"/sc/service/getOrderList"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>EntId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/OrderItemListDTO.htm">OrderItemListDTO</a> 订单项目listDTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="返回企业当前的服务信息"></a>返回企业当前的服务信息</p>
+				<p><span>请求地址:</span>"/sc/service/getCurrServiceList"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>EntId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/CurrentServiceListDTO.htm">CurrentServiceListDTO</a> 企业当前服务listDTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

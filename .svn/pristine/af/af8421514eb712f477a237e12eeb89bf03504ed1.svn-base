@@ -1,0 +1,12 @@
+com.conlect.oatos.dto.amq
+com.conlect.oatos.dto.autobean
+com.conlect.oatos.dto.autobean.admin
+com.conlect.oatos.dto.autobean.pay
+com.conlect.oatos.dto.autobean.user
+com.conlect.oatos.dto.client.user
+com.conlect.oatos.dto.status
+com.conlect.oatos.dto.status.url
+com.conlect.oatos.file
+com.conlect.oatos.http
+com.conlect.oatos.mail
+com.conlect.oatos.utils

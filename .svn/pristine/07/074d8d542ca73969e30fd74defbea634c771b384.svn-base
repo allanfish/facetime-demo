@@ -1,0 +1,12 @@
+#mail
+SysMailSendHost=smtp.qiye.163.com
+SysMailUser=info@oatos.com
+SysMailPassword=conlect@1108
+
+# memory cached server
+Memcached.Servers=${Memcached.Servers}
+Memcached.AID=${Memcached.AID}
+Memcached.Password=${Memcached.Password}
+
+#Maximum number of customer per user
+MaxCustomer=10

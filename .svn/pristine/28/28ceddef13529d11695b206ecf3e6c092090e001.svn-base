@@ -1,0 +1,4 @@
+<div class="input-append date datepicker" data-date="0d" data-date-format="yyyy-mm-dd" data-provide="datepicker">
+    <input size="16" type="text" value="" readonly><span class="add-on"><i class="icon-th"></i></span>
+</div>
+<input id="useSearch" style="width: 130px; height: 40px ">

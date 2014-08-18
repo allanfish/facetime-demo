@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>个人网盘REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#新建网盘文件夹">新建网盘文件夹</a></li>
+					<li><a href="#【重命名】、【修改】个人网盘文件夹的信息">【重命名】、【修改】个人网盘文件夹的信息</a></li>
+					<li><a href="#取所有网盘文件夹,不包括回收站">取所有网盘文件夹,不包括回收站</a></li>
+					<li><a href="#【重命名】、【修改】 文件">【重命名】、【修改】 文件</a></li>
+					<li><a href="#获取用户文件">获取用户文件</a></li>
+					<li><a href="#删掉文件或文件夹">删掉文件或文件夹</a></li>
+					<li><a href="#批量修改网盘文件夹和文件">批量修改网盘文件夹和文件</a></li>
+					<li><a href="#取所有网盘文件夹和文件,不包括回收站">取所有网盘文件夹和文件,不包括回收站</a></li>
+					<li><a href="#添加网盘文件">添加网盘文件</a></li>
+					<li><a href="#删除个人网盘文件">删除个人网盘文件</a></li>
+					<li><a href="#判断私有网盘文件是否存在,及网盘空间">判断私有网盘文件是否存在,及网盘空间</a></li>
+					<li><a href="#取单个文件信息">取单个文件信息</a></li>
+					<li><a href="#还原个人网盘回收站文件夹和文件">还原个人网盘回收站文件夹和文件</a></li>
+					<li><a href="#取所有网盘文件夹,包括回收站">取所有网盘文件夹,包括回收站</a></li>
+					<li><a href="#取所有网盘文件,包括回收站">取所有网盘文件,包括回收站</a></li>
+					<li><a href="#取所有网盘文件夹和文件,包括回收站">取所有网盘文件夹和文件,包括回收站</a></li>
+					<li><a href="#同步个人网盘文件">同步个人网盘文件</a></li>
+					<li><a href="#获取网盘邮件文件夹">获取网盘邮件文件夹</a></li>
+					<li><a href="#个人网盘通过文件夹名和用户ID获得文件">个人网盘通过文件夹名和用户ID获得文件</a></li>
+					<li><a href="#取单个文件夹信息">取单个文件夹信息</a></li>
+					<li><a href="#个人网盘文件同步上传之前，检查文件版本，网盘空间，同名文件">个人网盘文件同步上传之前，检查文件版本，网盘空间，同名文件</a></li>
+					<li><a href="#按文件夹取个人网盘子文件夹和文件，取顶层文件夹时，文件夹ID传null">按文件夹取个人网盘子文件夹和文件，取顶层文件夹时，文件夹ID传null</a></li>
+					<li><a href="#取个人网盘回收站中文件夹和文件">取个人网盘回收站中文件夹和文件</a></li>
+					<li><a href="#检查当前个人网盘使用空间是否超出了免费空间">检查当前个人网盘使用空间是否超出了免费空间</a></li>
+					<li><a href="#分配个人网盘空间">分配个人网盘空间</a></li>
+					<li><a href="#取个人网盘已使用空间">取个人网盘已使用空间</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="新建网盘文件夹"></a>新建网盘文件夹</p>
+				<p><span>请求地址:</span>"/sc/disk/addFolder/"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFolderDTO.htm">NetworkFolderDTO</a> 个人网盘文件夹DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFolderDTO.htm">NetworkFolderDTO</a>个人网盘文件夹DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorSameFolder 相同文件夹</li>
+							<li>errorRequestData请求的数据有问题</li>
+				</ul>
+				<p class="p-fun"><a name="【重命名】、【修改】个人网盘文件夹的信息"></a>【重命名】、【修改】个人网盘文件夹的信息</p>
+				<p><span>请求地址:</span>"/sc/disk/updateFolder/"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFolderDTO.htm">NetworkFolderDTO</a> 个人网盘文件夹DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorRequestData 请求的数据错误</li>
+							<li>errorSameFolder 存在相同文件夹</li>
+				</ul>
+				<p class="p-fun"><a name="取所有网盘文件夹,不包括回收站"></a>取所有网盘文件夹,不包括回收站</p>
+				<p><span>请求地址:</span>"/sc/disk/getFolders"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFoldersDTO.htm">NetworkFoldersDTO</a>个人网盘文件夹listDTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorSameFile 文件重名</li>
+				</ul>
+				<p class="p-fun"><a name="【重命名】、【修改】 文件"></a>【重命名】、【修改】 文件</p>
+				<p><span>请求地址:</span>"/sc/disk/updateFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘文件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorSameFile 名字重复</li>
+				</ul>
+				<p class="p-fun"><a name="获取用户文件"></a>获取用户文件</p>
+				<p><span>请求地址:</span>"/sc/disk/getFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFilesDTO.htm">NetworkFilesDTO</a>个人网盘文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="删掉文件或文件夹"></a>删掉文件或文件夹</p>
+				<p><span>请求地址:</span>"/sc/disk/deleteFolderAndFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>个人网盘文件和文件夹DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorRequestData 请求的数据有问题</li>
+				</ul>
+				<p class="p-fun"><a name="批量修改网盘文件夹和文件"></a>批量修改网盘文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/disk/updateFolderAndFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>文件夹和文件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取所有网盘文件夹和文件,不包括回收站"></a>取所有网盘文件夹和文件,不包括回收站</p>
+				<p><span>请求地址:</span>"/sc/disk/getDiskFolderAndFileByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>文件夹和文件DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="添加网盘文件"></a>添加网盘文件</p>
+				<p><span>请求地址:</span>"/sc/disk/addPersonalFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘文件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>fileId 文件ID</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorSameFile 文件重名</li>
+							<li>errorNoSpace 个人网盘空间不足</li>
+				</ul>
+				<p class="p-fun"><a name="删除个人网盘文件"></a>删除个人网盘文件</p>
+				<p><span>请求地址:</span>"/sc/disk/deletePersonalFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>fileID文件ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="判断私有网盘文件是否存在,及网盘空间"></a>判断私有网盘文件是否存在,及网盘空间</p>
+				<p><span>请求地址:</span>"/sc/disk/checkPersonalFileUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorSameFile 文件重复</li>
+							<li>errorNoSpace 没有足够的空间</li>
+				</ul>
+				<p class="p-fun"><a name="取单个文件信息"></a>取单个文件信息</p>
+				<p><span>请求地址:</span>"/sc/disk/getFileById"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>fileId文件ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘文件DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="还原个人网盘回收站文件夹和文件"></a>还原个人网盘回收站文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/disk/restoreFolderAndFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>个人网盘文件和文件夹DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取所有网盘文件夹,包括回收站"></a>取所有网盘文件夹,包括回收站</p>
+				<p><span>请求地址:</span>"/sc/disk/getAllFoldersByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户的ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFoldersDTO.htm">NetworkFoldersDTO</a>个人网盘文件夹list DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取所有网盘文件,包括回收站"></a>取所有网盘文件,包括回收站</p>
+				<p><span>请求地址:</span>"/sc/disk/getAllFilesByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户的ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFilesDTO.htm">NetworkFilesDTO</a>个人网盘文件listDTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取所有网盘文件夹和文件,包括回收站"></a>取所有网盘文件夹和文件,包括回收站</p>
+				<p><span>请求地址:</span>"/sc/disk/getAllDiskFolderAndFileByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>个人网盘文件夹和文件DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="同步个人网盘文件"></a>同步个人网盘文件</p>
+				<p><span>请求地址:</span>"/sc/disk/syncPersonalFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘文件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>的JSON：同步后的文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorSameFile 文件重名</li>
+							<li>errorNoSpace 个人网盘空间不足</li>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取网盘邮件文件夹"></a>获取网盘邮件文件夹</p>
+				<p><span>请求地址:</span>"/sc/disk/getEmailFolder"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFolderDTO.htm">NetworkFolderDTO</a>个人网盘文件夹DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="个人网盘通过文件夹名和用户ID获得文件"></a>个人网盘通过文件夹名和用户ID获得文件</p>
+				<p><span>请求地址:</span>"/sc/network/getSystemFileByFileName"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘文件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取单个文件夹信息"></a>取单个文件夹信息</p>
+				<p><span>请求地址:</span>"/sc/disk/getPrivateFolderById"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>folderId文件夹ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>个人网盘DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="个人网盘文件同步上传之前，检查文件版本，网盘空间，同名文件"></a>个人网盘文件同步上传之前，检查文件版本，网盘空间，同名文件</p>
+				<p><span>请求地址:</span>"/sc/disk/checkPersonalFileSyncUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/NetworkFileDTO.htm">NetworkFileDTO</a>的JSON：文件上传信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：正常，可以开始上传文件</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorNoSpace：个人网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件夹取个人网盘子文件夹和文件，取顶层文件夹时，文件夹ID传null"></a>按文件夹取个人网盘子文件夹和文件，取顶层文件夹时，文件夹ID传null</p>
+				<p><span>请求地址:</span>"/sc/disk/getPersonalFolderAndFileByFolderId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileParamDTO.htm">FolderAndFileParamDTO</a>查询网盘文件夹和文件的参数DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>文件和文件夹DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取个人网盘回收站中文件夹和文件"></a>取个人网盘回收站中文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/disk/getPersonalFolderAndFileInRecycle"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户Id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileDTO.htm">FolderAndFileDTO</a>的JSON：个人网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="检查当前个人网盘使用空间是否超出了免费空间"></a>检查当前个人网盘使用空间是否超出了免费空间</p>
+				<p><span>请求地址:</span>"/sc/onlinedisk/checkUserDiskSize"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户Id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#TRUE_MARK">CommConstants.TRUE_MARK</a>：个人网盘使用空间超出免费空间</li>
+							<li><a href="../status/CommConstants.htm#FALSE_MARK">CommConstants.FALSE_MARK</a>：个人网盘使用空间未超出免费空间</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="分配个人网盘空间"></a>分配个人网盘空间</p>
+				<p><span>请求地址:</span>"/sc/onlinedisk/alloc"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/PersonDiskAllocListDTO.htm">PersonDiskAllocListDTO</a>：个人网盘空间分配信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：分配成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorPersonDiskOverflow：企业的个人网盘空间不足</li>
+							<li>errorPersonDiskUsedExceedAllocSize：用户使用空间大于所分配的空间</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取个人网盘已使用空间"></a>取个人网盘已使用空间</p>
+				<p><span>请求地址:</span>"/sc/disk/getPersonalDiskUsedSizeByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>个人网盘已使用空间，long型，单位KB</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

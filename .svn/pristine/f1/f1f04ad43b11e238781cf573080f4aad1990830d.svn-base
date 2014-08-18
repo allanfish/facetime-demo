@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="overflow: hidden;">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div style="border: 6px solid #cee8ff; width: 600px;">
+<div style="border: 1px solid #2f74ab;">
+	<div style="background-color: #cee8ff;">
+		<img src="http://app.oatos.com/os/images/oatosLogoZh.png">
+	</div>
+	<div style="background-color: #ffffff; padding: 10px;">
+		<div style="padding: 10px; font-weight: 600;">
+			恭喜您！您已成功注册OATOS，我们将为您提供最贴心的服务。以下是您的注册信息：<br/>
+			您的企业：#{enterpriseName}<br/>
+			您的帐号：#{userName}<br/><br/>
+			请向企业管理员索要初始登录密码后登录<a href="http://app.oatos.com">http://app.oatos.com</a>，立即体验吧！<br/>
+			首次登陆后，请重设您的登录密码。
+		</div>
+		<div style="padding: 10px;">
+			了解更多OATOS企业云应用信息，请访问<a href="http://www.oatos.com">http://www.oatos.com</a><br/>
+			如果有任何疑问，请发邮件到cs@oatos.com<br/>
+			如果您错误地收到了此电子邮件，请忽略并把它删除。
+		</div>
+		<div style="color: #c5c5c5; border-top: 2px #c5c5c5 solid; padding: 3px;">
+	 		这只是一封系统自动发出的邮件，请不要直接回复。
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

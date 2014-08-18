@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="main">
+			<h3></h3>
+			<p><span>说明:</span></p>
+			<div class="div-field">
+				<ul>
+					<li>属性</li>
+					<li>类型</li>
+					<li class="r">值</li>
+												<li><a name="DEFAULT_DOMAIN_NAME"></a>DEFAULT_DOMAIN_NAME</li>
+							<li>String</li>
+							<li class="r">conlect.oatOS.</li>
+							<li><a name="DATE_FORMAT_STD"></a>DATE_FORMAT_STD</li>
+							<li>String</li>
+							<li class="r">yyyy-MM-ddHH:mm:ss</li>
+							<li><a name="STR_DATE_FORMAT"></a>STR_DATE_FORMAT</li>
+							<li>String</li>
+							<li class="r">yyyy-MM-dd</li>
+							<li><a name="DATE_FORMAT_STD_SLASH"></a>DATE_FORMAT_STD_SLASH</li>
+							<li>String</li>
+							<li class="r">yyyy/MM/ddHH:mm:ss</li>
+							<li><a name="DATE_FORMAT_SHORT"></a>DATE_FORMAT_SHORT</li>
+							<li>String</li>
+							<li class="r">yyyy-M-d</li>
+							<li><a name="DATE_FORMAT_HMS"></a>DATE_FORMAT_HMS</li>
+							<li>String</li>
+							<li class="r">HH:mm:ss</li>
+							<li><a name="DATE_FORMAT_MS"></a>DATE_FORMAT_MS</li>
+							<li>String</li>
+							<li class="r">mm:ss</li>
+							<li><a name="POST_PARAM_NAME"></a>POST_PARAM_NAME</li>
+							<li>String</li>
+							<li class="r">message</li>
+							<li><a name="AppService"></a>AppService</li>
+							<li>String</li>
+							<li class="r">AppService</li>
+							<li><a name="DocConvertService"></a>DocConvertService</li>
+							<li>String</li>
+							<li class="r">DocConvertService</li>
+							<li><a name="FileManagerService"></a>FileManagerService</li>
+							<li>String</li>
+							<li class="r">FileManagerService</li>
+							<li><a name="FileCacheService"></a>FileCacheService</li>
+							<li>String</li>
+							<li class="r">FileCacheService</li>
+							<li><a name="SendMessage"></a>SendMessage</li>
+							<li>String</li>
+							<li class="r">SendMessage</li>
+							<li><a name="UPLOAD_SERVLET_MAPPING"></a>UPLOAD_SERVLET_MAPPING</li>
+							<li>String</li>
+							<li class="r">fileupload.gupld</li>
+							<li><a name="TEMP_PATH"></a>TEMP_PATH</li>
+							<li>String</li>
+							<li class="r">temp/</li>
+							<li><a name="BUDDIES_CSV"></a>BUDDIES_CSV</li>
+							<li>String</li>
+							<li class="r">buddies_csv</li>
+							<li><a name="FEEDBACK_FILE"></a>FEEDBACK_FILE</li>
+							<li>String</li>
+							<li class="r">feedback_file</li>
+							<li><a name="uploadImageTypes"></a>uploadImageTypes</li>
+							<li>String[]</li>
+							<li class="r">{JPG,JPEG,PNG,BMP,GIF,}</li>
+							<li><a name="REG_FOR_ENTNAME"></a>REG_FOR_ENTNAME</li>
+							<li>String</li>
+							<li class="r">.{2,}</li>
+							<li><a name="REG_FOR_MAIL"></a>REG_FOR_MAIL</li>
+							<li>String</li>
+							<li class="r">^[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,4}$</li>
+							<li><a name="REG_FOR_MAIL2"></a>REG_FOR_MAIL2</li>
+							<li>String</li>
+							<li class="r">[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,4}</li>
+							<li><a name="REG_FOR_MAIL_ACCOUNT_NAME"></a>REG_FOR_MAIL_ACCOUNT_NAME</li>
+							<li>String</li>
+							<li class="r">[\\w._%+-]+</li>
+							<li><a name="REG_FOR_MAIL_ACCOUNT_PASSWORD"></a>REG_FOR_MAIL_ACCOUNT_PASSWORD</li>
+							<li>String</li>
+							<li class="r">^.{6,20}</li>
+							<li><a name="REG_FOR_MSN_MAIL"></a>REG_FOR_MSN_MAIL</li>
+							<li>String</li>
+							<li class="r">^[\\w._%+-]+@(msn|hotmail).[A-Za-z]{2,4}$</li>
+							<li><a name="REG_FOR_YAHOO_MAIL"></a>REG_FOR_YAHOO_MAIL</li>
+							<li>String</li>
+							<li class="r">^[\\w._%+-]+@yahoo.[A-Za-z]{2,4}$</li>
+							<li><a name="REG_FOR_GOOGLE_MAIL"></a>REG_FOR_GOOGLE_MAIL</li>
+							<li>String</li>
+							<li class="r">^[\\w._%+-]+@(gmail|googlemail).[A-Za-z]{2,4}$</li>
+							<li><a name="REG_FOR_NOT_NULL"></a>REG_FOR_NOT_NULL</li>
+							<li>String</li>
+							<li class="r">.+</li>
+							<li><a name="REG_FOR_USER_ACCOUNT"></a>REG_FOR_USER_ACCOUNT</li>
+							<li>String</li>
+							<li class="r">^[a-zA-Z][\\w_.-]{2,19}$</li>
+							<li><a name="REG_FOR_FILE_NAME"></a>REG_FOR_FILE_NAME</li>
+							<li>String</li>
+							<li class="r">^[^\\/:*?\\u0022<>|]{1,250}</li>
+							<li><a name="REG_FOR_VERIFY_CODE"></a>REG_FOR_VERIFY_CODE</li>
+							<li>String</li>
+							<li class="r">^[a-zA-Z0-9]{4}$</li>
+							<li><a name="REG_FOR_MOBILE_NUMBER"></a>REG_FOR_MOBILE_NUMBER</li>
+							<li>String</li>
+							<li class="r">^([0-9]{1,3}[\\s\\-]?)?[0-9]{8,}$</li>
+							<li><a name="REG_FOR_NUM"></a>REG_FOR_NUM</li>
+							<li>String</li>
+							<li class="r">^\\d+$</li>
+							<li><a name="REG_FOR_SERIAL"></a>REG_FOR_SERIAL</li>
+							<li>String</li>
+							<li class="r">^[a-zA-Z0-9]{5}</li>
+							<li><a name="REG_FOR_LIMIT30"></a>REG_FOR_LIMIT30</li>
+							<li>String</li>
+							<li class="r">.{1,30}</li>
+							<li><a name="SYS_MSG_ICON"></a>SYS_MSG_ICON</li>
+							<li>String</li>
+							<li class="r">images/tip32.png</li>
+							<li><a name="DEFAULT_USER_IMAGE"></a>DEFAULT_USER_IMAGE</li>
+							<li>String</li>
+							<li class="r">images/defaultAvatar64man.png</li>
+							<li><a name="DEFAULT_WOMAN_IMAGE"></a>DEFAULT_WOMAN_IMAGE</li>
+							<li>String</li>
+							<li class="r">images/defaultAvatar64woman.png</li>
+							<li><a name="COOKIE_LDAP_AUTH"></a>COOKIE_LDAP_AUTH</li>
+							<li>String</li>
+							<li class="r">la</li>
+							<li><a name="COOKIE_USER_ACCOUNT"></a>COOKIE_USER_ACCOUNT</li>
+							<li>String</li>
+							<li class="r">ua</li>
+							<li><a name="COOKIE_ENTERPRISE_NAME"></a>COOKIE_ENTERPRISE_NAME</li>
+							<li>String</li>
+							<li class="r">en</li>
+							<li><a name="COOKIE_USER_TOKEN"></a>COOKIE_USER_TOKEN</li>
+							<li>String</li>
+							<li class="r">ut</li>
+							<li><a name="COOKIE_KEEP_SIGN_IN"></a>COOKIE_KEEP_SIGN_IN</li>
+							<li>String</li>
+							<li class="r">ksi</li>
+							<li><a name="COOKIE_SEARCH_ENGINE"></a>COOKIE_SEARCH_ENGINE</li>
+							<li>String</li>
+							<li class="r">se</li>
+							<li><a name="COOKIE_USE_HTTPS"></a>COOKIE_USE_HTTPS</li>
+							<li>String</li>
+							<li class="r">uh</li>
+							<li><a name="COOKIE_SIGN_IN"></a>COOKIE_SIGN_IN</li>
+							<li>String</li>
+							<li class="r">si</li>
+							<li><a name="COOKIE_LOGIN_FROM_REGISTER"></a>COOKIE_LOGIN_FROM_REGISTER</li>
+							<li>String</li>
+							<li class="r">lr</li>
+							<li><a name="COOKIE_HTTP_TO_HTTPS"></a>COOKIE_HTTP_TO_HTTPS</li>
+							<li>String</li>
+							<li class="r">hts</li>
+							<li><a name="COOKIE_SOUND_STTING"></a>COOKIE_SOUND_STTING</li>
+							<li>String</li>
+							<li class="r">ss</li>
+							<li><a name="COOKIE_LANG"></a>COOKIE_LANG</li>
+							<li>String</li>
+							<li class="r">l</li>
+							<li><a name="COOKIE_SEND_MESSAGE_SHORTCUT"></a>COOKIE_SEND_MESSAGE_SHORTCUT</li>
+							<li>String</li>
+							<li class="r">ssm</li>
+							<li><a name="COOKIE_TIPS_SHOW_LOGIN"></a>COOKIE_TIPS_SHOW_LOGIN</li>
+							<li>String</li>
+							<li class="r">ts</li>
+							<li><a name="COOKIE_NAVIGATION_DIRECTION"></a>COOKIE_NAVIGATION_DIRECTION</li>
+							<li>String</li>
+							<li class="r">nd</li>
+							<li><a name="COOKIE_ENTADMIN_TOKEN"></a>COOKIE_ENTADMIN_TOKEN</li>
+							<li>String</li>
+							<li class="r">eat</li>
+							<li><a name="COOKIE_SHOW_ADMIN_GUIDE"></a>COOKIE_SHOW_ADMIN_GUIDE</li>
+							<li>String</li>
+							<li class="r">sag</li>
+							<li><a name="COOKIE_SHOW_ADMIN_SETTING_GUIDE"></a>COOKIE_SHOW_ADMIN_SETTING_GUIDE</li>
+							<li>String</li>
+							<li class="r">sasg</li>
+							<li><a name="COOKIE_SHOW_ADMIN_SETTING_GUIDE_1"></a>COOKIE_SHOW_ADMIN_SETTING_GUIDE_1</li>
+							<li>String</li>
+							<li class="r">sasg_1</li>
+							<li><a name="COOKIE_ENTERPRISE_DISK_NOTICE_FOLDERS"></a>COOKIE_ENTERPRISE_DISK_NOTICE_FOLDERS</li>
+							<li>String</li>
+							<li class="r">edfn_</li>
+							<li><a name="COOKIE_ENTERPRISE_DISK_NOTICE_SETTING_TIP"></a>COOKIE_ENTERPRISE_DISK_NOTICE_SETTING_TIP</li>
+							<li>String</li>
+							<li class="r">ednst_</li>
+							<li><a name="COOKIE_APP_VERSION"></a>COOKIE_APP_VERSION</li>
+							<li>String</li>
+							<li class="r">avk</li>
+							<li><a name="NOTICE_KEY"></a>NOTICE_KEY</li>
+							<li>String</li>
+							<li class="r">from</li>
+							<li><a name="VERIFIER_KEY"></a>VERIFIER_KEY</li>
+							<li>String</li>
+							<li class="r">oauth_verifier</li>
+							<li><a name="YAHOO_CONSUMER_KEY"></a>YAHOO_CONSUMER_KEY</li>
+							<li>String</li>
+							<li class="r">dj0yJmk9MjN5VmJaMWhVcGlRJmQ9WVdrOVdXMXJVemw2TjJNbWNHbzlNVEF4TnpjM05UYzJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD03NQ--</li>
+							<li><a name="YAHOO_CONSUMER_SECRET"></a>YAHOO_CONSUMER_SECRET</li>
+							<li>String</li>
+							<li class="r">3faa60d8bd14b01a0c19365fcc8ec57efea369d4</li>
+							<li><a name="GOOGLE_CONSUMER_KEY"></a>GOOGLE_CONSUMER_KEY</li>
+							<li>String</li>
+							<li class="r">965477734990.apps.googleusercontent.com</li>
+							<li><a name="GOOGLE_CONSUMER_SECRET"></a>GOOGLE_CONSUMER_SECRET</li>
+							<li>String</li>
+							<li class="r">F89tBnGb-5nckTBBoWdmh9we</li>
+							<li><a name="CLIENT_TOKEN"></a>CLIENT_TOKEN</li>
+							<li>String</li>
+							<li class="r">ClientToken</li>
+							<li><a name="USER_INFO"></a>USER_INFO</li>
+							<li>String</li>
+							<li class="r">UserInfo</li>
+							<li><a name="BUDDY_LIST"></a>BUDDY_LIST</li>
+							<li>String</li>
+							<li class="r">BuddyList</li>
+							<li><a name="BUDDY_GROUP_LIST"></a>BUDDY_GROUP_LIST</li>
+							<li>String</li>
+							<li class="r">BuddyGroupList</li>
+							<li><a name="USER_ID"></a>USER_ID</li>
+							<li>String</li>
+							<li class="r">userId</li>
+							<li><a name="DISK_FOLDER_LIST"></a>DISK_FOLDER_LIST</li>
+							<li>String</li>
+							<li class="r">DISK_FOLDER_LIST</li>
+							<li><a name="DISK_FILE_LIST"></a>DISK_FILE_LIST</li>
+							<li>String</li>
+							<li class="r">DISK_FILE_LIST</li>
+							<li><a name="EMPLOYEE_INFO"></a>EMPLOYEE_INFO</li>
+							<li>String</li>
+							<li class="r">EmployeeInfo</li>
+							<li><a name="COLLEAGUE_LIST"></a>COLLEAGUE_LIST</li>
+							<li>String</li>
+							<li class="r">ColleagueList</li>
+							<li><a name="CUSTOMER_LIST"></a>CUSTOMER_LIST</li>
+							<li>String</li>
+							<li class="r">CustomerList</li>
+							<li><a name="SHARE_FILE_LIST"></a>SHARE_FILE_LIST</li>
+							<li>String</li>
+							<li class="r">SHARE_FILE_LIST</li>
+							<li><a name="CLOUD_DISK_IP"></a>CLOUD_DISK_IP</li>
+							<li>String</li>
+							<li class="r">CLOUD_DISK_IP</li>
+							<li><a name="ENTERPRISE_INFO"></a>ENTERPRISE_INFO</li>
+							<li>String</li>
+							<li class="r">ENTERPRISE_INFO</li>
+							<li><a name="DEPARTMENT_LIST"></a>DEPARTMENT_LIST</li>
+							<li>String</li>
+							<li class="r">DEPARTMENT_LIST</li>
+							<li><a name="CHAT_POP_OUT_PARA_ID"></a>CHAT_POP_OUT_PARA_ID</li>
+							<li>String</li>
+							<li class="r">buddy</li>
+							<li><a name="POPOUT_PARAM_KEY"></a>POPOUT_PARAM_KEY</li>
+							<li>String</li>
+							<li class="r">k</li>
+							<li><a name="POPOUT_PARAM_TOKEN"></a>POPOUT_PARAM_TOKEN</li>
+							<li>String</li>
+							<li class="r">t</li>
+							<li><a name="POPOUT_PARAM_CALL"></a>POPOUT_PARAM_CALL</li>
+							<li>String</li>
+							<li class="r">c</li>
+							<li><a name="POPOUT_PARAM_CALLID"></a>POPOUT_PARAM_CALLID</li>
+							<li>String</li>
+							<li class="r">ci</li>
+							<li><a name="HOME_PAGE"></a>HOME_PAGE</li>
+							<li>String</li>
+							<li class="r">home</li>
+							<li><a name="MAIN_PAGE"></a>MAIN_PAGE</li>
+							<li>String</li>
+							<li class="r">main</li>
+							<li><a name="LOGIN_PAGE"></a>LOGIN_PAGE</li>
+							<li>String</li>
+							<li class="r">login</li>
+							<li><a name="ACTIVE_PAGE"></a>ACTIVE_PAGE</li>
+							<li>String</li>
+							<li class="r">activate</li>
+							<li><a name="NONE_DEPARTMENT_ID"></a>NONE_DEPARTMENT_ID</li>
+							<li>long</li>
+							<li class="r">0</li>
+							<li><a name="BLACK_LIST_DEPARTMENT_ID"></a>BLACK_LIST_DEPARTMENT_ID</li>
+							<li>long</li>
+							<li class="r">-1</li>
+							<li><a name="USUALCONTACT_LIST_DEPARTMENT_ID"></a>USUALCONTACT_LIST_DEPARTMENT_ID</li>
+							<li>long</li>
+							<li class="r">-2</li>
+							<li><a name="HOME_FOLDER_ID"></a>HOME_FOLDER_ID</li>
+							<li>long</li>
+							<li class="r">0</li>
+							<li><a name="RECYCLE_BIN_ID"></a>RECYCLE_BIN_ID</li>
+							<li>long</li>
+							<li class="r">-1</li>
+							<li><a name="PARAM_MESSAGE"></a>PARAM_MESSAGE</li>
+							<li>String</li>
+							<li class="r">PARAM_MESSAGE</li>
+							<li><a name="PARAM_ELEMENT"></a>PARAM_ELEMENT</li>
+							<li>String</li>
+							<li class="r">PARAM_ELEMENT</li>
+						<li class="b"><a name="QUER_KEY_CLIENT_ID"></a>QUER_KEY_CLIENT_ID</li>
+						<li class="b">String</li>
+						<li class="b r">clientId</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,427 @@
+ul.file-table {
+    list-style: none outside none;
+}
+
+.file-operation .form-search {
+    display: inline-block;
+}
+
+.file-bread.hero-unit {
+    font-size: 16px;
+    font-weight: normal;
+    height: 37px;
+    margin: 0;
+    padding: 0;
+}
+
+.file-bread .breadcrumb {
+    background-color: transparent;
+    display: inline-block;
+    margin: 0;
+    padding: 0 15px;
+}
+
+.file-icon {
+    width: 26px;
+    height: 22px;
+    background-image: url('../img/sprite_list_icon.gif');
+    display: inline-block;
+    cursor: pointer;
+    background-position: -416px -79px;
+}
+
+.file-folder {
+    background-position: 0px 0px;
+}
+
+.file-img {
+    background-position: 0px -79px;
+}
+
+.file-visio {
+    background-position: -33px -79px;
+}
+
+.file-pdf {
+    background-position: -64px -79px;
+}
+
+.file-doc {
+    background-position: -96px -79px;
+}
+
+.file-excel {
+    background-position: -128px -79px;
+}
+
+.file-txt {
+    background-position: -160px -79px;
+}
+
+.file-mp3 {
+    background-position: -192px -79px;
+}
+
+.file-mp4 {
+    background-position: -224px -79px;
+}
+
+.file-ppt {
+    background-position: -256px -79px;
+}
+
+.file-ios {
+    background-position: -288px -79px;
+}
+
+.file-exe {
+    background-position: -319px -79px;
+}
+
+.file-zip {
+    background-position: -352px -79px;
+}
+
+.file-apk {
+    background-position: -384px -79px;
+}
+
+.file-unknow {
+    background-position: -416px -79px;
+}
+
+.checkbox-sprite {
+    background-image: url("../img/btn_icon.gif");
+    background-position: -113px 0;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+}
+
+.checkbox-sprite.true {
+    background-position: -113px -17px;
+}
+
+.checkbox-sprite.false {
+    background-position: -113px 1px;
+}
+
+ul.file-table {
+    border: 1px solid #888; /**/
+    list-style: none outside none;
+}
+
+li.entFileItem {
+    border-top: 1px solid #888888;
+    height: 30px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+li.entFileItem .checkbox-sprite {
+    margin-right: 15px;
+}
+
+ul.file-table .file-table-header {
+    border-top: none;
+}
+
+li.entFileItem .file-name {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul.file-table .file-table-header .operate-btns {
+    border-left: 1px solid #888888;
+    display: inline-block;
+    text-align: right;
+    width: 80%;
+}
+
+.file-table-header label {
+    font-size: 16px;
+}
+
+.entFileItem .editable-container.editable-inline {
+    margin-top: -12px;
+    display: inline-block !important;
+}
+
+#newFileView {
+    width: 800px;
+}
+
+.operate-btn {
+    display: inline-block;
+}
+
+.operate-btn > li {
+    display: inline-block;
+}
+
+.operate-btn  ul.dropdown-menu > li {
+    display: block;
+}
+
+.file-operate-area > li {
+    display: inline-block;
+}
+
+.file-operate-area li a {
+    padding: 4px 4px;
+}
+
+.file-pic-area {
+    width: 268px;
+}
+
+.file-pic-area img {
+    margin: 5px auto;
+}
+
+.file-pic-area .label {
+    text-align: center;
+}
+
+.file-info-table {
+    width: 95%;
+}
+
+.file-detail-info .row-title {
+    width: 35%;
+    color: #828a9f;
+    text-align: left;
+}
+
+.file-detail-info .row-content {
+    color: #000;
+    font-weight: bold;
+    text-align: left;
+}
+
+.left {
+    float: left;
+}
+
+.file-detail-info .row-content .left {
+    text-align: left;
+    width: 35%;
+}
+
+.right {
+    float: right;
+}
+
+.file-detail-info .row-content .right {
+    text-align: right;
+    width: 65%;
+}
+
+.file-detail-info .row-content .clear {
+    clear: both;
+}
+
+.clear {
+    clear: both;
+}
+
+#no-link {
+    width: 95%;
+}
+
+#no-link .left {
+    width: 60%;
+    text-align: left;
+    color: #828a9f;
+}
+
+#no-link .right {
+    width: 30%;
+    text-align: right;
+}
+
+.file-operation {
+    height: 40px;
+}
+
+.file-operation table {
+    width: 100%;
+}
+
+.file-operation table tr {
+    height: 30px;
+}
+
+.file-operation table tr td {
+    line-height: 30px;
+}
+
+.file-operation table tr td span {
+    padding: 0 10px;
+    font-size: 24px;
+}
+
+.operate-bar {
+    width: 100%;
+    text-align: right;
+}
+
+.operate-bar span {
+    padding: 0 10px;
+}
+
+.entFileItem ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.operate-btn >li {
+    height: 20px;
+    display: inline-block;
+}
+
+.entFileItem ul li.li-file-name {
+    width: 200px;
+    text-overflow: ellipsis;
+}
+
+.entFileItem ul li.li-file-name a.file-name {
+    width: 100%;
+    text-overflow: ellipsis;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.icon-uncollect {
+    cursor: pointer;
+}
+
+#recycle-item .hide {
+    display: none;
+}
+
+#recycle-item .show {
+    display: inline-block;
+}
+
+.slide-right .close-btn {
+    background: none repeat scroll 0 0 #E9ECF1;
+    height: 26px;
+    width: 100%;
+}
+
+.slide-right .slide-header .btn.btn-link {
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.cs-upload-item.ul-inline {
+    height: 50px;
+}
+
+.cs-upload-item  .cs-file-name {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 115px;
+    height: 26px;
+    white-space: nowrap;
+}
+
+.cs-upload-item li {
+    vertical-align: middle;
+    height: 50px;
+}
+
+.cs-upload-item .progress {
+    height: 12px;
+    margin: 0;
+}
+
+.cs-upload-item .inline-show {
+    display: inline-block !important;
+}
+
+.cs-upload-item .inline-hide {
+    display: none;
+}
+
+.cs-upload-item .btn-group {
+    margin-bottom: 35px;
+}
+
+.cs-upload-item .cs-percent {
+    color: #3AB741;
+}
+
+.cs-upload-item .btn.btn-link {
+    padding: 5px;
+}
+
+.file-share-view {
+    height: 450px;
+    width: 600px;
+}
+
+.modal-body ul.fileShareSet li {
+
+}
+
+#fileShareZone {
+    height: 40px;
+    width: 100%;
+    min-width: 560px;
+    background: #497bae;
+}
+
+#fileShareZone tr td {
+    width: 33%;
+    overflow: hidden;
+    line-height: 40px;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.modal-body ul {
+    padding: 20px 0;
+}
+
+.modal-body ul.fileShareSet li input[type="checkbox"] {
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+}
+
+.modal-body ul.fileShareSet li label {
+    padding: 0 5px;
+}
+
+.modal-body ul.fileShareSet li.password input[type='text'] {
+    width: 200px;
+}
+
+.modal-body ul.fileShareSet li .datepicker {
+    margin: 0;
+    padding: 0;
+}
+
+.show-inline-block {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+.entFileTree {
+    width: 100%;
+    overflow: auto;
+}

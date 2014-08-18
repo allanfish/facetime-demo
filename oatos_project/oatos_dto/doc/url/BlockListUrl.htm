@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>阻止联系人REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#用户取阻止通信的用户列表(黑名单)">用户取阻止通信的用户列表(黑名单)</a></li>
+					<li><a href="#用户设置阻止通信的用户列表(黑名单)">用户设置阻止通信的用户列表(黑名单)</a></li>
+					<li><a href="#取企业阻止通信列表(管理员设置不可见)">取企业阻止通信列表(管理员设置不可见)</a></li>
+					<li><a href="#管理员设置阻止通信列表(不可见)">管理员设置阻止通信列表(不可见)</a></li>
+					<li><a href="#用户解除阻止通信的用户id">用户解除阻止通信的用户id</a></li>
+					<li><a href="#管理员删除企业通信阻止(不可见)">管理员删除企业通信阻止(不可见)</a></li>
+					<li><a href="#用户取被那些同事设置为阻止通信">用户取被那些同事设置为阻止通信</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="用户取阻止通信的用户列表(黑名单)"></a>用户取阻止通信的用户列表(黑名单)</p>
+				<p><span>请求地址:</span>"/sc/block/getBlockListByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/BlockDTO.htm">BlockDTO</a>阻止人信息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="用户设置阻止通信的用户列表(黑名单)"></a>用户设置阻止通信的用户列表(黑名单)</p>
+				<p><span>请求地址:</span>"/sc/block/setBlockListByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/BlockDTO.htm">BlockDTO</a> 阻止人DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业阻止通信列表(管理员设置不可见)"></a>取企业阻止通信列表(管理员设置不可见)</p>
+				<p><span>请求地址:</span>"/sc/block/getEnterpriseBlocksByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/BlockDTO.htm">BlockDTO</a> 组织人DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="管理员设置阻止通信列表(不可见)"></a>管理员设置阻止通信列表(不可见)</p>
+				<p><span>请求地址:</span>"/sc/block/updateEnterpriseBlocks"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/BlocksDTO.htm">BlocksDTO</a>阻止联系人列表DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="用户解除阻止通信的用户id"></a>用户解除阻止通信的用户id</p>
+				<p><span>请求地址:</span>"/sc/block/deleteBlock"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/BlockDTO.htm">BlockDTO</a>阻止人信息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="管理员删除企业通信阻止(不可见)"></a>管理员删除企业通信阻止(不可见)</p>
+				<p><span>请求地址:</span>"/sc/block/deleteEnterpriseBlock"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/BlockDTO.htm">BlockDTO</a>阻止人信息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="用户取被那些同事设置为阻止通信"></a>用户取被那些同事设置为阻止通信</p>
+				<p><span>请求地址:</span>"/sc/block/getBlockedByListByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/BlockDTO.htm">BlockDTO</a>阻止人信息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.main {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+.ul-fun ul {
+	list-style-type:decimal;
+}
+.ul-fun ul li {
+	height: 25px;
+}
+.ul-fun {
+	margin-bottom: 40px;
+}
+.p-fun {
+	font-weight: bold;
+	margin-top: 35px;
+}

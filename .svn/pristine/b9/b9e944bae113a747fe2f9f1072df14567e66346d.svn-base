@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3></h3>
+		<p><span>说明:</span></p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>colleagueStatus</li>
+								<li>String</li>
+								<li class="r">同事模块的状态</li>
+								<li>personalDiskStatus</li>
+								<li>String</li>
+								<li class="r">个人网盘的状态</li>
+								<li>enterpriseDiskStatus</li>
+								<li>String</li>
+								<li class="r">企业网盘的状态</li>
+								<li>conferenceStatus</li>
+								<li>String</li>
+								<li class="r">视频会议模块的状态</li>
+								<li>officeStatus</li>
+								<li>String</li>
+								<li class="r">云办公的状态</li>
+								<li>mailStatus</li>
+								<li>String</li>
+								<li class="r">邮件模块的状态</li>
+								<li>csStatus</li>
+								<li>String</li>
+								<li class="r">客服功能的状态</li>
+								<li class="b">enhanceStatus</li>
+								<li class="b">String</li>
+								<li class="b r">本地交互功能的状态</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

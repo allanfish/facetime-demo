@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>FileUploadDTO</h3>
+		<p><span>说明:</span>文件上传参数</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>fileId</li>
+								<li>Long</li>
+								<li class="r">文件id，同步文件时需要</li>
+								<li>userId</li>
+								<li>Long</li>
+								<li class="r">用户id</li>
+								<li>entId</li>
+								<li>Long</li>
+								<li class="r">企业id</li>
+								<li>folderId</li>
+								<li>Long</li>
+								<li class="r">文件夹id</li>
+								<li>fileNameASCII</li>
+								<li>String</li>
+								<li class="r">文件名ASCII</li>
+								<li>fileName</li>
+								<li>String</li>
+								<li class="r">文件名</li>
+								<li>guidName</li>
+								<li>String</li>
+								<li class="r">文件guid，可不传</li>
+								<li>fileSize</li>
+								<li>Long</li>
+								<li class="r">文件大小，，单位：byte，分段上传时需要</li>
+								<li>type</li>
+								<li>String</li>
+								<li class="r">文件类型</li>
+								<li>receiverId</li>
+								<li>Long</li>
+								<li class="r">接收者id，发送文件时需要</li>
+								<li>blockSize</li>
+								<li>Long</li>
+								<li class="r">分块大小，单位：byte，分段上传时需要</li>
+								<li>blockCount</li>
+								<li>Integer</li>
+								<li class="r">分块数目，分段上传时需要</li>
+								<li>blockIndex</li>
+								<li>Integer</li>
+								<li class="r">分块编号，分段上传时需要</li>
+								<li>md5</li>
+								<li>String</li>
+								<li class="r">文件MD5校验码</li>
+								<li>oldGuid</li>
+								<li>String</li>
+								<li class="r">旧的guid，文件同步上传时需要</li>
+								<li class="b">method</li>
+								<li class="b">String</li>
+								<li class="b r">方法1:表示判断网盘容量及检查文件是否存在,取已经上传完成块数目3:表示检查文件是否在后台传输完成且成功上传为其他值则表示上传数据</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

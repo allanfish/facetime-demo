@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Services>
+        <P2PServer>p2p.oatos.com:1935/multicast</P2PServer>
+        <RED5Server>p2p.oatos.com:1935/live</RED5Server>
+		<RED5Server2>p2p.oatos.com:1935/live</RED5Server2>
+    </Services>
+</Config>

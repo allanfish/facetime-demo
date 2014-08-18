@@ -1,0 +1,81 @@
+log4j.addivity=false
+log4j.rootLogger=ERROR,CONSOLE
+log4j.logger.default=DEBUG,A1
+log4j.logger.os=DEBUG,A2
+log4j.logger.server=ERROR,A3
+log4j.logger.share=DEBUG,share
+log4j.logger.admin=DEBUG,admin
+log4j.logger.login=DEBUG,login
+log4j.logger.register=DEBUG,register
+log4j.logger.pay=INFO,pay
+
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Target=System.out
+log4j.appender.CONSOLE.Threshold=DEBUG
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+
+# default logger
+log4j.appender.A1=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.A1.File=/tmp/oatos_log/default.log
+log4j.appender.A1.DatePattern='-'yyyy-MM-dd
+log4j.appender.A1.Encoding=UTF-8
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# os system logger
+log4j.appender.A2=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.A2.File=/tmp/oatos_log/os.log
+log4j.appender.A2.DatePattern='-'yyyy-MM-dd
+log4j.appender.A2.Encoding=UTF-8
+log4j.appender.A2.layout=org.apache.log4j.PatternLayout
+log4j.appender.A2.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# sever system logger
+log4j.appender.A3=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.A3.File=/tmp/oatos_log/server.log
+log4j.appender.A3.DatePattern='-'yyyy-MM-dd
+log4j.appender.A3.Encoding=UTF-8
+log4j.appender.A3.layout=org.apache.log4j.PatternLayout
+log4j.appender.A3.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# share link
+log4j.appender.share=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.share.File=/tmp/oatos_log/share.log
+log4j.appender.share.DatePattern='-'yyyy-MM-dd
+log4j.appender.share.Encoding=UTF-8
+log4j.appender.share.layout=org.apache.log4j.PatternLayout
+log4j.appender.share.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# admin
+log4j.appender.admin=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.admin.File=/tmp/oatos_log/admin.log
+log4j.appender.admin.DatePattern='-'yyyy-MM-dd
+log4j.appender.admin.Encoding=UTF-8
+log4j.appender.admin.layout=org.apache.log4j.PatternLayout
+log4j.appender.admin.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# login
+log4j.appender.login=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.login.File=/tmp/oatos_log/login.log
+log4j.appender.login.DatePattern='-'yyyy-MM-dd
+log4j.appender.login.Encoding=UTF-8
+log4j.appender.login.layout=org.apache.log4j.PatternLayout
+log4j.appender.login.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# register
+log4j.appender.register=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.register.File=/tmp/oatos_log/register.log
+log4j.appender.register.DatePattern='-'yyyy-MM-dd
+log4j.appender.register.Encoding=UTF-8
+log4j.appender.register.layout=org.apache.log4j.PatternLayout
+log4j.appender.register.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n
+
+# pay
+log4j.appender.pay=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.pay.File=/tmp/oatos_log/pay.log
+log4j.appender.pay.DatePattern='-'yyyy-MM-dd
+log4j.appender.pay.Encoding=UTF-8
+log4j.appender.pay.layout=org.apache.log4j.PatternLayout
+log4j.appender.pay.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} [%p][%l] - %m%n

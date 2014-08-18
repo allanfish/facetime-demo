@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>oatos-server</artifactId>
+		<groupId>com.qycloud.oatos</groupId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>filecache</artifactId>
+	<packaging>war</packaging>
+	<name>filecache</name>
+
+	<properties>
+		<project-lib>${project.build.directory}/${project.build.finalName}</project-lib>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.8.4</version>
+		</dependency>
+		<dependency>
+			<groupId>de.innosystec.unrar</groupId>
+			<artifactId>unrar</artifactId>
+			<version>1.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/java-unrar.jar
+				</systemPath>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>filecache</finalName>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>property/*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- maven-antrun-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>delete-jars</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<delete includeemptydirs="true">
+									<fileset dir="${project-lib}"
+										includes="
+									WEB-INF/lib/activation*.jar,
+									WEB-INF/lib/aopalliance*.jar,
+									WEB-INF/lib/commons*.jar,
+									WEB-INF/lib/http*.jar,
+									WEB-INF/lib/jackson*.jar,
+									WEB-INF/lib/log4j*.jar,
+									WEB-INF/lib/mail*.jar,
+									WEB-INF/lib/mybatis*.jar,
+									WEB-INF/lib/mysql*.jar,
+									WEB-INF/lib/spring*.jar
+									" />
+								</delete>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- maven-war-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<version>2.1.1</version>
+					<classifier>${profileId}</classifier>
+					<packagingExcludes>
+						WEB-INF/lib/activation*.jar,
+						WEB-INF/lib/aopalliance*.jar,
+						WEB-INF/lib/commons*.jar,
+						WEB-INF/lib/http*.jar,
+						WEB-INF/lib/jackson*.jar,
+						WEB-INF/lib/log4j*.jar,
+						WEB-INF/lib/mail*.jar,
+						WEB-INF/lib/mybatis*.jar,
+						WEB-INF/lib/mysql*.jar,
+						WEB-INF/lib/spring*.jar
+					</packagingExcludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

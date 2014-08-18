@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.MessageMapper">
+   
+    <resultMap id="MessageResultMap" type="Message">
+    	<id property="messageId" column="chat_message_id"/>
+        <result property="senderId" column="from_user_id"/>
+        <result property="sender" column="from_user"/>
+        <result property="messageBody" column="message_body"/>        
+        <result property="receiverId" column="to_user_id"/>
+        <result property="receiver" column="to_user"/>
+        <result property="sendTime" column="send_time"/>
+        <result property="messageType" column="message_type"/>        
+        <result property="status" column="status"/>
+    </resultMap>
+   
+    <resultMap id="UserDeviceTokenResultMap" type="UserDeviceToken">
+    	<id property="userId" column="user_id"/>
+        <result property="deviceToken" column="device_token"/>
+    </resultMap>
+    
+    <sql id="SelectMessageColumn">
+        SELECT chat_message_id, from_user_id, from_user, message_body, to_user_id, to_user, send_time, message_type, status
+        FROM chat_message
+    </sql>
+
+    <select id="getUnreadMsgByReceiverId" parameterType="long" resultMap="MessageResultMap">
+        <include refid="SelectMessageColumn"/>
+        WHERE to_user_id = #{receiverId} AND status = 'New'
+    </select>
+
+   	<select id="getUnreadMsgCountByReceiverId" parameterType="Message" resultType="int">
+        SELECT IFNULL(COUNT(*), 0)
+        FROM chat_message
+        WHERE to_user_id = #{receiverId} AND status = 'New'
+    </select>
+
+    <update id="updateChatMsgRead" parameterType="long">
+    	<![CDATA[ 
+       UPDATE chat_message 
+       SET status = 'Read' 
+       WHERE from_user_id = #{senderId} AND to_user_id = #{receiverId} AND send_time <= #{sendTime}
+       		AND (message_type = 'Chat' OR message_type = 'VoMail' OR message_type = 'InsFile' OR message_type = 'SFP' OR message_type = 'OffFile')
+    	]]>
+    </update>
+
+    <insert id="insertMessages">
+		INSERT INTO chat_message (chat_message_id, from_user_id, from_user, message_body, to_user_id, to_user, send_time, message_type, status) 
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.messageId}, #{item.senderId}, #{item.sender}, #{item.messageBody}, #{item.receiverId}, #{item.receiver}, #{item.sendTime}, #{item.messageType}, #{item.status})
+		</foreach>
+    </insert>
+    
+    <select id="getChatHistory" parameterType="map" resultMap="MessageResultMap">
+    	<include refid="SelectMessageColumn"/>
+		WHERE ( (from_user_id = #{senderId} AND to_user_id = #{receiverId}) 
+					OR (from_user_id = #{receiverId} AND to_user_id = #{senderId})
+				)	AND message_type = 'Chat'
+		ORDER BY send_time
+		LIMIT #{skipResults}, #{maxResults}
+    </select>
+    
+    <select id="getChatHistoryCount" parameterType="map" resultType="long">
+		SELECT IFNULL(count(*), 0)
+		FROM chat_message
+		WHERE ( (from_user_id = #{senderId} AND to_user_id = #{receiverId}) 
+					OR (from_user_id = #{receiverId} AND to_user_id = #{senderId})
+				)	AND message_type = 'Chat'
+    </select>
+
+    <select id="getChatRecordByReceiverAndType" parameterType="map" resultMap="MessageResultMap">
+    	<include refid="SelectMessageColumn"/>
+		WHERE to_user_id = #{receiverId}
+		AND message_type = #{messageType}
+    </select>
+
+    <select id="getChatRecordByType" parameterType="map" resultMap="MessageResultMap">
+    	<include refid="SelectMessageColumn"/>
+		WHERE (to_user_id = #{receiverId} OR from_user_id = #{senderId})
+		AND message_type = #{messageType}
+    </select>
+
+    <select id="getUserDeviceTokensHasUnreadMsg" resultMap="UserDeviceTokenResultMap">
+		select u.user_id, u.device_token
+		from mail_user u
+		inner join chat_message m on u.user_id = m.to_user_id
+		where u.device_token is not null
+		and exists(select * from chat_message where u.user_id = to_user_id and status = 'New')
+    </select>
+
+</mapper>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="main">
+			<h3></h3>
+			<p><span>说明:</span></p>
+			<div class="div-field">
+				<ul>
+					<li>属性</li>
+					<li>类型</li>
+					<li class="r">值</li>
+												<li><a name="Web"></a>Web</li>
+							<li>String</li>
+							<li class="r">web</li>
+							<li><a name="Mobile"></a>Mobile</li>
+							<li>String</li>
+							<li class="r">mobile</li>
+							<li><a name="APP"></a>APP</li>
+							<li>String</li>
+							<li class="r">app</li>
+							<li><a name="Pad"></a>Pad</li>
+							<li>String</li>
+							<li class="r">pad</li>
+						<li class="b"><a name="IOS"></a>IOS</li>
+						<li class="b">String</li>
+						<li class="b r">ios</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

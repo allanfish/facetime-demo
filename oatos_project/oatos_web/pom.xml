@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.qycloud.oatos</groupId>
+	<artifactId>web_client</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<properties>
+		<!-- jar version -->
+		<oatos-version>1.0</oatos-version>
+		<java-version>1.6</java-version>
+		<gwt-version>2.5.0</gwt-version>
+		<org.springframework-version>3.2.1.RELEASE</org.springframework-version>
+		<activemq.failover>failover:(tcp://192.168.1.54:61616)</activemq.failover>
+		<org.slf4j-version>1.6.1</org.slf4j-version>
+		<httpclient-version>4.2.1</httpclient-version>
+		<log4j-version>1.2.16</log4j-version>
+		<jackson-version>1.9.2</jackson-version>
+		<mojo-version>2.5.0</mojo-version>
+
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<maven.test.skip>true</maven.test.skip>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<webapp>${basedir}/src/main/webapp</webapp>
+
+		<os.url>http://localhost/os</os.url>
+		<AppService>http://192.168.1.68:8080/server/oatos/</AppService>
+		<FileCacheService>http://localhost:8980/filecache/oatos/</FileCacheService>
+		<FileManagerService>http://192.168.1.68:8080/filemanager/oatos/</FileManagerService>
+	</properties>
+	<modules>
+		<module>oatos_web</module>
+		<module>filecache</module>
+	</modules>
+
+	<profiles>
+		<!-- 55环境 -->
+		<profile>
+			<id>55</id>
+			<properties>
+				<profileId>55</profileId>
+				<os.url>http://192.168.1.55/os</os.url>
+				<AppService>http://192.168.1.54/server/oatos</AppService>
+				<FileCacheService>http://192.168.1.55/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.55/os/mobile/OATOS_Android.apk</google.download>
+			</properties>
+		</profile>
+
+		<!-- 68环境 -->
+		<profile>
+			<id>68</id>
+			<!-- <activation>
+				<activeByDefault>true</activeByDefault>
+			</activation> -->
+			<properties>
+				<profileId>68</profileId>
+				<os.url>http://192.168.1.68/os</os.url>
+				<AppService>http://192.168.1.68:8080/server/oatos/</AppService>
+				<FileCacheService>http://192.168.1.68/filecache/oatos/</FileCacheService>
+				<FileManagerService>http://192.168.1.68:8080/filemanager/oatos/</FileManagerService>
+
+				<P2PServer>192.168.1.70:1935/multicast</P2PServer>
+				<RED5Server>192.168.1.70:1935/live</RED5Server>
+				<RED5Server2>192.168.1.70:1935/live</RED5Server2>
+			</properties>
+		</profile>
+
+		<!-- 电信服务器 -->
+		<profile>
+			<id>dx</id>
+			<properties>
+				<profileId>dx</profileId>
+				<os.url>http://192.168.1.68/os</os.url>
+				<AppService>http://203.88.210.236:19080/server/oatos/</AppService>
+				<FileCacheService>http://192.168.1.55/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.55/os/mobile/OATOS_Android.apk</google.download>
+				<activemq.failover>failover:(tcp://203.88.210.236:61618)</activemq.failover>
+			</properties>
+		</profile>
+
+		<!-- 联通服务器 -->
+		<profile>
+			<id>lt</id>
+			<properties>
+				<profileId>lt</profileId>
+				<os.url>http://192.168.1.68/os</os.url>
+				<AppService>http://203.88.210.236:19080/server/oatos/</AppService>
+				<FileCacheService>http://192.168.1.55/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.55/os/mobile/OATOS_Android.apk</google.download>
+				<activemq.failover>failover:(tcp://203.88.210.236:61618)</activemq.failover>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!--The configuration of this plugin is used to store the Eclipse M2E settings only. It has no influence on the Maven 
+					build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>properties-maven-plugin</artifactId>
+										<versionRange> [1.0-alpha-2,)</versionRange>
+										<goals>
+											<!-- plugin goals -->
+											<goal>read-project-properties</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<!-- M2E should ignore the plugin -->
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

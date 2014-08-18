@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<!-- ClusterDemoJob -->
+	<bean id="clusterDemoJob" class="demo.quartz.job.ClusterDemoJob" />
+
+	<!-- ClusterTesterJobDetail -->
+	<bean id="clusterDemoJobDetail"
+		class="demo.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="concurrent" value="true" />
+		<property name="shouldRecover" value="true" />
+		<property name="targetObject" ref="clusterDemoJob" />
+		<property name="targetMethod" value="execute" />
+	</bean>
+
+	<!-- ClusterDemoSimpleTriggerBean -->
+	<bean id="clusterDemoSimpleTriggerBean" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="startDelay" value="10000" />
+		<property name="repeatInterval" value="10000" />
+		<property name="jobDetail" ref="clusterDemoJobDetail" />
+	</bean>
+
+	<!-- ClusterDemoCronTriggerBean -->
+	<bean id="clusterDemoCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="clusterDemoJobDetail" />
+		<property name="cronExpression" value="0/10 * * * * ? *" />
+	</bean>
+
+	<!-- ClusterDemoSchedulerFactoryBean -->
+	<bean id="clusterDemoSchedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="triggers">
+			<list>
+				<!-- <ref bean="clusterDemoSimpleTriggerBean" /> -->
+				<ref bean="clusterDemoCronTriggerBean" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

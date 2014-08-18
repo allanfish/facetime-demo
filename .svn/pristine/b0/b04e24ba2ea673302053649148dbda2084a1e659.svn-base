@@ -1,0 +1,10 @@
+# application service
+AppService=${AppService}
+#file manager service
+FileManagerService=${FileManagerService}
+#swftools path
+SwfToolsPath=${SwfToolsPath}
+#max office cnovert running tasks
+MaxOfficeTask=${MaxOfficeTask}
+#max swf cnovert running tasks
+MaxSwfTask=${MaxSwfTask}

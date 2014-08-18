@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.RoleMapper">
+
+    <resultMap id="RoleResultMap" type="Role">
+    	<id property="roleId" column="role_id" />
+        <result property="enterpriseId" column="ent_id" />
+        <result property="name" column="name" />
+        <result property="description" column="description" />      
+    </resultMap>
+
+     <resultMap id="UserRoleResultMap" type="UserRole">
+        <result property="userId" column="user_id" />
+        <result property="roleId" column="role_id" />   
+    </resultMap>
+
+    <insert id="addRole" parameterType="Role">
+        INSERT INTO role (role_id, ent_id, name, description) 
+		VALUES (#{roleId}, #{enterpriseId}, #{name}, #{description})
+    </insert>
+
+    <insert id="addRoles">
+        INSERT INTO role (role_id, ent_id, name, description) 
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.roleId}, #{item.enterpriseId}, #{item.name}, #{item.description})
+		</foreach>	
+    </insert>
+
+	<update id="updateRole" parameterType="Role">
+		UPDATE role 
+		SET name = #{name}, description = #{description}
+		WHERE role_id = #{roleId}
+	</update>
+
+	<delete id="deleteRole" parameterType="long">
+		DELETE FROM role WHERE role_id = #{roleId}
+	</delete>
+
+	<select id="getRolesByEntId" parameterType="long" resultMap="RoleResultMap">
+        SELECT role_id, ent_id, name, description 
+		FROM role
+		WHERE ent_id = #{entId}
+    </select>
+
+    <select id="getUserRoleByEntId" parameterType="long" resultMap="UserRoleResultMap">
+        SELECT a.user_id, a.role_id
+		FROM  user_role a join mail_user b ON a.user_id = b.user_id 
+		WHERE b.ent_id = #{entId}
+    </select>
+
+    <insert id="addUserRole" parameterType="UserRole">
+        INSERT INTO user_role(user_id, role_id)
+		VALUES (#{userId}, #{roleId})
+    </insert>
+
+   	<delete id="deleteUserRoleByUserId" parameterType="long">
+		DELETE FROM user_role WHERE user_id = #{userId}
+	</delete>
+
+    <delete id="deleteUserRoleByRoleId" parameterType="long">
+		DELETE FROM user_role WHERE role_id = #{roleId}
+	</delete>
+
+	<select id="getFirstRoleByEntId" parameterType="long" resultType="long">
+        SELECT MIN(role_id)
+		FROM role
+		WHERE ent_id = #{entId}
+    </select>
+
+    <insert id="addUserRoles">
+        INSERT INTO user_role(user_id, role_id)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.userId}, #{item.roleId})
+		</foreach>
+    </insert>
+
+	<select id="getSameNameRole" parameterType="Role" resultMap="RoleResultMap">
+		<![CDATA[
+        SELECT role_id, ent_id, name, description 
+		FROM role
+		WHERE ent_id = #{enterpriseId} AND role_id <> #{roleId} AND name = #{name}
+		]]>
+    </select>
+
+</mapper>

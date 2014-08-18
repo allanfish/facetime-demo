@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>MessageDTO</h3>
+		<p><span>说明:</span>客服端信息</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>chatId</li>
+								<li>long</li>
+								<li class="r">一次会话的ID</li>
+								<li>messageId</li>
+								<li>String</li>
+								<li class="r">聊天记录ID</li>
+								<li>messageType</li>
+								<li>String</li>
+								<li class="r">消息类型，决定消息的处理方式</li>
+								<li>offlineMessage</li>
+								<li>boolean</li>
+								<li class="r">是否是离线消息true是false不是</li>
+								<li>sender</li>
+								<li>Long</li>
+								<li class="r">发送者ID</li>
+								<li>receiver</li>
+								<li>long</li>
+								<li class="r">接收者ID</li>
+								<li>sendDate</li>
+								<li>Date</li>
+								<li class="r">发送时间</li>
+								<li>messageBody</li>
+								<li>String</li>
+								<li class="r">消息内容</li>
+								<li>language</li>
+								<li>String</li>
+								<li class="r">消息语言</li>
+								<li>groupId</li>
+								<li>Long</li>
+								<li class="r">当是群消息时，群ID</li>
+								<li>fromUser</li>
+								<li>String</li>
+								<li class="r">发送者名称</li>
+								<li>receiverName</li>
+								<li>String</li>
+								<li class="r">接收者名称</li>
+								<li>status</li>
+								<li>String</li>
+								<li class="r">消息状态</li>
+								<li>showed</li>
+								<li>boolean</li>
+								<li class="r">消息是否已显示</li>
+								<li>confirmed</li>
+								<li>boolean</li>
+								<li class="r">消息是否已确认</li>
+								<li class="b">displaying</li>
+								<li class="b">boolean</li>
+								<li class="b r">消息是否正显示</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+.navLeft {
+	background-color: transparent;
+	border: 1px solid #E1E1E1;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	width: 220px;
+}
+.navLeft>ul, .navLeft .accordion-inner {
+	padding: 0;
+}
+
+.navLink1 {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.navLeft .nav-list>li>a {
+	margin: 0;
+	padding-right: 0;
+	padding-left: 20px;
+}
+
+.navLeft i {
+	color: #aaa;
+	float: right;
+	font-size: 16px;
+	line-height: 32px;
+	opacity: 0.5;
+}
+
+.navLeft .accordion {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+.navLeft .accordion .accordion-group {
+	border: none;
+	border-bottom: 1px solid #e5e5e5;
+	border-radius: 0 0 0 0;
+	margin-bottom: 0;
+}
+.navLeft .accordion-heading {
+	text-decoration: none;
+}
+
+.navLeft .accordion-heading .accordion-toggle {
+	padding: 0 0 5px 20px;
+	text-decoration: none;
+}
+
+
+.navLeft>ul, .navLeft .accordion-inner {
+	padding: 0;
+}
+
+.navLeft .accordion-inner ul.nav-list {
+	margin: 0;
+	padding: 0;
+}
+
+.navLeft .accordion-inner ul.nav-list li {
+	text-indent: 0.6em;
+}
+
+
+.nav .accordion-inner .nav-list a {
+	text-indent: 1em;
+}
+
+.navLeft .nav-list>li>a {
+	margin: 0;
+	padding-right: 0;
+	padding-left: 20px;
+}
+
+
+.static-loader {
+	margin-left: 30px;
+}
+
+.step-content {
+	border: 1px solid #D4D4D4;
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+
+.entInfo  form{ 
+	width:100%;
+}
+
+.entInfo input{
+	width:50%
+}
+.entInfo .short{ 
+	width:8%;
+}
+.entInfo .medium{
+ width:15%;
+}
+
+.addDepart table{
+	border: 1px solid #000;
+}
+.addDepart td{
+	border: 1px solid #000;
+}
+.addDepart td textarea{ 
+	width:90%;
+}
+.addDepart .note{ 
+	font-size:12px;
+}
+.addDepart .next-prev{ 
+	text-align:center;
+}
+
+
+
+
+
+

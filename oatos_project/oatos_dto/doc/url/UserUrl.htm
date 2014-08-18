@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>同事REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#添加企业用户">添加企业用户</a></li>
+					<li><a href="#用户导入">用户导入</a></li>
+					<li><a href="#获取单个用户信息">获取单个用户信息</a></li>
+					<li><a href="#修改用户信息">修改用户信息</a></li>
+					<li><a href="#批量修改用户信息">批量修改用户信息</a></li>
+					<li><a href="#修改员工信息和登录密码">修改员工信息和登录密码</a></li>
+					<li><a href="#取某用户的在线状态">取某用户的在线状态</a></li>
+					<li><a href="#取在线同事(基本信息)">取在线同事(基本信息)</a></li>
+					<li><a href="#统计企业在线用户数">统计企业在线用户数</a></li>
+					<li><a href="#按企业id取企业用户，包含角色信息">按企业id取企业用户，包含角色信息</a></li>
+					<li><a href="#删除企业员工">删除企业员工</a></li>
+					<li><a href="#获取所有同事的在线状态">获取所有同事的在线状态</a></li>
+					<li><a href="#按企业id取企业用户，不包括状态及角色">按企业id取企业用户，不包括状态及角色</a></li>
+					<li><a href="#按企业id取企业部门和成员，不包括角色和状态">按企业id取企业部门和成员，不包括角色和状态</a></li>
+					<li><a href="#按企业id取企业部门和成员，包含角色，不包含状态">按企业id取企业部门和成员，包含角色，不包含状态</a></li>
+					<li><a href="#按用户id取企业部门和成员,包含在线状态，不包含角色信息">按用户id取企业部门和成员,包含在线状态，不包含角色信息</a></li>
+					<li><a href="#取在线用户和离线用户ID">取在线用户和离线用户ID</a></li>
+					<li><a href="#修改用户头像">修改用户头像</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="添加企业用户"></a>添加企业用户</p>
+				<p><span>请求地址:</span>"/sc/ent/addEnterpriseUser"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseUserDTO.htm">EnterpriseUserDTO</a> 企业员工DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>userId 用户的ID</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorCheckHashkey数据未通过安全验证</li>
+							<li>errorEnterpriseNotExist企业不存在</li>
+							<li>errorUserNoOver用户数已经用完</li>
+							<li>errorPayExpired购买的用户已经过期</li>
+							<li>errorEmployeeAlreadyExist用户名已经存在</li>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="用户导入"></a>用户导入</p>
+				<p><span>请求地址:</span>"/sc/ent/addEnterpriseUserList"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserImportSaveDTO.htm">UserImportSaveDTO</a> 用户导入DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorCheckHashkey数据未通过安全验证</li>
+							<li>errorEnterpriseNotExist企业不存在</li>
+							<li>errorUserNoOver用户数已经用完</li>
+							<li>errorPayExpired购买的用户已经过期</li>
+							<li>errorEmployeeAlreadyExist用户名已经存在</li>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取单个用户信息"></a>获取单个用户信息</p>
+				<p><span>请求地址:</span>"/sc/login/getUserProfile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfoDTO.htm">UserInfoDTO</a> 用户信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改用户信息"></a>修改用户信息</p>
+				<p><span>请求地址:</span>"/sc/login/updateUserProfile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfoDTO.htm">UserInfoDTO</a> 用户信息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="批量修改用户信息"></a>批量修改用户信息</p>
+				<p><span>请求地址:</span>"/sc/login/updateUsers"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfosDTO.htm">UserInfosDTO</a> 用户信息list DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改员工信息和登录密码"></a>修改员工信息和登录密码</p>
+				<p><span>请求地址:</span>"/sc/ent/updateEnterpriseUserAndPassword"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfoDTO.htm">UserInfoDTO</a> 用户信息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取某用户的在线状态"></a>取某用户的在线状态</p>
+				<p><span>请求地址:</span>"/sc/login/getUserStatus"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/UserStatus.htm#Logout">UserStatus.Logout</a> 退出</li>
+							<li><a href="../status/UserStatus.htm#Busy">UserStatus.Busy</a> 忙碌</li>
+							<li><a href="../status/UserStatus.htm#Corbet">UserStatus.Corbet</a>隐身</li>
+							<li><a href="../status/UserStatus.htm#Leave">UserStatus.Leave</a>离开</li>
+							<li><a href="../status/UserStatus.htm#Offline">UserStatus.Offline</a> 不在线</li>
+							<li><a href="../status/UserStatus.htm#Online">UserStatus.Online</a> 在线</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取在线同事(基本信息)"></a>取在线同事(基本信息)</p>
+				<p><span>请求地址:</span>"/sc/login/getOnlineBuddyAndColleague"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/SimpleUserInfosDTO.htm">SimpleUserInfosDTO</a>用户基本信息list DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="统计企业在线用户数"></a>统计企业在线用户数</p>
+				<p><span>请求地址:</span>"/pub/statisticalUser"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>无</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>企业Id,在线用户数</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业id取企业用户，包含角色信息"></a>按企业id取企业用户，包含角色信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getEnterpriseUserList"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfosDTO.htm">UserInfosDTO</a>用户信息list DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除企业员工"></a>删除企业员工</p>
+				<p><span>请求地址:</span>"/sc/ent/deleteEnterpriseUsers"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfosDTO.htm">UserInfosDTO</a> 用户信息list DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取所有同事的在线状态"></a>获取所有同事的在线状态</p>
+				<p><span>请求地址:</span>"/sc/ent/getEmployeesStatus"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserStatusesDTO.htm">UserStatusesDTO</a> 用户状态list DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业id取企业用户，不包括状态及角色"></a>按企业id取企业用户，不包括状态及角色</p>
+				<p><span>请求地址:</span>"/sc/ent/getEmployeesByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfosDTO.htm">UserInfosDTO</a> 用户信息list DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业id取企业部门和成员，不包括角色和状态"></a>按企业id取企业部门和成员，不包括角色和状态</p>
+				<p><span>请求地址:</span>"/sc/ent/getDepartmentAndUserByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentAndUserDTO.htm">DepartmentAndUserDTO</a>企业部门和用户 DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业id取企业部门和成员，包含角色，不包含状态"></a>按企业id取企业部门和成员，包含角色，不包含状态</p>
+				<p><span>请求地址:</span>"/sc/ent/getDepartmentAndUserWithRolesByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentAndUserDTO.htm">DepartmentAndUserDTO</a>企业部门和用户 DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户id取企业部门和成员,包含在线状态，不包含角色信息"></a>按用户id取企业部门和成员,包含在线状态，不包含角色信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getDepartmentAndUserWithStatusByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentAndUserDTO.htm">DepartmentAndUserDTO</a>企业部门和用户 DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取在线用户和离线用户ID"></a>取在线用户和离线用户ID</p>
+				<p><span>请求地址:</span>"/pub/ent/getAllUserIds"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>无</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfoCategoryDTO.htm">UserInfoCategoryDTO</a> 用户信息分类DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改用户头像"></a>修改用户头像</p>
+				<p><span>请求地址:</span>"/sc/user/changeUserIcon"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserIconDTO.htm">UserIconDTO</a>的JSON：用户头像修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：修改成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

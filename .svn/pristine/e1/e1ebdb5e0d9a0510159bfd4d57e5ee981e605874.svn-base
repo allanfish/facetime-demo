@@ -1,0 +1,11 @@
+ul {
+	list-style-type:decimal;
+}
+ul li {
+	height: 30px;
+}
+
+.main {
+	margin-top: 50px;
+	margin-left: 50px;
+}

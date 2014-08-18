@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>发送邮件REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#发送邮件">发送邮件</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="发送邮件"></a>发送邮件</p>
+				<p><span>请求地址:</span>"/sc/mail/sendMail"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/MailDTO.htm">MailDTO</a> 邮件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

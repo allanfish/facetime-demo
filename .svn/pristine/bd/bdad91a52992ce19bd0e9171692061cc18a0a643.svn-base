@@ -1,0 +1,6 @@
+<div class="row-fluid">
+	<div class="span4" id="content-left"></div>
+	<div class="span8" id="content-right"></div>
+	<!--/span8-->
+</div>
+<!--/row-->

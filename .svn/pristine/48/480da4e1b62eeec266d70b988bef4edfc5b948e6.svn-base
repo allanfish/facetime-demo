@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>P2PREST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#取p2p的key">取p2p的key</a></li>
+					<li><a href="#保存p2p的key">保存p2p的key</a></li>
+					<li><a href="#得到用户的通话状态">得到用户的通话状态</a></li>
+					<li><a href="#修改用户的通话状态">修改用户的通话状态</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="取p2p的key"></a>取p2p的key</p>
+				<p><span>请求地址:</span>"/sc/flash/GetFriendIdentityKey"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>entId企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>p2p key</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorUserIsOffline 用户离线</li>
+				</ul>
+				<p class="p-fun"><a name="保存p2p的key"></a>保存p2p的key</p>
+				<p><span>请求地址:</span>"/sc/flash/SetIdentityKey"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/P2pKeyDTO.htm">P2pKeyDTO</a> P2PKEYDTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorUserIsOffline 用户离线</li>
+				</ul>
+				<p class="p-fun"><a name="得到用户的通话状态"></a>得到用户的通话状态</p>
+				<p><span>请求地址:</span>"/sc/flash/GetCallStatus"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户的ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CallStatus.htm#Offline">CallStatus.Offline</a>离线</li>
+							<li><a href="../status/CallStatus.htm#Busy">CallStatus.Busy</a> 忙碌</li>
+							<li><a href="../status/CallStatus.htm#Free">CallStatus.Free</a> 空闲</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改用户的通话状态"></a>修改用户的通话状态</p>
+				<p><span>请求地址:</span>"/sc/flash/SetCallStatus/"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/UserStatusDTO.htm">UserStatusDTO</a> 用户状态DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorUserIsOffline 用户离线</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

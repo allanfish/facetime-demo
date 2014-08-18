@@ -1,0 +1,16 @@
+/target
+/checkstyle.xml
+/.settings
+/.classpath
+/.fbprefs
+/.pmd
+/.project
+/.springBeans
+/release.properties
+/.checkstyle
+/pom.xml.releaseBackup
+/fbfilter.xml
+/.idea
+/jappstart-web.iml
+/.DS_Store
+/src/.DS_Store

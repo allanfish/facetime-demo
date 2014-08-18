@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.EntModuleMapper">
+
+	<resultMap id="EntModuleResultMap" type="EntModule">
+		<id property="id" column="id" />
+		<result property="entId" column="ent_id" />
+		<result property="colleagueStatus" column="colleague_status" />
+		<result property="personalDiskStatus" column="personal_disk_status" />
+		<result property="enterpriseDiskStatus" column="enterprise_disk_status" />
+		<result property="conferenceStatus" column="conference_status" />
+		<result property="officeStatus" column="office_status" />
+		<result property="mailStatus" column="mail_status" />
+		<result property="enhanceStatus" column="enhance_status" />
+		<result property="csStatus" column="cs_status" />
+		<result property="userAddStatus" column="user_add_status" />
+		<result property="createDate" column="create_date" />
+	</resultMap>
+
+	<sql id="entModuleSelectSql">
+		SELECT id, ent_id, colleague_status, personal_disk_status,
+		enterprise_disk_status, conference_status, office_status,
+		mail_status,
+		enhance_status,
+		create_date,cs_status,user_add_status 
+	</sql>
+
+	<sql id="entModuleInsertSql">
+		insert into ent_module(id, ent_id, colleague_status,
+		personal_disk_status,
+		enterprise_disk_status, conference_status,
+		office_status,
+		mail_status, enhance_status,
+		create_date,cs_status,user_add_status )
+	</sql>
+	<sql id="entModuleValueSql">
+		values(#{id}, #{entId}, #{colleagueStatus},
+		#{personalDiskStatus}, #{enterpriseDiskStatus}, #{conferenceStatus},
+		#{officeStatus}, #{mailStatus}, #{enhanceStatus},
+		#{createDate}, #{csStatus}, #{userAddStatus})
+	</sql>
+	<sql id="entModuleUpdateColsSql">
+		colleague_status = #{colleagueStatus},
+		personal_disk_status=#{personalDiskStatus},
+		enterprise_disk_status=#{enterpriseDiskStatus},
+		conference_status=#{conferenceStatus}, office_status=#{officeStatus},
+		mail_status=#{mailStatus}, enhance_status=#{enhanceStatus},
+		cs_status = #{csStatus},
+		user_add_status = #{userAddStatus}
+	</sql>
+
+	<insert id="addEntModule" parameterType="EntModule">
+		<include refid="entModuleInsertSql" />
+		<include refid="entModuleValueSql" />
+	</insert>
+
+	<select id="getEntModuleByEntId" parameterType="long"
+		resultMap="EntModuleResultMap">
+		<include refid="entModuleSelectSql" />
+		from ent_module
+		where ent_id = #{entId}
+	</select>
+
+
+	<update id="updateEntModule" parameterType="EntModule">
+		update ent_module
+		set <include refid="entModuleUpdateColsSql"/>
+		where id = #{id}
+	</update>
+</mapper>

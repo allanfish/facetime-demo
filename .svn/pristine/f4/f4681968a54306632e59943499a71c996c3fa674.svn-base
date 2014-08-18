@@ -1,0 +1,40 @@
+.main {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+.div-field {
+	margin:10px 0 0 0;
+} 
+.div-field ul {
+	width:920px;
+	list-style:none;
+} 
+.div-field li {
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	float:left;
+	width:302px;
+	height:33px;
+	text-align:center;
+	line-height:33px;
+	color:#003399;
+} 
+.div-field li.b {
+	border-bottom:1px solid #ccc;
+} 
+.div-field li.r {
+	border-right:1px solid #ccc;
+}
+
+.enum {
+	float:left;
+	margin:10px 0 0 0;
+	width: 1500px;
+}
+.enum-fie p {
+	margin-left: 30px;
+	color: #003399;
+}
+.enum-fie p span {
+	font-weight: bold;
+}

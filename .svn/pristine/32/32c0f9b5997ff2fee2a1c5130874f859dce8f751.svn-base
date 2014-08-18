@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>oatos-server</artifactId>
+		<groupId>com.qycloud.oatos</groupId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>server</artifactId>
+	<packaging>war</packaging>
+	<name>server</name>
+
+	<properties>
+		<build.dir>${basedir}/target/classes</build.dir>
+		<project-lib>${project.build.directory}/${project.build.finalName}</project-lib>
+		<classes.original>${project.build.directory}/classes_original</classes.original>
+		<server.out>${project.build.directory}/server_out</server.out>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>proficio-repository</id>
+			<name>Proficio Repository</name>
+			<url>scp://192.168.1.54/opt/tomcat/default/webapp</url>
+		</repository>
+	</distributionManagement>
+
+	<dependencies>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.simple-spring-memcached</groupId>
+			<artifactId>spymemcached</artifactId>
+			<version>2.8.4</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<finalName>server</finalName>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>property/*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/**/*.xml</include>
+					<include>property/*.html</include>
+				</includes>
+			</resource>
+		</resources>
+		<!-- plugins -->
+		<plugins>
+			<!-- update oatos-server.pro -->
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.0</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<configuration>
+							<ignoreMissingFile>true</ignoreMissingFile>
+							<file>oatos-server.pro</file>
+							<outputFile>oatos-server-real.pro</outputFile>
+							<regex>false</regex>
+							<replacements>
+								<replacement>
+									<token>inputjar</token>
+									<value>target/server.jar</value>
+								</replacement>
+								<replacement>
+									<token>outputjar</token>
+									<value>target/server_out.jar</value>
+								</replacement>
+								<replacement>
+									<token>javahome</token>
+									<value>${java.home}</value>
+								</replacement>
+								<replacement>
+									<token>mavendir</token>
+									<value>${user.home}/.m2/repository</value>
+								</replacement>
+								<replacement>
+									<token>print.mapping.dir</token>
+									<value>${basedir}/../log/proguard-oatos-server-mapping.txt</value>
+								</replacement>
+							</replacements>
+						</configuration>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- tomcat-maven -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://192.168.1.68:8080/manager</url>
+					<username>admin</username>
+					<password>admin</password>
+					<path>/server</path>
+
+				</configuration>
+			</plugin>
+
+			<!-- maven-antrun-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>proguard</id>
+						<phase>prepare-package</phase>
+						<configuration>
+							<target>
+								<jar destfile="${basedir}/target/server.jar" basedir="${build.dir}" excludes="**/Test.class"/>
+								<taskdef resource="proguard/ant/task.properties" classpath="${project.basedir}/../proguard/proguard.jar" />
+								<proguard configuration="oatos-server-real.pro" />
+
+								<delete dir="${server.out}" />
+								<delete dir="${project.build.dir}/" />
+								<delete dir="${classes.original}" />
+								<mkdir dir="${server.out}" />
+								<mkdir dir="${classes.original}" />
+
+								<unjar src="${server.out}.jar" dest="${server.out}">
+									<patternset>
+										<include name="**/**" />
+									</patternset>
+								</unjar>
+
+								<copy todir="${classes.original}">
+									<fileset dir="${build.dir}" includes="**/**/*" />
+									<fileset dir="${build.dir}" includes="property/*.html" />
+								</copy>
+
+								<delete includeemptydirs="true">
+									<fileset dir="${build.dir}" includes="**/**/*.class" />
+								</delete>
+
+								<copy todir="${build.dir}">
+									<fileset dir="${server.out}" includes="**/**" />
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>clean-classpath</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<delete dir="${build.dir}"></delete>
+								<mkdir dir="${build.dir}"></mkdir>
+
+								<copy todir="${build.dir}">
+									<fileset dir="${classes.original}" includes="**/**"></fileset>
+								</copy>
+								<delete file="${server.out}.jar"></delete>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>delete-jars</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<delete includeemptydirs="true">
+									<fileset dir="${project-lib}"
+										includes="
+									WEB-INF/lib/activation*.jar,
+									WEB-INF/lib/aopalliance*.jar,
+									WEB-INF/lib/commons*.jar,
+									WEB-INF/lib/http*.jar,
+									WEB-INF/lib/jackson*.jar,
+									WEB-INF/lib/log4j*.jar,
+									WEB-INF/lib/mail*.jar,
+									WEB-INF/lib/mybatis*.jar,
+									WEB-INF/lib/mysql*.jar,
+									WEB-INF/lib/spring*.jar
+									" />
+								</delete>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- maven-war-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<version>2.1.1</version>
+					<classifier>${profileId}</classifier>
+					<packagingExcludes>
+						WEB-INF/lib/activation*.jar,
+						WEB-INF/lib/aopalliance*.jar,
+						WEB-INF/lib/commons*.jar,
+						WEB-INF/lib/http*.jar,
+						WEB-INF/lib/jackson*.jar,
+						WEB-INF/lib/log4j*.jar,
+						WEB-INF/lib/mail*.jar,
+						WEB-INF/lib/mybatis*.jar,
+						WEB-INF/lib/mysql*.jar,
+						WEB-INF/lib/spring*.jar
+					</packagingExcludes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

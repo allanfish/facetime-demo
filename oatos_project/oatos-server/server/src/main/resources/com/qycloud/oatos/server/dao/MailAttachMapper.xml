@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.MailAttachMapper">
+
+	<resultMap id="MailAttachResultMap" type="MailAttach">
+		<id property="attachId" column="attach_id" />
+		<result property="mailId" column="mail_id" />
+		<result property="fileId" column="file_id" />
+		<result property="contentId" column="content_id" />
+		<result property="mimeType" column="mime_type" />
+		<result property="fileName" column="file_name" />
+		<result property="size" column="size" />
+	</resultMap>
+
+	<sql id="mailAttachSelectSql">
+		SELECT attach_id, mail_id, file_id, content_id, mime_type, file_name,size
+	</sql>
+	<sql id="mailAttachInsertSql">
+		INSERT INTO mail_attach(attach_id, mail_id, file_id, content_id, mime_type, file_name, size)
+	</sql>
+
+	<insert id="addAttach" parameterType="MailAttach">
+		<include refid="mailAttachInsertSql" />
+		VALUES(#{attachId}, #{mailId}, #{fileId}, #{contentId}, #{mimeType}, #{fileName}, #{size})
+	</insert>
+
+	<insert id="addAttaches" >
+		<include refid="mailAttachInsertSql" />
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.attachId}, #{item.mailId}, #{item.fileId}, #{item.contentId}, #{item.mimeType}, #{item.fileName}, #{item.size})
+		</foreach>
+	</insert>
+
+	<select id="getAttachByMailId" parameterType="long" resultMap="MailAttachResultMap">
+		<include refid="mailAttachSelectSql" />
+		FROM mail_attach WHERE mail_id = #{mailId}
+	</select>
+	<update id="updateFileId" parameterType="map">
+		UPDATE mail_attach set file_id = #{fileId} WHERE attach_id = #{attachId}
+	</update>
+	<select id="getMailAttachById" parameterType="long" resultMap="MailAttachResultMap">
+		<include refid="mailAttachSelectSql" />
+		FROM mail_attach WHERE attach_id = #{attachId}
+	</select>
+</mapper>

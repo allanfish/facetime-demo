@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>企业REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#企业注册服务">企业注册服务</a></li>
+					<li><a href="#获取一个客户ID">获取一个客户ID</a></li>
+					<li><a href="#获取客服的信息">获取客服的信息</a></li>
+					<li><a href="#判断企业名称是否已经注册过，注册过的返回 true。">判断企业名称是否已经注册过，注册过的返回 true。</a></li>
+					<li><a href="#批量新建部门">批量新建部门</a></li>
+					<li><a href="#更新部门的排序Level">更新部门的排序Level</a></li>
+					<li><a href="#获取企业所有部门的信息">获取企业所有部门的信息</a></li>
+					<li><a href="#获取企业信息">获取企业信息</a></li>
+					<li><a href="#获取部门信息">获取部门信息</a></li>
+					<li><a href="#修改部门信息">修改部门信息</a></li>
+					<li><a href="#删除部门">删除部门</a></li>
+					<li><a href="#修改企业信息">修改企业信息</a></li>
+					<li><a href="#插入 ProductKey(此方法已废弃)">插入 ProductKey(此方法已废弃)</a></li>
+					<li><a href="#获取免费的产品号">获取免费的产品号</a></li>
+					<li><a href="#修改企业产品序列号">修改企业产品序列号</a></li>
+					<li><a href="#判断企业产品序列号激活状态">判断企业产品序列号激活状态</a></li>
+					<li><a href="#获取下载速度限制">获取下载速度限制</a></li>
+					<li><a href="#新建部门">新建部门</a></li>
+					<li><a href="#获取企业管理员登录后初始信息">获取企业管理员登录后初始信息</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="企业注册服务"></a>企业注册服务</p>
+				<p><span>请求地址:</span>"/pub/ent/admin/registerEnterprise"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseDTO.htm">EnterpriseDTO</a> 企业信息 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+							<li>errorInvalidProductKey 无效的产品序列号</li>
+							<li>errorEnterpriseAlreadyExist 企业已经存在</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取一个客户ID"></a>获取一个客户ID</p>
+				<p><span>请求地址:</span>"/pub/ent/getCustomerId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/CustomerDTO.htm">CustomerDTO</a> 临时客户DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>token 用户令牌</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取客服的信息"></a>获取客服的信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getCustomerSerivceInfo"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>enterpriseId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserInfoDTO.htm">UserInfoDTO</a> 用户信息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="判断企业名称是否已经注册过，注册过的返回 true。"></a>判断企业名称是否已经注册过，注册过的返回 true。</p>
+				<p><span>请求地址:</span>"/pub/ent/existEnterprise"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>entName 企业名字</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a></li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="批量新建部门"></a>批量新建部门</p>
+				<p><span>请求地址:</span>"/sc/ent/addDepartments"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentsDTO.htm">DepartmentsDTO</a> 部门 list DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorEnterpriseNotExist 企业不存在</li>
+				</ul>
+				<p class="p-fun"><a name="更新部门的排序Level"></a>更新部门的排序Level</p>
+				<p><span>请求地址:</span>"/sc/ent/updateDepartmentsLevel"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentsDTO.htm">DepartmentsDTO</a> 部门 list DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取企业所有部门的信息"></a>获取企业所有部门的信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getDepartments"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>entpriseId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentsDTO.htm">DepartmentsDTO</a> 部门 list DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取企业信息"></a>获取企业信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getEnterprise"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>enterpriseId 企业的ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseDTO.htm">EnterpriseDTO</a>企业信息 DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取部门信息"></a>获取部门信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getDepartment"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>departmentId 部门的ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentDTO.htm">DepartmentDTO</a>部门DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改部门信息"></a>修改部门信息</p>
+				<p><span>请求地址:</span>"/sc/ent/updateDepartment"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentDTO.htm">DepartmentDTO</a> 部门DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a></li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除部门"></a>删除部门</p>
+				<p><span>请求地址:</span>"/sc/ent/deleteDepartment"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentDTO.htm">DepartmentDTO</a> 部门 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+							<li>errorDeleteDepartUserExist 当员工存在时，删除部门失败</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500:服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业信息"></a>修改企业信息</p>
+				<p><span>请求地址:</span>"/sc/ent/updateEnterprise"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseDTO.htm">EnterpriseDTO</a> 企业信息 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a></li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="插入 ProductKey(此方法已废弃)"></a>插入 ProductKey(此方法已废弃)</p>
+				<p><span>请求地址:</span>"/sc/ent/generatorProductKey"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>sales</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a></li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取免费的产品号"></a>获取免费的产品号</p>
+				<p><span>请求地址:</span>"/pub/ent/getFreeProductKey"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>无</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>无</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业产品序列号"></a>修改企业产品序列号</p>
+				<p><span>请求地址:</span>"/sc/ent/registerProductKey"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/EnterpriseDTO.htm">EnterpriseDTO</a> 企业信息 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>errorInvalidProductKey 无效的产品序列号</li>
+							<li>errorProductKeyFree 免费的产品key</li>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500:服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="判断企业产品序列号激活状态"></a>判断企业产品序列号激活状态</p>
+				<p><span>请求地址:</span>"/sc/ent/checkProductKey"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>entId 企业的ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>errorInvalidProductKey 无效的产品序列号</li>
+							<li>errorProductKeyFree 免费的产品key</li>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500:服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取下载速度限制"></a>获取下载速度限制</p>
+				<p><span>请求地址:</span>"/sc/ent/getUploadLimit"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/LimitDTO.htm">LimitDTO</a> 上传下载限制 DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500:服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="新建部门"></a>新建部门</p>
+				<p><span>请求地址:</span>"/sc/ent/addDepartment"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentDTO.htm">DepartmentDTO</a> 部门 DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/DepartmentDTO.htm">DepartmentDTO</a> 部门DTO</li>
+							<li>errorSameName 相同的名字</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500:服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取企业管理员登录后初始信息"></a>获取企业管理员登录后初始信息</p>
+				<p><span>请求地址:</span>"/sc/ent/getAdminData"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>token 令牌</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/AdminDataDTO.htm">AdminDataDTO</a> 企业管理员登录后，取初始化数据DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500:服务器内部错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>消息REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#取未读消息">取未读消息</a></li>
+					<li><a href="#处理消息，消息设为已读">处理消息，消息设为已读</a></li>
+					<li><a href="#根据发送者及消息类型取消息记录">根据发送者及消息类型取消息记录</a></li>
+					<li><a href="#保存消息至数据库">保存消息至数据库</a></li>
+					<li><a href="#分页取聊天历史记录">分页取聊天历史记录</a></li>
+					<li><a href="#批量保存消息至数据库">批量保存消息至数据库</a></li>
+					<li><a href="#保存系统消息">保存系统消息</a></li>
+					<li><a href="#取企业信息记录">取企业信息记录</a></li>
+					<li><a href="#判断是否有未读消息">判断是否有未读消息</a></li>
+					<li><a href="#返回未读的系统消息">返回未读的系统消息</a></li>
+					<li><a href="#获取有离线消息用户的ios设备标志">获取有离线消息用户的ios设备标志</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="取未读消息"></a>取未读消息</p>
+				<p><span>请求地址:</span>"/sc/message/getOfflineMessage"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/MessagesDTO.htm">MessagesDTO</a>消息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="处理消息，消息设为已读"></a>处理消息，消息设为已读</p>
+				<p><span>请求地址:</span>"/sc/message/confirmMessage"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/MessageDTO.htm">MessageDTO</a>消息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="根据发送者及消息类型取消息记录"></a>根据发送者及消息类型取消息记录</p>
+				<p><span>请求地址:</span>"/sc/message/getMessageRecord"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/MessagesDTO.htm">MessagesDTO</a>消息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="保存消息至数据库"></a>保存消息至数据库</p>
+				<p><span>请求地址:</span>"/sc/message/sendMessage"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/MessageDTO.htm">MessageDTO</a>消息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="分页取聊天历史记录"></a>分页取聊天历史记录</p>
+				<p><span>请求地址:</span>"/sc/message/getChatHistory"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/MessagesDTO.htm">MessagesDTO</a>消息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="批量保存消息至数据库"></a>批量保存消息至数据库</p>
+				<p><span>请求地址:</span>"/sc/message/saveMessages"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/MessageDTO.htm">MessageDTO</a>消息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="保存系统消息"></a>保存系统消息</p>
+				<p><span>请求地址:</span>"/pub/message/saveSysMsgs"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/MessageDTO.htm">MessageDTO</a>消息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业信息记录"></a>取企业信息记录</p>
+				<p><span>请求地址:</span>"/sc/message/getEntRecord"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/MessageDTO.htm">MessageDTO</a>消息DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/MessagesDTO.htm">MessagesDTO</a>消息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="判断是否有未读消息"></a>判断是否有未读消息</p>
+				<p><span>请求地址:</span>"/sc/message/isExistUnreadMessage"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId 用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>未读邮件数目</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="返回未读的系统消息"></a>返回未读的系统消息</p>
+				<p><span>请求地址:</span>"/pub/message/getUnsendSysMsg"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>无</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/SysMsgDTO.htm">SysMsgDTO</a> 系统消息listDT</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取有离线消息用户的ios设备标志"></a>获取有离线消息用户的ios设备标志</p>
+				<p><span>请求地址:</span>"/pub/message/checkEntDiskSize"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li></li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/UserDeviceTokensDTO.htm">UserDeviceTokensDTO</a>：用户ios设备标志list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

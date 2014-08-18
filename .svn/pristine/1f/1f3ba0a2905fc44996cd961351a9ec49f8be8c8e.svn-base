@@ -1,0 +1,317 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.qycloud.oatos</groupId>
+		<artifactId>web_client</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>os</artifactId>
+	<packaging>war</packaging>
+	<name>os</name>
+
+	<properties>
+		<P2PServer>192.168.1.70:1935/multicast</P2PServer>
+		<RED5Server>192.168.1.70:1935/live</RED5Server>
+		<RED5Server2>192.168.1.70:1935/live</RED5Server2>
+
+		<CacheDiskPath>D:/var/udata/cache/</CacheDiskPath>
+	</properties>
+
+	<build>
+		<finalName>os</finalName>
+		<outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>property/*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>property/*.properties</exclude>
+				</excludes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!--maven-war-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<version>2.1.1</version>
+					<packagingExcludes>
+						**/temp/**,
+						**/http*.jar,
+						**/jstl*.jar,
+						**/standard*.jar,
+						**/commons*.jar,
+						**/spring-*.jar,
+						**/jackson*.jar,
+						**/log4j*.jar,
+						**/activation*.jar,
+						**/mail*.jar,
+						**/active*.jar,
+						**/aopalliance*.jar,
+						**/camel*.jar,
+						**/icu4j*.jar
+					</packagingExcludes>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/web.xml</include>
+								<include>mobile/version.xml</include>
+								<include>mobile/OatosIOS.html</include>
+								<include>mobile/OatosClient.plist</include>
+								<include>config/config.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+
+			<!--replacer 更新版本 -->
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.0</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<file>src/main/webapp/frags/version.html</file>
+					<replacements>
+						<replacement>
+							<token>\d{12}</token>
+							<value>${maven.build.timestamp}</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+
+			<!-- maven-antrun-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<!-- rename web.xml -->
+					<execution>
+						<id>rename-webXml</id>
+						<phase>prepare-package</phase>
+						<configuration>
+							<target>
+								<!-- <move file="${webapp}/WEB-INF/web.xml" tofile="${webapp}/WEB-INF/web-local.xml"></move> <move file="${webapp}/WEB-INF/web-deploy.xml" 
+									tofile="${webapp}/WEB-INF/web.xml"></move> -->
+
+								<!-- <move file="${webapp}/config/config.xml" tofile="${webapp}/config/config-local.xml"></move> <move file="${webapp}/config/config-deploy.xml" 
+									tofile="${webapp}/config/config.xml"></move> -->
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>restore-webXml</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<!-- <move file="${webapp}/WEB-INF/web.xml" tofile="${webapp}/WEB-INF/web-deploy.xml"></move> <move file="${webapp}/WEB-INF/web-local.xml" 
+									tofile="${webapp}/WEB-INF/web.xml"></move> <move file="${webapp}/config/config.xml" tofile="${webapp}/config/config-deploy.xml"></move> 
+									<move file="${webapp}/config/config-local.xml" tofile="${webapp}/config/config.xml"></move> -->
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	
+
+	<dependencies>
+		<dependency>
+			<groupId>com.notnoop.apns</groupId>
+			<artifactId>apns</artifactId>
+			<version>0.2.4</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/java-apns-0.2.4.jar</systemPath>
+		</dependency>
+		<!-- dto -->
+		<dependency>
+			<groupId>com.conlect.oatos</groupId>
+			<artifactId>dto</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>de.innosystec.unrar</groupId>
+			<artifactId>unrar</artifactId>
+			<version>1.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/java-unrar.jar</systemPath>
+		</dependency>
+		<!-- ///// commmons jar //////////// -->
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.8.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<!-- active mq -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+			<version>5.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+			<version>5.4.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all-server</artifactId>
+			<version>8.1.2.v20120308</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.patchca</groupId>
+			<artifactId>patchca</artifactId>
+			<version>0.5.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/patchca-0.5.0.jar
+			</systemPath>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.unitils</groupId>
+			<artifactId>unitils-spring</artifactId>
+			<version>3.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>4.1.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

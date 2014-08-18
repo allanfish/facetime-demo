@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.ConferenceMapper">
+
+	<resultMap id="ConferenceResultMap" type="Conference">
+		<id property="id" column="conference_id" />
+		<result property="theme" column="theme" />
+		<result property="content" column="content" />
+		<result property="startTime" column="start_time" />
+		<result property="length" column="length" />
+		<result property="status" column="status" />
+		<result property="createrId" column="creater_id" />
+		<result property="createrName" column="creater_name" />
+		<result property="createTime" column="create_time" />
+		<result property="enterpriseId" column="ent_id" />
+		<result property="record" column="record" />
+		<result property="type" column="conference_type" />
+	</resultMap>
+
+	<resultMap id="ConferenceMemberResultMap" type="ConferenceMember">
+		<result property="conferenceId" column="conference_id" />
+		<result property="userId" column="user_id" />
+		<result property="userName" column="name" />
+		<result property="userIcon" column="icon" />
+		<result property="status" column="status" />
+		<result property="inviteUserId" column="invite_user_id" />
+		<result property="inviteUserName" column="invite_user_name" />
+		<result property="inviteTime" column="invite_time" />
+	</resultMap>
+	
+	<insert id="addConference" parameterType="Conference">
+		INSERT INTO
+		conference(conference_id, theme, content, start_time, length, status, creater_id, creater_name, ent_id, create_time, record, conference_type)
+		VALUES(#{id}, #{theme}, #{content}, #{startTime}, #{length}, #{status}, #{createrId}, #{createrName}, #{enterpriseId}, now(), #{record}, #{type})
+	</insert>
+
+	<update id="updateConference" parameterType="Conference">
+		UPDATE conference SET
+			theme = #{theme},
+			content = #{content},
+			start_time = #{startTime},
+			length = #{length},
+			status = #{status},
+			record = #{record}
+		WHERE conference_id = #{id}
+	</update>
+
+	<select id="getConferenceByUserId" parameterType="long" resultMap="ConferenceResultMap">
+	<![CDATA[
+		SELECT cf.conference_id, cf.theme, cf.content, cf.start_time, cf.length, cf.status, cf.creater_id, cf.ent_id, cf.create_time, cf.creater_name, cf.record, cf.conference_type
+		FROM conference cf
+		WHERE cf.creater_id = #{userId}
+			OR EXISTS 
+				(SELECT * FROM conference_member cfm 
+					WHERE cf.conference_id = cfm.conference_id AND cfm.user_id = #{userId} AND cfm.status <> 'refused')
+		]]>
+    </select>
+
+	<insert id="addConferenceMembers">
+		INSERT INTO conference_member(conference_id, user_id, name, icon, status, invite_user_id, invite_user_name, invite_time)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.conferenceId}, #{item.userId}, #{item.userName}, #{item.userIcon}, #{item.status}, #{item.inviteUserId}, #{item.inviteUserName}, now())
+		</foreach>
+	</insert>
+
+	<update id="updateConferenceMember" parameterType="ConferenceMember">
+		UPDATE conference_member SET
+			status = #{status}
+		WHERE conference_id = #{conferenceId} AND user_id = #{userId}
+	</update>
+	
+	<select id="getConferenceMembers" parameterType="long" resultMap="ConferenceMemberResultMap">
+	<![CDATA[
+		SELECT cm.conference_id, cm.user_id, cm.name, cm.icon, cm.status, cm.invite_user_id, cm.invite_user_name, cm.invite_time
+		FROM conference_member cm
+		WHERE cm.conference_id = #{conferenceId}
+		]]>
+    </select>
+
+	<delete id="deleteConferenceById" parameterType="long">
+		DELETE FROM conference WHERE conference_id = #{conferenceId};
+	</delete>
+
+	<select id="getConferenceById" parameterType="long" resultMap="ConferenceResultMap">
+		SELECT cf.conference_id, cf.theme, cf.content, cf.start_time, cf.length, cf.status, cf.creater_id, cf.ent_id, cf.create_time, cf.creater_name, cf.record, cf.conference_type
+		FROM conference cf
+		WHERE cf.conference_id = #{conferenceId}
+    </select>
+
+	<delete id="deleteConferenceMembers" parameterType="map">
+		DELETE FROM conference_member
+		WHERE conference_id = #{conferenceId} AND user_id IN
+		<foreach collection="members" item="item" index="index" open="(" separator="," close=")">
+			#{item.userId}
+		</foreach>
+	</delete>
+	
+	<select id="getConferenceMemberStatus" parameterType="map" resultType="String">
+	<![CDATA[
+		SELECT cm.status
+		FROM conference_member cm
+		WHERE cm.conference_id = #{conferenceId} AND cm.user_id = #{userId}
+		]]>
+    </select>
+
+	<select id="getConferenceMemberCount" parameterType="long" resultType="long">
+	<![CDATA[
+		SELECT IFNULL(COUNT(*), 0)
+		FROM conference_member cm
+		WHERE cm.conference_id = #{conferenceId} AND cm.status <> 'refused'
+		]]>
+    </select>
+
+	<select id="getUnconfirmedConferenceByUserId" parameterType="long" resultMap="ConferenceMemberResultMap">
+	<![CDATA[
+		SELECT cm.conference_id, cm.user_id, cm.name, cm.icon, cm.status, cm.invite_user_id, cm.invite_user_name, cm.invite_time
+		FROM conference_member cm
+		WHERE cm.user_id = #{userId} AND cm.status = 'invited'
+		]]>
+    </select>
+
+</mapper>
+

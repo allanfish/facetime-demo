@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>MailFolderDTO</h3>
+		<p><span>说明:</span>用户自定义的邮件文件夹</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>folderId</li>
+								<li>long</li>
+								<li class="r">文件夹ID</li>
+								<li>mailAccountId</li>
+								<li>long</li>
+								<li class="r">邮件帐户ID</li>
+								<li>parentFolderId</li>
+								<li>Long</li>
+								<li class="r">父文件夹ID</li>
+								<li>parentFolderUrl</li>
+								<li>String</li>
+								<li class="r">父文件夹url</li>
+								<li>name</li>
+								<li>String</li>
+								<li class="r">邮件名字</li>
+								<li>fullName</li>
+								<li>String</li>
+								<li class="r">邮件全名</li>
+								<li>urlName</li>
+								<li>String</li>
+								<li class="r">邮件url名字</li>
+								<li>unreadMsgCount</li>
+								<li>int</li>
+								<li class="r">未读消息个数</li>
+								<li>msgCount</li>
+								<li>int</li>
+								<li class="r">消息的字数</li>
+								<li>children</li>
+								<li>List&lt;<a href="MailFolderDTO.htm">MailFolderDTO</a>&gt;</li>
+								<li class="r">邮件文件夹DTO列表</li>
+								<li>mailList</li>
+								<li>List&lt;<a href="MailDTO.htm">MailDTO</a>&gt;</li>
+								<li class="r">邮件DTO列表</li>
+								<li class="b">latestReceiveDate</li>
+								<li class="b">Date</li>
+								<li class="b r">最新接受日期</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

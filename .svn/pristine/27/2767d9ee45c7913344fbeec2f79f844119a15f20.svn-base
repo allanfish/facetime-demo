@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>视频会议文档REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#浏览会议文档，将文档转成swf">浏览会议文档，将文档转成swf</a></li>
+					<li><a href="#从个人网盘选择添加会议文档">从个人网盘选择添加会议文档</a></li>
+					<li><a href="#从企业网盘选择添加会议文档">从企业网盘选择添加会议文档</a></li>
+					<li><a href="#删除视频会议文档">删除视频会议文档</a></li>
+					<li><a href="#删除视频会议">删除视频会议</a></li>
+					<li><a href="#创建视频会议">创建视频会议</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="浏览会议文档，将文档转成swf"></a>浏览会议文档，将文档转成swf</p>
+				<p><span>请求地址:</span>"/sc/file/viewConferenceDoc"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocDTO.htm">ConferenceDocDTO</a>的JSON：视频会议文档信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：
+	  转换成功，<a href="../dto/ViewFileResultDTO.htm#url">ViewFileResultDTO.url</a>为分段swf地址，
+	  <a href="../dto/ViewFileResultDTO.htm#pageCount">ViewFileResultDTO.pageCount</a>为文件页数</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#QUEUED">CommConstants.QUEUED</a>
+	  ：文档已加入等待队列，等待转换</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = <a href="../status/CommConstants.htm#ERROR_MARK">CommConstants.ERROR_MARK</a>
+	  ：文档转换失败</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorNotSupported：该文件不支持转成swf</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> =
+	  errorFileNotFound：文件不存在</li>
+							<li><a href="../dto/ViewFileResultDTO.htm#message">ViewFileResultDTO.message</a> = error500：系统错误</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="从个人网盘选择添加会议文档"></a>从个人网盘选择添加会议文档</p>
+				<p><span>请求地址:</span>"/sc/file/addConferenceDocFromPersonalDisk"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/PrepareFileAsConferenceDocDTO.htm">PrepareFileAsConferenceDocDTO</a>的JSON：选择个人网盘文件作为会议文档dto</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：添加成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="从企业网盘选择添加会议文档"></a>从企业网盘选择添加会议文档</p>
+				<p><span>请求地址:</span>"/sc/file/addConferenceDocFromEnterpriseDisk"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/PrepareShareFileAsConferenceDocDTO.htm">PrepareShareFileAsConferenceDocDTO</a>的JSON：选择企业网盘文件作为会议文档dto</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：添加成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除视频会议文档"></a>删除视频会议文档</p>
+				<p><span>请求地址:</span>"/sc/conference/deleteConferenceDocs"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferenceDocsDTO.htm">ConferenceDocsDTO</a>的JSON：视频会议文档list</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：删除成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除视频会议"></a>删除视频会议</p>
+				<p><span>请求地址:</span>"/sc/conference/deleteConference"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ConferencesDTO.htm">ConferencesDTO</a>的JSON：视频会议list</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：删除成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="创建视频会议"></a>创建视频会议</p>
+				<p><span>请求地址:</span>"/sc/conference/createConference"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/CreateConferenceDTO.htm">CreateConferenceDTO</a>的JSON：创建视频会议信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>新创建的会议id</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

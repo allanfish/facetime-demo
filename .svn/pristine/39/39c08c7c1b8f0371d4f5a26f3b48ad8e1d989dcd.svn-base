@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.ShareFileMapper">
+
+	<resultMap id="ShareFileResultMap" type="ShareFile">
+		<id property="fileId" column="file_id" />
+		<result property="folderId" column="folder_id" />
+		<result property="enterpriseId" column="ent_id" />
+		<result property="name" column="file_name" />
+		<result property="type" column="file_type" />
+		<result property="size" column="file_size" />
+		<result property="guid" column="file_guid" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="deleted" column="deleted" />
+		<result property="shareLinkId" column="link_id" />
+		<result property="thumb" column="thumb" />
+		<result property="remark" column="remark" />
+		<result property="version" column="version" />
+		<result property="createUserId" column="create_user_id" />
+		<result property="pageCount" column="page_count" />
+	</resultMap>
+
+	<sql id="SelectShareFileColumn">
+		SELECT file.file_id, file.folder_id, file.ent_id, file.file_name, file.file_type, file.file_size, file.file_guid, file.create_time, file.update_time, file.deleted, link.link_id, file.version, file.thumb, file.remark, file.create_user_id, file.page_count
+		FROM share_file file
+		LEFT JOIN share_link link ON file.file_id = link.file_id
+	</sql>
+
+	<insert id="addShareFile" parameterType="ShareFile">
+		INSERT INTO share_file (file_id, folder_id, ent_id, file_name, file_type, file_size, file_guid, create_time, update_time, thumb, remark, version, create_user_id) 
+		VALUES (#{fileId}, #{folderId}, #{enterpriseId}, #{name}, '', #{size}, #{guid}, #{createTime}, #{updateTime}, #{thumb}, #{remark}, #{version}, #{createUserId});
+	</insert>
+	
+	<update id="updateShareFile" parameterType="ShareFile">
+		UPDATE share_file 
+		SET  folder_id = #{folderId},
+		file_name = #{name},
+		file_size = #{size},
+		file_guid = #{guid},
+		deleted = #{deleted},
+		version = #{version},
+		thumb = #{thumb},
+		remark = #{remark},
+		update_time = #{updateTime}
+		WHERE file_id = #{fileId}
+	</update>
+
+	<update id="updateShareFiles">
+		insert into share_file (file_id, ent_id, folder_id, file_name, file_type, file_size, file_guid, thumb, remark, version, deleted, create_time, update_time)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.fileId}, #{item.enterpriseId}, #{item.folderId}, #{item.name}, #{item.type}, #{item.size}, #{item.guid}, #{item.thumb}, #{item.remark}, #{item.version}, #{item.deleted}, now(), #{item.updateTime})
+		</foreach>
+		on duplicate key update
+		folder_id = values(folder_id),
+		file_name = values(file_name),
+		file_size = values(file_size),
+		file_guid = values(file_guid),
+		thumb = values(thumb),
+		remark = values(remark),
+		version = values(version),
+		deleted = values(deleted),
+		update_time = values(update_time)
+	</update>
+	
+	<update id="deleteShareFile" parameterType="ShareFile">
+		UPDATE share_file SET
+			version = #{version}, deleted = -1, update_time = now()
+		WHERE file_id = #{fileId}
+	</update>
+
+	<update id="deleteShareFiles">
+		insert into share_file (file_id, ent_id, folder_id, file_name, file_type, file_size, file_guid, thumb, remark, version, deleted, create_time, update_time)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.fileId}, #{item.enterpriseId}, #{item.folderId}, #{item.name}, #{item.type}, #{item.size}, #{item.guid}, #{item.thumb}, #{item.remark}, #{item.version}, -1, now(), #{item.updateTime})
+		</foreach>
+		on duplicate key update
+		version = values(version),
+		deleted = -1,
+		update_time = values(update_time)
+	</update>
+
+	<select id="getShareFileById" parameterType="long" resultMap="ShareFileResultMap">
+		<include refid="SelectShareFileColumn"/>
+		WHERE file.file_id = #{fileId}
+	</select>
+	
+	<select id="getShareFilesByEntId" parameterType="long" resultMap="ShareFileResultMap">
+		<include refid="SelectShareFileColumn"/>
+		WHERE file.ent_id = #{entId} AND file.deleted = 0
+	</select>
+
+	<select id="getSameShareFile" parameterType="ShareFile" resultMap="ShareFileResultMap">
+		<include refid="SelectShareFileColumn"/>
+		WHERE file.ent_id = #{enterpriseId} AND file.file_name = #{name} AND file.deleted = 0
+		<if test="fileId != null">
+			<![CDATA[AND file.file_id <> #{fileId}]]>
+		</if>
+		<choose>
+			<when test="folderId != null">
+				AND file.folder_id = #{folderId}
+			</when>
+			<otherwise>
+				AND file.folder_id IS NULL
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="getShareFilesByFolderId" parameterType="long" resultMap="ShareFileResultMap">
+		<include refid="SelectShareFileColumn"/>
+		WHERE file.folder_id = #{folderId} AND file.deleted = 0
+	</select>
+
+	<select id="getFileSizeSumByEntId" parameterType="long" resultType="long">
+		SELECT IFNULL(sum(s), 0) FROM
+		(
+			(SELECT SUM(file_size) AS s
+			FROM share_file
+			WHERE ent_id = #{ent_id} AND deleted = 0)
+		UNION
+			(SELECT SUM(file_size) AS s
+			FROM share_file_history
+			WHERE ent_id = #{ent_id} AND operation = 'EditFile')
+		UNION
+			(SELECT SUM(file_size) AS s
+			FROM conference_doc
+			WHERE ent_id = #{ent_id} AND disk_file_id IS NULL)
+		) temp
+    </select>
+
+	<select id="getAllShareFilesByEntId" parameterType="long" resultMap="ShareFileResultMap">
+		<include refid="SelectShareFileColumn"/>
+		<![CDATA[
+		WHERE file.ent_id = #{entId} AND file.deleted <> -1
+		]]>
+	</select>
+
+	<select id="getFileSizeSumByFolderId" parameterType="long" resultType="long">
+		SELECT IFNULL(SUM(file_size), 0) FROM share_file 
+		WHERE folder_id = #{folderId} AND deleted = 0
+	</select>
+
+	<update id="updateShareFilePageCount" parameterType="map">
+		UPDATE share_file SET page_count = #{pageCount} WHERE file_id = #{fileId}
+	</update>
+	
+	<select id="getShareFilesInRecycleByEnterpriseId" parameterType="long" resultMap="ShareFileResultMap">
+		<include refid="SelectShareFileColumn"/>
+		<![CDATA[
+		WHERE file.ent_id = #{entId} AND file.deleted = 1
+		]]>
+	</select>
+
+</mapper>

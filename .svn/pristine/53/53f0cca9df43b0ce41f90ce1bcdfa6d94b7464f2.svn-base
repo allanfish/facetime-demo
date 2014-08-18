@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.ShareLinkMapper">
+
+	<resultMap id="ShareLinkResultMap" type="ShareLink">
+		<id property="linkId" column="link_id" />
+		<result property="linkCode" column="link_code" />
+		<result property="folderId" column="folder_id" />
+		<result property="fileId" column="file_id" />
+		<result property="maxDownload" column="max_download" />
+		<result property="downloadCount" column="download_count" />
+		<result property="password" column="password" />
+		<result property="expirationTime" column="expiration_time" />
+		<result property="createUserId" column="create_user_id" />
+		<result property="createUserName" column="create_user_name" />
+		<result property="createTime" column="create_time" />
+		<result property="enterpriseId" column="ent_id" />
+	</resultMap>
+
+	<sql id="SelectShareLinkColumn">
+		SELECT link_id, link_code, folder_id, file_id, ent_id, max_download, download_count, password, expiration_time, create_user_id, create_user_name, create_time
+	</sql>
+
+	<insert id="addShareLink" parameterType="ShareLink">
+		INSERT INTO share_link (link_id, link_code, folder_id, file_id, ent_id, max_download, password, expiration_time, create_user_id, create_user_name, create_time)
+		VALUES (#{linkId}, #{linkCode}, #{folderId}, #{fileId}, #{enterpriseId}, #{maxDownload}, #{password}, #{expirationTime}, #{createUserId}, #{createUserName}, now())
+    </insert>
+
+	<select id="getShareLinkByCode" parameterType="String" resultMap="ShareLinkResultMap">
+		<include refid="SelectShareLinkColumn"/>
+		FROM share_link
+		WHERE link_code = #{linkCode}
+    </select>
+
+	<delete id="deleteShareLinkByLinkId" parameterType="long">
+		DELETE FROM share_link
+		WHERE link_id = #{linkId}
+	</delete>
+
+	<update id="updateShareLink" parameterType="ShareLink">
+		UPDATE share_link SET
+			max_download = #{maxDownload},
+			password = #{password},
+			expiration_time = #{expirationTime}
+		WHERE link_id = #{linkId}
+	</update>
+
+	<select id="getShareLinkByEntId" parameterType="long" resultMap="ShareLinkResultMap">
+		SELECT link.link_id, link.link_code, link.folder_id, link.file_id, link.ent_id, link.max_download, link.download_count, link.password, link.expiration_time, link.create_user_id, link.create_user_name, link.create_time
+		FROM share_link link
+		LEFT JOIN share_folder folder ON link.folder_id = folder.folder_id AND folder.deleted = 0
+		LEFT JOIN share_file file ON link.file_id = file.file_id AND file.deleted = 0
+		WHERE link.ent_id = #{entId}
+    </select>
+
+	<select id="getShareLinkByFolderId" parameterType="long" resultMap="ShareLinkResultMap">
+		<include refid="SelectShareLinkColumn"/>
+		FROM share_link
+		WHERE folder_id = #{folderId}
+    </select>
+
+    <select id="getShareLinkByFileId" parameterType="long" resultMap="ShareLinkResultMap">
+		<include refid="SelectShareLinkColumn"/>
+		FROM share_link
+		WHERE file_id = #{fileId}
+    </select>
+
+	<select id="getShareLinkByLinkId" parameterType="long" resultMap="ShareLinkResultMap">
+		<include refid="SelectShareLinkColumn"/>
+		FROM share_link
+		WHERE link_id = #{linkId}
+    </select>
+
+	<update id="updateDownloadCount" parameterType="long">
+		UPDATE share_link SET
+			download_count = download_count + 1
+		WHERE link_id = #{linkId}
+	</update>
+
+</mapper>

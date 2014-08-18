@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>外链REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#创建共享链接">创建共享链接</a></li>
+					<li><a href="#更新共享链接">更新共享链接</a></li>
+					<li><a href="#删除共享链接">删除共享链接</a></li>
+					<li><a href="#获取共享链接">获取共享链接</a></li>
+					<li><a href="#获取共享链接">获取共享链接</a></li>
+					<li><a href="#获取共享链接">获取共享链接</a></li>
+					<li><a href="#获取共享链接">获取共享链接</a></li>
+					<li><a href="#验证共享链接是否可以下载">验证共享链接是否可以下载</a></li>
+					<li><a href="#更新共享链接下载次数">更新共享链接下载次数</a></li>
+					<li><a href="#发送共享链接">发送共享链接</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="创建共享链接"></a>创建共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/createShareLink"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkDTO.htm">ShareLinkDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkDTO.htm">ShareLinkDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="更新共享链接"></a>更新共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/updateShareLink"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkDTO.htm">ShareLinkDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除共享链接"></a>删除共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/deleteShareLink"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>linkId 链接ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取共享链接"></a>获取共享链接</p>
+				<p><span>请求地址:</span>"/pub/shareLink/getShareLinkByCode"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>linkCode 链接代码</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkInfoDTO.htm">ShareLinkInfoDTO</a> 共享链接信息DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取共享链接"></a>获取共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/getShareLinkByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>enterpriseId 企业ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinksDTO.htm">ShareLinksDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取共享链接"></a>获取共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/getExistShareLink"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkDTO.htm">ShareLinkDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkDTO.htm">ShareLinkDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="获取共享链接"></a>获取共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/getShareLinkByLinkId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>linkId</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkDTO.htm">ShareLinkDTO</a> 共享链接DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="验证共享链接是否可以下载"></a>验证共享链接是否可以下载</p>
+				<p><span>请求地址:</span>"/sc/shareLink/checkShareLinkDownload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>linkID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+							<li>errorFileNotFound文件不存在</li>
+							<li>errorExpirationTimeOver过期了</li>
+							<li>errorDownCountOver超过下载数了</li>
+							<li>errorFlowOver流量超出</li>
+				</ul>
+				<p class="p-fun"><a name="更新共享链接下载次数"></a>更新共享链接下载次数</p>
+				<p><span>请求地址:</span>"/sc/shareLink/updateShareLinkDownCount"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>linkId:size：外链id+文件大小kb</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+				<p class="p-fun"><a name="发送共享链接"></a>发送共享链接</p>
+				<p><span>请求地址:</span>"/sc/shareLink/sendShareLinkMail"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkMailDTO.htm">ShareLinkMailDTO</a> 外链邮件DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500 服务器内部错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

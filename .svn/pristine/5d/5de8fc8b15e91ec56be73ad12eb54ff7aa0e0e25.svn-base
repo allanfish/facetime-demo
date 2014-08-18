@@ -1,0 +1,6 @@
+db.dialect=org.hibernate.dialect.Oracle9Dialect
+db.driverClassName=oracle.jdbc.driver.OracleDriver
+db.url=jdbc:oracle:thin:@10.25.13.52:1579:hsfeelvw
+db.username=feelviewdata
+db.password=paic1234
+TescronExpression1=0-59 * * ? * * 

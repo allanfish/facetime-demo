@@ -1,0 +1,21 @@
+.conference-info{
+    border: 1px solid red;
+    width: 320px;
+}
+
+.conference-info .row-fluid div{
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.conference-info .row-fluid div:first-child{
+    text-align: right;
+    color: #999;
+    font-size: 14px;
+}
+
+.conference_hide {
+	display: none;
+}

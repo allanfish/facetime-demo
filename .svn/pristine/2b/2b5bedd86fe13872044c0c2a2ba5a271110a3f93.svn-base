@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>SaveFileDTO</h3>
+		<p><span>说明:</span>保存文件dto</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li><a href="FileDTO.htm">FileDTO</a></li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>userName</li>
+								<li>String</li>
+								<li class="r">用户名</li>
+								<li>fromId</li>
+								<li>long</li>
+								<li class="r">文件所有者id，企业id或用户id企业网盘文件为企业id；个人网盘文件为用户id</li>
+								<li>toId</li>
+								<li>long</li>
+								<li class="r">保存后文件所有者id，企业id或用户id企业网盘文件为企业id；个人网盘文件为用户id</li>
+								<li>content</li>
+								<li>String</li>
+								<li class="r">文件内容编辑保存时需要</li>
+								<li>toType</li>
+								<li>String</li>
+								<li class="r">保存后文件类型</li>
+								<li>newGuid</li>
+								<li>String</li>
+								<li class="r">保存后文件guid</li>
+								<li class="b">entDiskFile</li>
+								<li class="b">boolean</li>
+								<li class="b r">是否是企业网盘文件</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

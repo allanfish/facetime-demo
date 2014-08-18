@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="main">
+			<h3></h3>
+			<p><span>说明:</span></p>
+			<div class="div-field">
+				<ul>
+					<li>属性</li>
+					<li>类型</li>
+					<li class="r">值</li>
+												<li><a name="Unkown"></a>Unkown</li>
+							<li>String</li>
+							<li class="r">-</li>
+							<li><a name="Male"></a>Male</li>
+							<li>String</li>
+							<li class="r">m</li>
+						<li class="b"><a name="Female"></a>Female</li>
+						<li class="b">String</li>
+						<li class="b r">f</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

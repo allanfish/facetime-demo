@@ -1,0 +1,268 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.conlect.oatos</groupId>
+		<artifactId>web</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>os</artifactId>
+	<packaging>war</packaging>
+	<name>os</name>
+
+	<properties>
+		<os.url>http://127.0.0.1:8888/</os.url>
+		<activemq.failover>failover:(tcp://192.168.1.54:61616)</activemq.failover>
+		<P2PServer>192.168.1.70:1935/multicast</P2PServer>
+		<RED5Server>192.168.1.70:1935/live</RED5Server>
+		<RED5Server2>192.168.1.70:1935/live</RED5Server2>
+	</properties>
+
+	<build>
+		<finalName>os</finalName>
+		<outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>property/*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>property/*.properties</exclude>
+				</excludes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<plugins>
+
+			<!-- properties-maven-plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${basedir}/../ignore-jar.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!--maven-war-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<version>2.1.1</version>
+					<classifier>${profileId}</classifier>
+					<packagingExcludes> ${os-ignored-classes}, ${os-ignored-jars}</packagingExcludes>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/web.xml</include>
+								<include>mobile/version.xml</include>
+								<include>mobile/OatosIOS.html</include>
+								<include>mobile/OatosClient.plist</include>
+								<include>config/config.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+
+			<!--replacer 更新版本 -->
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.0</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<file>src/main/webapp/frags/version.html</file>
+					<replacements>
+						<replacement>
+							<token>\d{12}</token>
+							<value>${maven.build.timestamp}</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+
+			<!-- maven-antrun-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<!-- rename web.xml -->
+					<execution>
+						<id>rename-webXml</id>
+						<phase>prepare-package</phase>
+						<configuration>
+							<target>
+								<move file="${webapp}/WEB-INF/web.xml" tofile="${webapp}/WEB-INF/web-local.xml"></move>
+								<move file="${webapp}/WEB-INF/web-deploy.xml" tofile="${webapp}/WEB-INF/web.xml"></move>
+								
+								<move file="${webapp}/config/config.xml" tofile="${webapp}/config/config-local.xml"></move>
+								<move file="${webapp}/config/config-deploy.xml" tofile="${webapp}/config/config.xml"></move>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>restore-webXml</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<move file="${webapp}/WEB-INF/web.xml" tofile="${webapp}/WEB-INF/web-deploy.xml"></move>
+								<move file="${webapp}/WEB-INF/web-local.xml" tofile="${webapp}/WEB-INF/web.xml"></move>
+								
+								<move file="${webapp}/config/config.xml" tofile="${webapp}/config/config-deploy.xml"></move>
+								<move file="${webapp}/config/config-local.xml" tofile="${webapp}/config/config.xml"></move>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<!-- 55环境 -->
+		<profile>
+			<id>55</id>
+			<properties>
+				<profileId>55</profileId>
+				<os.url>http://192.168.1.55/os</os.url>
+				<AppService>http://192.168.1.54/server/oatos</AppService>
+				<FileCacheService>http://192.168.1.55/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.55/os/mobile/OATOS_Android.apk</google.download>
+			</properties>
+		</profile>
+
+		<!-- 68环境 -->
+		<profile>
+			<id>68</id>
+			<properties>
+				<profileId>68</profileId>
+				<os.url>http://192.168.1.68/os</os.url>
+				<AppService>http://192.168.1.68:8080/server/oatos/</AppService>
+				<FileCacheService>http://192.168.1.68/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.68/os/mobile/OATOS_Android.apk</google.download>
+			</properties>
+		</profile>
+
+		<!-- 电信服务器 -->
+		<profile>
+			<id>dx</id>
+			<properties>
+				<profileId>dx</profileId>
+				<os.url>http://192.168.1.68/os</os.url>
+				<AppService>http://203.88.210.236:19080/server/oatos/</AppService>
+				<FileCacheService>http://192.168.1.55/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.55/os/mobile/OATOS_Android.apk</google.download>
+				<activemq.failover>failover:(tcp://203.88.210.236:61618)</activemq.failover>
+			</properties>
+		</profile>
+
+		<!-- 联通服务器 -->
+		<profile>
+			<id>lt</id>
+			<properties>
+				<profileId>lt</profileId>
+				<os.url>http://192.168.1.68/os</os.url>
+				<AppService>http://203.88.210.236:19080/server/oatos/</AppService>
+				<FileCacheService>http://192.168.1.55/filecache/oatos/</FileCacheService>
+				<google.download>http://192.168.1.55/os/mobile/OATOS_Android.apk</google.download>
+				<activemq.failover>failover:(tcp://203.88.210.236:61618)</activemq.failover>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.notnoop.apns</groupId>
+			<artifactId>apns</artifactId>
+			<version>0.2.4</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/java-apns-0.2.4.jar</systemPath>
+		</dependency>
+		<!-- dto -->
+		<dependency>
+			<groupId>com.conlect.oatos</groupId>
+			<artifactId>dto</artifactId>
+			<version>${oatos-version}</version>
+		</dependency>
+		<!-- File Upload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all-server</artifactId>
+			<version>7.1.6.v20100715</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- active mq -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+			<version>5.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+			<version>5.4.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<div class="main">
+			<h3></h3>
+			<p><span>说明:</span></p>
+			<div class="div-field">
+				<ul>
+					<li>属性</li>
+					<li>类型</li>
+					<li class="r">值</li>
+												<li><a name="ChatMessage"></a>ChatMessage</li>
+							<li>String</li>
+							<li class="r">Chat</li>
+							<li><a name="NewMailNotify"></a>NewMailNotify</li>
+							<li>String</li>
+							<li class="r">NewMail</li>
+							<li><a name="MailNotify"></a>MailNotify</li>
+							<li>String</li>
+							<li class="r">MailN</li>
+							<li><a name="InviteBuddy"></a>InviteBuddy</li>
+							<li>@Deprecated
+	String</li>
+							<li class="r">AddBud</li>
+							<li><a name="Reply"></a>Reply</li>
+							<li>String</li>
+							<li class="r">Reply</li>
+							<li><a name="ForceOffline"></a>ForceOffline</li>
+							<li>String</li>
+							<li class="r">ForOffl</li>
+							<li><a name="InstantFile"></a>InstantFile</li>
+							<li>String</li>
+							<li class="r">InsFile</li>
+							<li><a name="ShareFileInPrivacy"></a>ShareFileInPrivacy</li>
+							<li>String</li>
+							<li class="r">SFP</li>
+							<li><a name="ShareFileInGroup"></a>ShareFileInGroup</li>
+							<li>String</li>
+							<li class="r">SFG</li>
+							<li><a name="ShareInstantFile"></a>ShareInstantFile</li>
+							<li>String</li>
+							<li class="r">SIF</li>
+							<li><a name="GroupChat"></a>GroupChat</li>
+							<li>String</li>
+							<li class="r">GroupChat</li>
+							<li><a name="InformDeleteBuddy"></a>InformDeleteBuddy</li>
+							<li>@Deprecated
+	String</li>
+							<li class="r">DelBud</li>
+							<li><a name="InviteBuddyToChatGroup"></a>InviteBuddyToChatGroup</li>
+							<li>@Deprecated
+	String</li>
+							<li class="r">IBToCG</li>
+							<li><a name="ReplyForInvitedToChatGroup"></a>ReplyForInvitedToChatGroup</li>
+							<li>@Deprecated
+	String</li>
+							<li class="r">RICG</li>
+							<li><a name="InformChatGroupToGetMemberList"></a>InformChatGroupToGetMemberList</li>
+							<li>String</li>
+							<li class="r">ICGGM</li>
+							<li><a name="InformJoinChatGroup"></a>InformJoinChatGroup</li>
+							<li>String</li>
+							<li class="r">InfJCG</li>
+							<li><a name="InformRemoveChatGroupMember"></a>InformRemoveChatGroupMember</li>
+							<li>String</li>
+							<li class="r">InfRMem</li>
+							<li><a name="InformEditStatus"></a>InformEditStatus</li>
+							<li>String</li>
+							<li class="r">InfEditSta</li>
+							<li><a name="VideoInvite"></a>VideoInvite</li>
+							<li>String</li>
+							<li class="r">VidInv</li>
+							<li><a name="VideoStart"></a>VideoStart</li>
+							<li>String</li>
+							<li class="r">VidSta</li>
+							<li><a name="VideoRefuse"></a>VideoRefuse</li>
+							<li>String</li>
+							<li class="r">VidRef</li>
+							<li><a name="VideoEnd"></a>VideoEnd</li>
+							<li>String</li>
+							<li class="r">VidEnd</li>
+							<li><a name="AudioInvite"></a>AudioInvite</li>
+							<li>String</li>
+							<li class="r">AudInv</li>
+							<li><a name="AudioStart"></a>AudioStart</li>
+							<li>String</li>
+							<li class="r">AudSta</li>
+							<li><a name="AudioRefuse"></a>AudioRefuse</li>
+							<li>String</li>
+							<li class="r">AudRef</li>
+							<li><a name="AudioEnd"></a>AudioEnd</li>
+							<li>String</li>
+							<li class="r">AudEnd</li>
+							<li><a name="UserJoin"></a>UserJoin</li>
+							<li>String</li>
+							<li class="r">UserJoin</li>
+							<li><a name="UserStatusChange"></a>UserStatusChange</li>
+							<li>String</li>
+							<li class="r">UserSCh</li>
+							<li><a name="UserLeave"></a>UserLeave</li>
+							<li>String</li>
+							<li class="r">UserLea</li>
+							<li><a name="UserInfoUpdate"></a>UserInfoUpdate</li>
+							<li>String</li>
+							<li class="r">UserUpd</li>
+							<li><a name="BuddyImportFromWeb"></a>BuddyImportFromWeb</li>
+							<li>@Deprecated
+	String</li>
+							<li class="r">BudImpWeb</li>
+							<li><a name="OfflineFile"></a>OfflineFile</li>
+							<li>String</li>
+							<li class="r">OffFile</li>
+							<li><a name="VoiceMail"></a>VoiceMail</li>
+							<li>String</li>
+							<li class="r">VoMail</li>
+							<li><a name="CustomerRequest"></a>CustomerRequest</li>
+							<li>String</li>
+							<li class="r">CusReq</li>
+							<li><a name="ServiceResponse"></a>ServiceResponse</li>
+							<li>String</li>
+							<li class="r">SerRes</li>
+							<li><a name="CustomerLeave"></a>CustomerLeave</li>
+							<li>String</li>
+							<li class="r">CusLea</li>
+							<li><a name="ServiceLeave"></a>ServiceLeave</li>
+							<li>String</li>
+							<li class="r">SerLea</li>
+							<li><a name="Login"></a>Login</li>
+							<li>String</li>
+							<li class="r">Login</li>
+							<li><a name="FileDown"></a>FileDown</li>
+							<li>String</li>
+							<li class="r">fd</li>
+							<li><a name="fileAccessRecord"></a>fileAccessRecord</li>
+							<li>String</li>
+							<li class="r">fa</li>
+							<li><a name="CustomerConnect"></a>CustomerConnect</li>
+							<li>String</li>
+							<li class="r">CusCon</li>
+							<li><a name="ServiceConnectRes"></a>ServiceConnectRes</li>
+							<li>String</li>
+							<li class="r">SerCRes</li>
+							<li><a name="RemoveCustomer"></a>RemoveCustomer</li>
+							<li>String</li>
+							<li class="r">ReCus</li>
+							<li><a name="ShareFileNew"></a>ShareFileNew</li>
+							<li>String</li>
+							<li class="r">SFNew</li>
+							<li><a name="ColleagueNew"></a>ColleagueNew</li>
+							<li>String</li>
+							<li class="r">ColNew</li>
+							<li><a name="ConferenceInvite"></a>ConferenceInvite</li>
+							<li>String</li>
+							<li class="r">ConInv</li>
+							<li><a name="ConferenceStart"></a>ConferenceStart</li>
+							<li>String</li>
+							<li class="r">ConSta</li>
+							<li><a name="ConferenceEnd"></a>ConferenceEnd</li>
+							<li>String</li>
+							<li class="r">ConEnd</li>
+							<li><a name="ConferenceUpdate"></a>ConferenceUpdate</li>
+							<li>String</li>
+							<li class="r">ConUpd</li>
+							<li><a name="ConferenceDocNew"></a>ConferenceDocNew</li>
+							<li>String</li>
+							<li class="r">ConDocNew</li>
+							<li><a name="InformBlock"></a>InformBlock</li>
+							<li>String</li>
+							<li class="r">IB</li>
+							<li><a name="SystemMsg"></a>SystemMsg</li>
+							<li>String</li>
+							<li class="r">SystemMsg</li>
+							<li><a name="SystemVideoMsg"></a>SystemVideoMsg</li>
+							<li>String</li>
+							<li class="r">SystemVideoMsg</li>
+							<li><a name="FileUploadDone"></a>FileUploadDone</li>
+							<li>String</li>
+							<li class="r">FileUploadDone</li>
+						<li class="b"><a name="FileConvertDone"></a>FileConvertDone</li>
+						<li class="b">String</li>
+						<li class="b r">FileConvertDone</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

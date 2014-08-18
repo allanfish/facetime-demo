@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>OrderDTO</h3>
+		<p><span>说明:</span>订单信息Bean</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>orderId</li>
+								<li>long</li>
+								<li class="r">订单ID</li>
+								<li>entId</li>
+								<li>long</li>
+								<li class="r">企业ID</li>
+								<li>tradeNo</li>
+								<li>String</li>
+								<li class="r">交易编号</li>
+								<li>price</li>
+								<li>double</li>
+								<li class="r">价格</li>
+								<li>offset</li>
+								<li>double</li>
+								<li class="r">抵扣金额</li>
+								<li>save</li>
+								<li>double</li>
+								<li class="r">节省金额</li>
+								<li>type</li>
+								<li>String</li>
+								<li class="r">订单类型</li>
+								<li>payDate</li>
+								<li>Date</li>
+								<li class="r">支付时间</li>
+								<li>createDate</li>
+								<li>Date</li>
+								<li class="r">创建时间</li>
+								<li>status</li>
+								<li>String</li>
+								<li class="r">订单状态</li>
+								<li>entName</li>
+								<li>String</li>
+								<li class="r">企业名称</li>
+								<li class="b">orderItems</li>
+								<li class="b">List&lt;<a href="OrderItemDTO.htm">OrderItemDTO</a>&gt;</li>
+								<li class="b r">企业订单列表</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

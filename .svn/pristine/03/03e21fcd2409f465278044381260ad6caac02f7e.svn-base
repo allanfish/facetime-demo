@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>UserInfoDTO</h3>
+		<p><span>说明:</span>用户信息DTO</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li><a href="NonceDTO.htm">NonceDTO</a></li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>userId</li>
+								<li>long</li>
+								<li class="r">用户ID</li>
+								<li>userName</li>
+								<li>String</li>
+								<li class="r">用户名</li>
+								<li>registerMailAccount</li>
+								<li>String</li>
+								<li class="r">邮箱</li>
+								<li>mailing7MailAccount</li>
+								<li>String</li>
+								<li class="r">@deprecated</li>
+								<li>gender</li>
+								<li>String</li>
+								<li class="r">性别</li>
+								<li>birthday</li>
+								<li>Date</li>
+								<li class="r">生日</li>
+								<li>age</li>
+								<li>int</li>
+								<li class="r">年龄</li>
+								<li>registerDate</li>
+								<li>Date</li>
+								<li class="r">加入时间</li>
+								<li>icon</li>
+								<li>String</li>
+								<li class="r">头像</li>
+								<li>signature</li>
+								<li>String</li>
+								<li class="r">签名</li>
+								<li>nation</li>
+								<li>String</li>
+								<li class="r">国家</li>
+								<li>province</li>
+								<li>String</li>
+								<li class="r">省市</li>
+								<li>city</li>
+								<li>String</li>
+								<li class="r">城市</li>
+								<li>district</li>
+								<li>String</li>
+								<li class="r">区县</li>
+								<li>occupation</li>
+								<li>String</li>
+								<li class="r">职业</li>
+								<li>college</li>
+								<li>String</li>
+								<li class="r">毕业院校</li>
+								<li>degree</li>
+								<li>String</li>
+								<li class="r">学位</li>
+								<li>animal</li>
+								<li>String</li>
+								<li class="r">生肖</li>
+								<li>star</li>
+								<li>String</li>
+								<li class="r">星座</li>
+								<li>realName</li>
+								<li>String</li>
+								<li class="r">真是姓名</li>
+								<li>engishName</li>
+								<li>String</li>
+								<li class="r">英文名</li>
+								<li>homePage</li>
+								<li>String</li>
+								<li class="r">个人网站</li>
+								<li>blood</li>
+								<li>String</li>
+								<li class="r">血型</li>
+								<li>major</li>
+								<li>String</li>
+								<li class="r">专业</li>
+								<li>phone</li>
+								<li>String</li>
+								<li class="r">电话号码</li>
+								<li>mobile</li>
+								<li>String</li>
+								<li class="r">手机号码</li>
+								<li>emailEnabled</li>
+								<li>boolean</li>
+								<li class="r">邮箱通过验证@deprecated</li>
+								<li>phoneEnabled</li>
+								<li>boolean</li>
+								<li class="r">手机通过验证@deprecated</li>
+								<li>hobby</li>
+								<li>String</li>
+								<li class="r">爱好</li>
+								<li>locked</li>
+								<li>boolean</li>
+								<li class="r">锁定</li>
+								<li>enterpriseId</li>
+								<li>Long</li>
+								<li class="r">企业ID</li>
+								<li>departmentId</li>
+								<li>Long</li>
+								<li class="r">部门ID</li>
+								<li>employeeNumber</li>
+								<li>String</li>
+								<li class="r">工号</li>
+								<li>download</li>
+								<li>boolean</li>
+								<li class="r">下载文档@deprecated</li>
+								<li>accessExternal</li>
+								<li>boolean</li>
+								<li class="r">对外联系@deprecated</li>
+								<li>customerService</li>
+								<li>boolean</li>
+								<li class="r">客服</li>
+								<li><a href="../status/EmployeeStatus.htm">status</a></li>
+								<li>String</li>
+								<li class="r">用户状态</li>
+								<li>jobTitle</li>
+								<li>String</li>
+								<li class="r">职位</li>
+								<li>roles</li>
+								<li>List&lt;<a href="RoleDTO.htm">RoleDTO</a>&gt;</li>
+								<li class="r">用户角色</li>
+								<li><a href="../status/UserType.htm">userType</a></li>
+								<li>int</li>
+								<li class="r">用户类型</li>
+								<li>diskSize</li>
+								<li>long</li>
+								<li class="r">网盘大小</li>
+								<li>cloudDiskIp</li>
+								<li>String</li>
+								<li class="r">@deprecated</li>
+								<li><a href="../status/UserStatus.htm">onlineStatus</a></li>
+								<li>String</li>
+								<li class="r">用户在线状态</li>
+								<li>blocked</li>
+								<li>boolean</li>
+								<li class="r">用户是否被加入阻止联系人</li>
+								<li>usualContact</li>
+								<li>boolean</li>
+								<li class="r">用户是否被加入常用联系人</li>
+								<li><a href="../status/UserAgent.htm">agent</a></li>
+								<li>String</li>
+								<li class="r">用户登录设备</li>
+								<li>password</li>
+								<li>String</li>
+								<li class="r">密码</li>
+								<li>departmentName</li>
+								<li>String</li>
+								<li class="r">部门名</li>
+								<li>payStatus</li>
+								<li>String</li>
+								<li class="r"></li>
+								<li>deviceToken</li>
+								<li>String</li>
+								<li class="r">设备toekn（针对IOS）</li>
+								<li class="b">contactDisplay</li>
+								<li class="b">int</li>
+								<li class="b r"></li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

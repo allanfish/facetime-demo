@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.AdminMapper">
+
+	<resultMap id="AdminResultMap" type="Admin">
+		<id property="userId" column="user_id" />
+		<result property="enterpriseId" column="ent_id" />
+		<result property="editEntInfo" column="edit_ent_info" />
+		<result property="createDept" column="create_dept" />
+		<result property="createMember" column="create_member" />
+		<result property="createFolder" column="create_folder" />
+		<result property="folderPermission" column="folder_permission" />
+		<result property="setRole" column="set_role" />
+		<result property="addAdmin" column="add_admin" />
+		<result property="setBlock" column="set_block" />
+		<result property="record" column="record" />
+		<result property="csPlugin" column="cs_plugin" />
+		<result property="userName" column="user_name" />
+		<result property="realName" column="real_name" />
+	</resultMap>
+
+	<insert id="addAdmins">
+		INSERT INTO admin (user_id, ent_id)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.userId}, #{item.enterpriseId})
+		</foreach>
+	</insert>
+
+	<delete id="deleteAdmin" parameterType="long">
+		DELETE FROM admin
+		WHERE
+		user_id = #{userId}
+	</delete>
+
+	<update id="updateAdmin" parameterType="Admin">
+		UPDATE admin SET
+		edit_ent_info = #{editEntInfo},
+		create_dept = #{createDept},
+		create_member = #{createMember},
+		create_folder = #{createFolder},
+		folder_permission = #{folderPermission},
+		set_role = #{setRole},
+		add_admin = #{addAdmin},
+		set_block = #{setBlock},
+		record = #{record},
+		cs_plugin = #{csPlugin}
+		WHERE user_id = #{userId}
+	</update>
+
+	<select id="getAdminsByEntId" parameterType="long" resultMap="AdminResultMap">
+		SELECT a.user_id, a.ent_id, u.user_name, u.real_name, a.edit_ent_info,
+		a.create_dept, a.create_member, a.create_folder, a.folder_permission,
+		a.set_role, a.add_admin, a.set_block, a.record, a.cs_plugin
+		FROM admin a
+		INNER JOIN mail_user u ON a.user_id = u.user_id
+		WHERE a.ent_id = #{entId}
+    </select>
+
+	<select id="getAdminByUserId" parameterType="long" resultMap="AdminResultMap">
+		SELECT a.user_id, a.ent_id, u.user_name, u.real_name, a.edit_ent_info,
+		a.create_dept, a.create_member, a.create_folder, a.folder_permission,
+		a.set_role, a.add_admin, a.set_block, a.record, a.cs_plugin
+		FROM admin a
+		INNER JOIN mail_user u ON a.user_id = u.user_id
+		WHERE a.user_id = #{userId}
+    </select>
+
+	<update id="updateUserType" parameterType="map">
+		UPDATE mail_user SET
+		user_type = #{userType}
+		WHERE user_id = #{userId}
+	</update>
+
+</mapper>

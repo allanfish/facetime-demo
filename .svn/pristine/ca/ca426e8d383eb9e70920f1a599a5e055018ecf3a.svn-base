@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	<context:component-scan base-package="com.qycloud.web.service">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+
+	<mvc:resources location="/js/**" mapping="/js/" />
+	<mvc:resources location="/css/**" mapping="/css/" />
+	<mvc:resources location="/img/**" mapping="/img/" />
+
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/sc/**" /> <mvc:mapping path="/root/**" /> <mvc:mapping path="/file/**" 
+		/> <bean class="com.facetime.cloud.app.support.CloudAppInterceptor"></bean> </mvc:interceptor> </mvc:interceptors> -->
+
+
+	<!-- 注解方法映射BEAN -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters" ref="messageConverters" />
+	</bean>
+
+	<util:list id="messageConverters">
+		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+			<property name="supportedMediaTypes">
+				<list>
+					<value>text/plain;charset=UTF-8</value>
+				</list>
+			</property>
+		</bean>
+		<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter ">
+			<property name="supportedMediaTypes">
+				<list>
+					<value> application/x-www-form-urlencoded; charset=UTF-8</value>
+				</list>
+			</property>
+		</bean>
+		<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+			<property name="supportedMediaTypes">
+				<list>
+					<value>application/json;charset=UTF-8</value>
+				</list>
+			</property>
+		</bean>
+	</util:list>
+
+	<bean id="handlerExceptionResolver" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver">
+		<property name="messageConverters" ref="messageConverters" />
+	</bean>
+
+	<mvc:default-servlet-handler />
+
+	<!-- 文件上传Resolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 以字节为单位的最大上传文件的大小 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+
+	<mvc:annotation-driven />
+</beans>

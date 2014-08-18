@@ -1,0 +1,287 @@
+.menubar {
+    padding: 0px 10px 0px 10px;
+    color: #ffffff;
+}
+
+.loginhidden {
+    display: none;
+}
+
+.header {
+    height: 64px;
+    width: 100%;
+    margin: 0;
+    background: url("../img/header-bg.jpg");
+    filter: none;
+}
+
+.logo {
+    background: url("../img/logo.png") no-repeat scroll 1px 0 transparent;
+    display: inline-block;
+    height: 64px;
+    width: 228px;
+}
+
+#mainbox {
+    padding: 10px 5px 0;
+    width: 100%;
+}
+
+.content-right {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-width: 272px !important;
+}
+
+.content-left {
+    width: 206px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.slide-right {
+    width: 270px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-left: 1px #d5ddea solid;
+}
+
+.pull-down {
+    padding-top: 40px;
+}
+
+.custom-header {
+    height: 64px;
+    line-height: 64px;
+    color: #fff;
+}
+
+.navbar-inverse .custom-header {
+    background: url("../img/header-bg.jpg");
+    filter: none;
+}
+
+.custom-fluid {
+    height: 64px;
+}
+
+.custom-pulldown {
+    height: 64px;
+    padding: 0;
+}
+
+.navbar .custom-pulldown{
+    position: relative;
+    left:20px;
+}
+
+.navbar .custom-brand {
+    padding: 0 50px;
+    height: 64px;
+    color: #fff;
+}
+
+.custom-pulldown li {
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    top: 44px;
+    width: auto;
+}
+
+.custom-pulldown li a {
+    display: block;
+    height: 25px;
+    text-align: center;
+}
+
+.navbar .custom-pulldown li a {
+    padding: 0;
+    margin: 0 6px;
+    color: #fff;
+}
+
+.navbar .custom-pulldown li.last {
+    position: relative;
+    top: 38px;
+}
+
+.navbar .custom-pulldown>.active>a, .navbar-inverse .custom-pulldown .active>a:hover, .navbar-inverse .custom-pulldown .active>a:focus {
+    background: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border: none;
+}
+
+.navbar-inverse .custom-pulldown .active>a:active, .navbar-inverse .custom-pulldown .active>a:visited {
+    border: none;
+}
+
+.custom-project-title {
+    border-radius: 0;
+    border-bottom: 1px solid #ECECEC;
+    height: 25px;
+    line-height: 25px;
+    border: 0;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.custom-project-title span, .custom-project-title a {
+    padding: 0 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.custom-project-title a {
+    color: #7b92a0;
+    text-decoration: none;
+}
+
+.custom-project-title a:hover {
+    text-decoration: none;
+}
+
+.conference_view .custom-project-title {
+    padding: 0;
+    margin: 0 0 9px 0;
+}
+
+.accordion-inner .input-append i.icon-search {
+    position: relative;
+}
+
+.custom-content-left {
+    background: #dbe5f1;
+    border-right: 1px solid #d5ddea;
+}
+
+#file-left-view .custom-nav-list {
+    padding: 0;
+}
+
+.navLink1 {
+    height: 27px;
+    background: url('../img/fileLeft/navlist.jpg') repeat;
+    border-bottom: 1px solid #c6d0d9;
+}
+
+.custom-nav-list>li>a {
+    padding: 0;
+    margin: 0;
+    color: #7f8c9d;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.custom-nav-list>li>a>i {
+    margin-left: 50px;
+}
+
+.file-pic-area div {
+    width: 100%;
+    text-align: center;
+}
+
+.file-pic-area .img {
+    margin-top: 5px;
+}
+
+.file-pic-area .img img {
+    margin: 0 auto;
+}
+
+.file-pic-area .txt {
+    height: 29px;
+    line-height: 29px;
+}
+
+.file-pic-area .txt label {
+    font-weight: bold;
+}
+
+table.file-pic-area {
+    width: 100%;
+}
+
+.file-pic-area td {
+    font-size: 12px;
+    color: #7f8c9d;
+    text-align: center;
+
+}
+
+.file-pic-area td a {
+    width: 98%;
+    border-right: 1px solid #d5ddea;
+    margin: 2px 0;
+}
+
+.file-pic-area td.last a {
+    border: 0;
+}
+
+.file-pic-area td .custom-btn {
+    padding: 0;
+    color: #7e91a0;
+}
+
+.file-detail-info ul {
+    padding: 0 18px;
+}
+
+.file-detail-info ul li {
+    height: auto;
+    border-bottom: 1px solid #d5ddea;
+}
+
+.file-detail-info ul li .file-obj-title {
+    height: 25px;
+    line-height: 25px;
+}
+
+.file-detail-info ul li .infoview {
+    padding: 0 10px;
+}
+
+.entFileItem ul li, recycle-ul li {
+    display: inline-block;
+}
+
+.navbar .custom-pulldown .popover {
+    width:280px;
+    border:0;
+    background: transparent;
+    box-shadow:none;
+}
+.navbar .custom-pulldown .popover .arrow{
+    display: none;
+}
+.navbar .custom-pulldown .popover .popover-content{
+    width:280px;
+}
+
+.navbar .custom-pulldown .popover .popover-content .userView{
+    width:278px;
+    border:1px solid #000000;
+    background:#ECECEC;
+    position:relative;
+    z-index: 9999;
+    top:-16px;
+    left:-112px;
+}
+.userView-paddingL-td{
+   padding-left:8px;
+}
+
+.navbar .custom-pulldown .popover .popover-content .userView li{
+    top:0;
+    position: relative;
+}
+
+.navbar .custom-pulldown .userView .username{
+    font-size:20px;
+    font-family: Microsoft YaHei;
+    color:#3c5267;
+    text-shadow: 1px 1px 1px #e8eced;
+}

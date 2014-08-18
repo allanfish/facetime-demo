@@ -1,0 +1,11 @@
+#{extends 'main.html'/}
+#{set title:'newslist'/}
+<p>
+	<ul>
+		<li><a href="#">China will fight with phi</a></li>
+		<li><a href="#">China will fight with phi</a></li>
+		<li><a href="#">China will fight with phi</a></li>
+		<li><a href="#">China will fight with phi</a></li>
+		<li><a href="#">China will fight with phi</a></li>
+	</ul>
+</p>

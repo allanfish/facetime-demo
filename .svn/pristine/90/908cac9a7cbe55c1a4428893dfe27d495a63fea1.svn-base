@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>ConferenceDTO</h3>
+		<p><span>说明:</span>视频会议</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li>无</li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>id</li>
+								<li>long</li>
+								<li class="r">会议id</li>
+								<li>theme</li>
+								<li>String</li>
+								<li class="r">主题</li>
+								<li>content</li>
+								<li>String</li>
+								<li class="r">内容</li>
+								<li>startTime</li>
+								<li>Date</li>
+								<li class="r">开始时间</li>
+								<li>length</li>
+								<li>int</li>
+								<li class="r">时长，单位分钟</li>
+								<li><a href="../status/ConferenceStatus.htm">status</a></li>
+								<li>String</li>
+								<li class="r">会议状态</li>
+								<li>createrId</li>
+								<li>long</li>
+								<li class="r">会议创建者ID</li>
+								<li>createrName</li>
+								<li>String</li>
+								<li class="r">会议创建者</li>
+								<li>createTime</li>
+								<li>Date</li>
+								<li class="r">创建时间</li>
+								<li>record</li>
+								<li>boolean</li>
+								<li class="r">是否录制</li>
+								<li>enterpriseId</li>
+								<li>long</li>
+								<li class="r">企业id</li>
+								<li><a href="../status/ConferenceType.htm">type</a></li>
+								<li>int</li>
+								<li class="r">会议类型</li>
+								<li class="b">members</li>
+								<li class="b">List&lt;<a href="ConferenceMemberDTO.htm">ConferenceMemberDTO</a>&gt;</li>
+								<li class="b r">参会成员</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

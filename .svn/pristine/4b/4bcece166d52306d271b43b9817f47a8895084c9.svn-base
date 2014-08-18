@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.MailAccountMapper">
+
+	<resultMap id="MailAccountResultMap" type="MailAccount">
+		<id property="mailAccountId" column="mail_account_id" />
+		<result property="userId" column="user_id" />
+		<result property="mailAddress" column="mail_address" />
+		<result property="password" column="password" />
+		<result property="savePwd" column="save_pwd"/>
+		<result property="accountDesc" column="account_desc"/>
+		<result property="senderName" column="sender_name"/>
+		<result property="receiverServer" column="receiver_server"/>
+		<result property="receiverPort" column="receiver_port"/>
+		<result property="senderServer" column="sender_server"/>
+		<result property="senderPort" column="sender_port"/>
+		<result property="mailProtocol" column="mail_protocol"/>
+		<result property="userSetting" column="user_setting"/>
+	</resultMap>
+	
+	<insert id="addMailAccount" parameterType="MailAccount">
+		INSERT INTO mail_account(mail_account_id, user_id, mail_address, password,save_pwd, account_desc, sender_name, receiver_server, receiver_port, sender_server, sender_port, mail_protocol, user_setting)
+		VALUES(#{mailAccountId}, #{userId}, #{mailAddress}, #{password}, #{savePwd}, #{accountDesc}, #{senderName}, #{receiverServer}, #{receiverPort}, #{senderServer}, #{senderPort}, #{mailProtocol}, #{userSetting});
+	</insert>
+	
+	<select id="getMailAccountsByUserId" parameterType="long" resultMap="MailAccountResultMap">
+		SELECT 
+			mail_account_id, user_id, mail_address, password, 
+			save_pwd, account_desc, sender_name, receiver_server,
+			receiver_port, sender_server, sender_port, mail_protocol, user_setting
+		FROM 
+			mail_account
+		WHERE 
+			user_id=#{userId}
+    </select>
+    
+	<select id="getMailAccount" parameterType="long" resultMap="MailAccountResultMap">
+		SELECT 
+			mail_account_id, user_id, mail_address, password, 
+			save_pwd, account_desc, sender_name, receiver_server,
+			receiver_port, sender_server, sender_port, mail_protocol, user_setting
+		FROM 
+			mail_account
+		WHERE 
+			mail_account_id = #{mailAccountId}
+    </select>
+    
+    <delete id="deleteMailAccount" parameterType="long">
+		DELETE FROM mail_account 
+		WHERE mail_account_id = #{mailAccountId}
+    </delete>
+    
+     <update id="updateMailAccount" parameterType="MailAccount">
+		UPDATE mail_account set
+		mail_address = #{mailAddress},
+		password = #{password},
+		save_pwd = #{savePwd},
+		account_desc = #{accountDesc},
+		sender_name = #{senderName},
+		receiver_server = #{receiverServer},
+		receiver_port = #{receiverPort},
+		sender_server = #{senderServer},
+		sender_port = #{senderPort},
+		mail_protocol = #{mailProtocol},
+		user_setting = #{userSetting}
+		WHERE mail_account_id = #{mailAccountId}
+    </update>
+  
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.BlockListMapper">
+
+	<resultMap id="BlockResultMap" type="Block">
+		<result property="userId" column="user_id" />
+		<result property="blockUserId" column="block_user_id" />
+		<result property="visible" column="visible" />
+	</resultMap>
+
+	<delete id="deleteBlockListByUserId" parameterType="long">
+		DELETE FROM block_list
+		WHERE user_id = #{userId} AND visible = 1
+	</delete>
+	
+	<insert id="addBlockList">
+		INSERT INTO block_list (user_id, block_user_id, visible)
+		VALUES 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.userId}, #{item.blockUserId}, #{item.visible})
+		</foreach>
+    </insert>
+
+	<select id="getBlockListByUserId" parameterType="long"
+		resultMap="BlockResultMap">
+		SELECT user_id, block_user_id, visible
+		FROM block_list
+		WHERE user_id = #{userId} AND visible = 1
+    </select>
+
+	<delete id="deleteBlockList" parameterType="long">
+		DELETE FROM block_list
+		WHERE user_id = #{userId} OR block_user_id = #{userId}
+	</delete>
+
+	<delete id="deleteEnterpriseBlockByUserId" parameterType="long">
+		DELETE FROM block_list
+		WHERE (user_id = #{userId} OR block_user_id = #{userId})
+	</delete>
+
+	<select id="getEnterpriseBlocksByUserId" parameterType="long" resultMap="BlockResultMap">
+		SELECT user_id, block_user_id, visible
+		FROM block_list
+		WHERE (user_id = #{userId} OR block_user_id = #{userId}) AND visible = 0
+    </select>
+
+    <delete id="deleteBlock" parameterType="Block">
+    	DELETE FROM block_list
+    	WHERE user_id = #{userId} AND block_user_id = #{blockUserId} AND visible = #{visible}
+    </delete>
+
+	<insert id="addBlock" parameterType="Block">
+		INSERT INTO block_list (user_id, block_user_id, visible)
+		VALUES (#{userId}, #{blockUserId}, #{visible})
+    </insert>
+    
+    <delete id="deleteEnterpriseBlock" parameterType="Block">
+    	DELETE FROM block_list
+    	WHERE (user_id = #{userId} AND block_user_id = #{blockUserId} OR user_id = #{blockUserId} AND block_user_id = #{userId}) AND visible = #{visible}
+    </delete>
+    
+	<select id="getBlockedByListByUserId" parameterType="long" resultMap="BlockResultMap">
+		SELECT user_id, block_user_id, visible
+		FROM block_list
+		WHERE block_user_id = #{userId} AND visible = 1
+    </select>
+
+</mapper>

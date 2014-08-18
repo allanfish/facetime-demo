@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.LoginLogMapper">
+
+    <resultMap id="LoginLogResultMap" type="LoginLog">
+    	<id property="id" column="log_id"/>
+        <result property="entId" column="ent_id"/>  
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="entName" column="ent_name"/>
+        <result property="ip" column="login_ip"/>
+        <result property="equipment" column="equipment"/>
+        <result property="time" column="login_time"/>
+    </resultMap>
+
+    <insert id="insertLoginLog" parameterType="LoginLog">
+        INSERT INTO login_log(log_id, ent_id, user_id, user_name, ent_name, login_ip, equipment, login_time)
+        VALUES(#{id}, #{entId}, #{userId}, #{userName}, #{entName}, #{ip}, #{equipment}, now())
+    </insert>
+    
+    <select id="getLoginLog" parameterType="LoginLog" resultMap="LoginLogResultMap">
+    <![CDATA[
+        SELECT log_id, ent_id, user_id, user_name, ent_name, login_ip, equipment, login_time
+        FROM login_log
+        WHERE user_id =#{userId} AND login_time >= #{time}
+        ]]>
+    </select>
+
+</mapper>

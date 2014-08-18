@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.MailFolderMapper">
+	
+	<resultMap id="MailFolderResultMap" type="MailFolder">
+		<id property="mailFolderId" column="mail_folder_id"/>
+		<result property="parentFolderId" column="parent_folder_id"/>
+		<result property="mailAccountId" column="mail_account_id"/>
+		<result property="folderName" column="folder_name"/>
+		<result property="msgCount" column="msg_count"/>
+		<result property="unreadMsgCount" column="unread_msg_count"/>
+		<result property="folderUrl" column="folder_url"/>
+		<result property="latestReceiveDate" column="latest_receive_date"/>
+	</resultMap>
+	
+	<sql id="mailFolderSelectSql"> 
+		select mail_folder_id, parent_folder_id, mail_account_id, folder_name, msg_count, unread_msg_count, folder_url, latest_receive_date
+	</sql>
+	<sql id="mailFolderInsertSql"> 
+	     INSERT INTO mail_folder(mail_folder_id, parent_folder_id, mail_account_id, folder_name, msg_count, unread_msg_count, folder_url, latest_receive_date)
+	</sql>
+
+	<insert id="addMailFolder" parameterType="MailFolder">
+		<include refid="mailFolderInsertSql"/>
+		VALUES(#{mailFolderId}, #{parentFolderId}, #{mailAccountId}, #{folderName}, #{msgCount}, #{unreadMsgCount}, #{folderUrl}, #{latestReceiveDate})
+	</insert>
+
+	<insert id="addMailFolders">
+		<include refid="mailFolderInsertSql"/>
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.mailFolderId}, #{item.parentFolderId}, #{item.mailAccountId}, #{item.folderName}, #{item.msgCount}, #{item.unreadMsgCount}, #{item.folderUrl}, #{item.latestReceiveDate})
+		</foreach>
+	</insert>
+	
+	<select id="getMailFoldersByAccountId" parameterType="long" resultMap="MailFolderResultMap">
+		<include refid="mailFolderSelectSql"/>
+		FROM mail_folder WHERE mail_account_id = #{mailAccountId}
+	</select>
+	
+	<select id="getSubFolders" parameterType="map" resultMap="MailFolderResultMap">
+		<include refid="mailFolderSelectSql"/>
+		FROM mail_folder 
+		WHERE mail_account_id = #{mailAccountId}
+		<choose>
+			<when test="parentFolderId != null">
+				AND parent_folder_id = #{parentFolderId}
+			</when>
+			<otherwise>
+				AND (parent_folder_id is null or parent_folder_id = 0)
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getMailFolderById" parameterType="long" resultMap="MailFolderResultMap">
+	  <include refid="mailFolderSelectSql"/>
+	  from mail_folder
+	  where mail_folder_id = #{mailFolderId}
+	</select>
+
+	<update id="updateMailFolder" parameterType="MailFolder">
+	 	update mail_folder
+	 	set msg_count = #{msgCount}, unread_msg_count = #{unreadMsgCount}, latest_receive_date = #{latestReceiveDate}
+	 	where mail_folder_id = #{mailFolderId}
+	</update>
+
+</mapper>

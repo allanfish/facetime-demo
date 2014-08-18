@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>企业网盘REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#按企业ID取企业网盘下文件夹列表，不包括回收站中文件夹">按企业ID取企业网盘下文件夹列表，不包括回收站中文件夹</a></li>
+					<li><a href="#按企业ID取企业网盘下取文件列表，不包括回收站中文件">按企业ID取企业网盘下取文件列表，不包括回收站中文件</a></li>
+					<li><a href="#修改企业网盘文件夹信息及文件夹容量">修改企业网盘文件夹信息及文件夹容量</a></li>
+					<li><a href="#添加企业网盘文件至数据库">添加企业网盘文件至数据库</a></li>
+					<li><a href="#按企业取取企业网盘下文件夹列表和文件列表，不包括回收站的文件夹和文件">按企业取取企业网盘下文件夹列表和文件列表，不包括回收站的文件夹和文件</a></li>
+					<li><a href="#按用户取取企业网盘下有可见权限的文件夹列表，不包括回收站的文件夹">按用户取取企业网盘下有可见权限的文件夹列表，不包括回收站的文件夹</a></li>
+					<li><a href="#按用户取取企业网盘下有可见权限的文件列表，不包括回收站的文件">按用户取取企业网盘下有可见权限的文件列表，不包括回收站的文件</a></li>
+					<li><a href="#按用户取取企业网盘下有可见权限的文件夹列表和文件列表，不包括回收站的文件夹和文件">按用户取取企业网盘下有可见权限的文件夹列表和文件列表，不包括回收站的文件夹和文件</a></li>
+					<li><a href="#删除企业网盘文件至回收站">删除企业网盘文件至回收站</a></li>
+					<li><a href="#企业网盘文件上传前，判断企业网盘文件是否重名，上传权限，网盘空间及文件夹空间">企业网盘文件上传前，判断企业网盘文件是否重名，上传权限，网盘空间及文件夹空间</a></li>
+					<li><a href="#按文件id取单个企业网盘文件信息">按文件id取单个企业网盘文件信息</a></li>
+					<li><a href="#按文件夹id取单个企业网盘文件夹信息">按文件夹id取单个企业网盘文件夹信息</a></li>
+					<li><a href="#按企业取企业网盘下文件夹列表，包括回收站中文件夹">按企业取企业网盘下文件夹列表，包括回收站中文件夹</a></li>
+					<li><a href="#按企业取企业网盘下文件列表，包括回收站中文件">按企业取企业网盘下文件列表，包括回收站中文件</a></li>
+					<li><a href="#按企业取企业网盘下文件夹列表和文件列表，包括回收站中文件夹和文件">按企业取企业网盘下文件夹列表和文件列表，包括回收站中文件夹和文件</a></li>
+					<li><a href="#按用户取企业网盘下有可见权限的文件夹列表，包括回收站中文件夹">按用户取企业网盘下有可见权限的文件夹列表，包括回收站中文件夹</a></li>
+					<li><a href="#按用户取企业网盘下有可见权限的文件列表，包括回收站中文件">按用户取企业网盘下有可见权限的文件列表，包括回收站中文件</a></li>
+					<li><a href="#按用户取企业网盘下有可见权限的文件夹列表和文件列表，包括回收站中文件夹和文件">按用户取企业网盘下有可见权限的文件夹列表和文件列表，包括回收站中文件夹和文件</a></li>
+					<li><a href="#按外链id取共享的文件夹列表和文件列表">按外链id取共享的文件夹列表和文件列表</a></li>
+					<li><a href="#同步企业网盘文件">同步企业网盘文件</a></li>
+					<li><a href="#按文件取企业网盘文件历史修改记录">按文件取企业网盘文件历史修改记录</a></li>
+					<li><a href="#按文件夹取企业网盘文件夹历史修改记录">按文件夹取企业网盘文件夹历史修改记录</a></li>
+					<li><a href="#按文件夹和版本取企业网盘文件夹历史版本详细修改记录">按文件夹和版本取企业网盘文件夹历史版本详细修改记录</a></li>
+					<li><a href="#按用户取企业网盘下有本地交互权限的文件夹列表，,不包括回收站中文件夹">按用户取企业网盘下有本地交互权限的文件夹列表，,不包括回收站中文件夹</a></li>
+					<li><a href="#按用户取企业网盘下有本地交互权限的文件列表，,不包括回收站中文件">按用户取企业网盘下有本地交互权限的文件列表，,不包括回收站中文件</a></li>
+					<li><a href="#按用户取企业网盘下有本地交互权限的文件夹列表和文件列表，,不包括回收站中文件夹和文件">按用户取企业网盘下有本地交互权限的文件夹列表和文件列表，,不包括回收站中文件夹和文件</a></li>
+					<li><a href="#企业网盘文件同步上传之前，检查文件版本，网盘空间，权限，同名文件">企业网盘文件同步上传之前，检查文件版本，网盘空间，权限，同名文件</a></li>
+					<li><a href="#取企业网盘当前版本号">取企业网盘当前版本号</a></li>
+					<li><a href="#插入企业网盘文件访问记录，包括下载和浏览记录">插入企业网盘文件访问记录，包括下载和浏览记录</a></li>
+					<li><a href="#取企业网盘文件访问记录，包括下载和浏览记录">取企业网盘文件访问记录，包括下载和浏览记录</a></li>
+					<li><a href="#按文件夹取企业网盘子文件夹和文件，取顶层文件夹时，文件夹id传null">按文件夹取企业网盘子文件夹和文件，取顶层文件夹时，文件夹id传null</a></li>
+					<li><a href="#新建企业网盘目录">新建企业网盘目录</a></li>
+					<li><a href="#修改企业网盘目录信息">修改企业网盘目录信息</a></li>
+					<li><a href="#删除企业网盘目录至回收站">删除企业网盘目录至回收站</a></li>
+					<li><a href="#修改企业网盘文件信息">修改企业网盘文件信息</a></li>
+					<li><a href="#修改企业网盘文件夹和文件信息">修改企业网盘文件夹和文件信息</a></li>
+					<li><a href="#移动企业网盘文件夹和文件">移动企业网盘文件夹和文件</a></li>
+					<li><a href="#删除企业网盘回收站文件夹和文件">删除企业网盘回收站文件夹和文件</a></li>
+					<li><a href="#从回收站还原删除的企业网盘文件夹和文件">从回收站还原删除的企业网盘文件夹和文件</a></li>
+					<li><a href="#恢复企业网盘文件夹历史版本">恢复企业网盘文件夹历史版本</a></li>
+					<li><a href="#恢复企业网盘文件历史版本">恢复企业网盘文件历史版本</a></li>
+					<li><a href="#取企业网盘回收站中文件夹和文件">取企业网盘回收站中文件夹和文件</a></li>
+					<li><a href="#锁定企业网盘文件">锁定企业网盘文件</a></li>
+					<li><a href="#解锁锁定企业网盘文件">解锁锁定企业网盘文件</a></li>
+					<li><a href="#检查当前企业网盘使用空间是否超出免费空间">检查当前企业网盘使用空间是否超出免费空间</a></li>
+					<li><a href="#取企业网盘已使用空间">取企业网盘已使用空间</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="按企业ID取企业网盘下文件夹列表，不包括回收站中文件夹"></a>按企业ID取企业网盘下文件夹列表，不包括回收站中文件夹</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFoldersByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFoldersDTO.htm">ShareFoldersDTO</a>的JSON：企业网盘文件夹list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业ID取企业网盘下取文件列表，不包括回收站中文件"></a>按企业ID取企业网盘下取文件列表，不包括回收站中文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFilesByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a>的JSON：企业网盘文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业网盘文件夹信息及文件夹容量"></a>修改企业网盘文件夹信息及文件夹容量</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/updateShareFolderSize"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：企业网盘文件夹修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderDTO.htm">ShareFolderDTO</a>的JSON：修改后的企业网盘文件夹信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorVersionConflict：文件夹版本冲突</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="添加企业网盘文件至数据库"></a>添加企业网盘文件至数据库</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/addShareFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>文件id：新添加的文件id</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：用户没有当前文件夹下的上传权限</li>
+							<li>errorFolderSpaceOver：当前文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorFolderDeleted：父文件夹已经删除</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业取取企业网盘下文件夹列表和文件列表，不包括回收站的文件夹和文件"></a>按企业取取企业网盘下文件夹列表和文件列表，不包括回收站的文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFolderAndFileByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取取企业网盘下有可见权限的文件夹列表，不包括回收站的文件夹"></a>按用户取取企业网盘下有可见权限的文件夹列表，不包括回收站的文件夹</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFoldersByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFoldersDTO.htm">ShareFoldersDTO</a>的JSON：企业网盘文件夹list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取取企业网盘下有可见权限的文件列表，不包括回收站的文件"></a>按用户取取企业网盘下有可见权限的文件列表，不包括回收站的文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFilesByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a>的JSON：企业网盘文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取取企业网盘下有可见权限的文件夹列表和文件列表，不包括回收站的文件夹和文件"></a>按用户取取企业网盘下有可见权限的文件夹列表和文件列表，不包括回收站的文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFolderAndFileByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除企业网盘文件至回收站"></a>删除企业网盘文件至回收站</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/deleteShareFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：删除成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：用户没有此文件的删除权限</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="企业网盘文件上传前，判断企业网盘文件是否重名，上传权限，网盘空间及文件夹空间"></a>企业网盘文件上传前，判断企业网盘文件是否重名，上传权限，网盘空间及文件夹空间</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/checkShareFileUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：正常，可以上传</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：用户没有当前文件夹下的上传权限</li>
+							<li>errorFolderSpaceOver：当前文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorFolderDeleted：父文件已被删除</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件id取单个企业网盘文件信息"></a>按文件id取单个企业网盘文件信息</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFileById"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>文件id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileDTO.htm">ShareFileDTO</a>的JSON：企业网盘文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件夹id取单个企业网盘文件夹信息"></a>按文件夹id取单个企业网盘文件夹信息</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFolderById"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>文件夹id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderDTO.htm">ShareFolderDTO</a>的JSON：企业网盘文件夹信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业取企业网盘下文件夹列表，包括回收站中文件夹"></a>按企业取企业网盘下文件夹列表，包括回收站中文件夹</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getAllShareFoldersByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFoldersDTO.htm">ShareFoldersDTO</a>的JSON：：企业网盘文件夹list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业取企业网盘下文件列表，包括回收站中文件"></a>按企业取企业网盘下文件列表，包括回收站中文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getAllShareFilesByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a>的JSON：企业网盘文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按企业取企业网盘下文件夹列表和文件列表，包括回收站中文件夹和文件"></a>按企业取企业网盘下文件夹列表和文件列表，包括回收站中文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getAllShareFolderAndFileByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取企业网盘下有可见权限的文件夹列表，包括回收站中文件夹"></a>按用户取企业网盘下有可见权限的文件夹列表，包括回收站中文件夹</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getAllShareFoldersByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFoldersDTO.htm">ShareFoldersDTO</a>的JSON：企业网盘文件夹list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取企业网盘下有可见权限的文件列表，包括回收站中文件"></a>按用户取企业网盘下有可见权限的文件列表，包括回收站中文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getAllShareFilesByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a>的JSON：企业网盘文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取企业网盘下有可见权限的文件夹列表和文件列表，包括回收站中文件夹和文件"></a>按用户取企业网盘下有可见权限的文件夹列表和文件列表，包括回收站中文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getAllShareFolderAndFileByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按外链id取共享的文件夹列表和文件列表"></a>按外链id取共享的文件夹列表和文件列表</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareLinkFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>外链id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareLinkFilesDTO.htm">ShareLinkFilesDTO</a>的JSON：共享的文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="同步企业网盘文件"></a>同步企业网盘文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/syncEnterpriseFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：同步后的文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：用户没有当前文件夹下的本地同步权限</li>
+							<li>errorFolderSpaceOver：当前文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>errorFolderDeleted：父文件已被删除</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件取企业网盘文件历史修改记录"></a>按文件取企业网盘文件历史修改记录</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFileHistory"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareHistoryDTO.htm">ShareHistoryDTO</a>的JSON：企业网盘文件历史修改记录</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件夹取企业网盘文件夹历史修改记录"></a>按文件夹取企业网盘文件夹历史修改记录</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFolderHistory"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：企业网盘文件夹信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareHistoryDTO.htm">ShareHistoryDTO</a>的JSON：企业网盘文件夹和文件历史修改记录</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件夹和版本取企业网盘文件夹历史版本详细修改记录"></a>按文件夹和版本取企业网盘文件夹历史版本详细修改记录</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareFolderVersionDetail"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：企业网盘文件夹信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareHistoryDTO.htm">ShareHistoryDTO</a>的JSON：企业网盘文件夹和文件历史修改记录</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取企业网盘下有本地交互权限的文件夹列表，,不包括回收站中文件夹"></a>按用户取企业网盘下有本地交互权限的文件夹列表，,不包括回收站中文件夹</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getSyncShareFoldersByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFoldersDTO.htm">ShareFoldersDTO</a>的JSON：企业网盘文件夹list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取企业网盘下有本地交互权限的文件列表，,不包括回收站中文件"></a>按用户取企业网盘下有本地交互权限的文件列表，,不包括回收站中文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getSyncShareFilesByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a>的JSON：企业网盘文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按用户取企业网盘下有本地交互权限的文件夹列表和文件列表，,不包括回收站中文件夹和文件"></a>按用户取企业网盘下有本地交互权限的文件夹列表和文件列表，,不包括回收站中文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getSyncShareFolderAndFileByUserId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>用户id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="企业网盘文件同步上传之前，检查文件版本，网盘空间，权限，同名文件"></a>企业网盘文件同步上传之前，检查文件版本，网盘空间，权限，同名文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/checkShareFileSyncUpload"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：文件上传信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：正常，可以开始上传文件</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorFileLocked+:用户名：文件被他人锁定</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorFolderDeleted：父文件已被删除</li>
+							<li>errorNoPermission：没有本地同步权限</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorSameFile：同一文件夹下存在同名文件</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业网盘当前版本号"></a>取企业网盘当前版本号</p>
+				<p><span>请求地址:</span>"/sc/ent/getShareFileVersion"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>企业网盘当前版本号</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="插入企业网盘文件访问记录，包括下载和浏览记录"></a>插入企业网盘文件访问记录，包括下载和浏览记录</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/insertFileAccessRecord"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileRecordDTO.htm">ShareFileRecordDTO</a>的JSON：企业网盘文件访问记录</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：插入成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业网盘文件访问记录，包括下载和浏览记录"></a>取企业网盘文件访问记录，包括下载和浏览记录</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getFileAccessRecord"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileRecordDTO.htm">ShareFileRecordDTO</a>的JSON：企业网盘文件访问记录</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileRecordsDTO.htm">ShareFileRecordsDTO</a>的JSON：企业网盘文件访问记录list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="按文件夹取企业网盘子文件夹和文件，取顶层文件夹时，文件夹id传null"></a>按文件夹取企业网盘子文件夹和文件，取顶层文件夹时，文件夹id传null</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getEntFolderAndFileByFolderId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FolderAndFileParamDTO.htm">FolderAndFileParamDTO</a>的JSON：企业网盘文件夹和文件获取参数</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="新建企业网盘目录"></a>新建企业网盘目录</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/newShareFolder"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：新建企业网盘目录信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderDTO.htm">ShareFolderDTO</a>的JSON：新建的企业网盘目录信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有父目录下的编辑权限</li>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorFolderDeleted：父文件夹已经被删除</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业网盘目录信息"></a>修改企业网盘目录信息</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/updateShareFolder"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：企业网盘目录修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderDTO.htm">ShareFolderDTO</a>的JSON：修改后的企业网盘目录信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有此目录的编辑权限</li>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorVersionConflict：文件夹版本冲突</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除企业网盘目录至回收站"></a>删除企业网盘目录至回收站</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/deleteShareFolder"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：企业网盘目录修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：删除成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有此目录的删除权限</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业网盘文件信息"></a>修改企业网盘文件信息</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/updateShareFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileDTO.htm">ShareFileDTO</a>的JSON：修改后的文件信息</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有此文件的编辑权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>errorVersionConflict：文件版本冲突</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="修改企业网盘文件夹和文件信息"></a>修改企业网盘文件夹和文件信息</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/updateShareFolderAndFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileUpdateDTO.htm">ShareFolderAndFileUpdateDTO</a>的JSON：企业网盘文件夹和文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：修改成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="移动企业网盘文件夹和文件"></a>移动企业网盘文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/moveShareFolderAndFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileUpdateDTO.htm">ShareFolderAndFileUpdateDTO</a>的JSON：企业网盘文件夹和文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：移动成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="删除企业网盘回收站文件夹和文件"></a>删除企业网盘回收站文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/deleteShareFolderAndFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileUpdateDTO.htm">ShareFolderAndFileUpdateDTO</a>的JSON：企业网盘文件夹和文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：删除成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="从回收站还原删除的企业网盘文件夹和文件"></a>从回收站还原删除的企业网盘文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/restoreShareFolderAndFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileUpdateDTO.htm">ShareFolderAndFileUpdateDTO</a>的JSON：企业网盘文件夹和文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：还原成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>errorVersionConflict：版本冲突</li>
+							<li>errorFileLocked：文件被人他人锁定</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="恢复企业网盘文件夹历史版本"></a>恢复企业网盘文件夹历史版本</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/restoreShareFolderVersion"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderUpdateDTO.htm">ShareFolderUpdateDTO</a>的JSON：企业网盘文件夹修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：恢复成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorSameFolder：父目录下已经有与此同名的目录存在</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="恢复企业网盘文件历史版本"></a>恢复企业网盘文件历史版本</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/restoreShareFileVersion"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileUpdateDTO.htm">ShareFileUpdateDTO</a>的JSON：企业网盘文件修改信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：恢复成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorNoPermission：没有权限</li>
+							<li>errorSameFile：目录下已经有与此同名的文件存在</li>
+							<li>errorFolderSpaceOver：文件夹空间已满</li>
+							<li>errorNoSpace：企业网盘空间已满</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业网盘回收站中文件夹和文件"></a>取企业网盘回收站中文件夹和文件</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getEntFolderAndFileInRecycle"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业Id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFolderAndFileDTO.htm">ShareFolderAndFileDTO</a>的JSON：企业网盘文件夹list和文件list</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="锁定企业网盘文件"></a>锁定企业网盘文件</p>
+				<p><span>请求地址:</span>"/sc/file/lockShareFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFileDTO.htm">ShareFileDTO</a>的JSON：文件信息</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：锁定成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>errorFileLocked:锁定文件的用户名：文件已被他人锁定</li>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="解锁锁定企业网盘文件"></a>解锁锁定企业网盘文件</p>
+				<p><span>请求地址:</span>"/sc/file/unlockShareFiles"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a>的JSON：文件信息list</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK_MARK">CommConstants.OK_MARK</a>：解锁成功</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="检查当前企业网盘使用空间是否超出免费空间"></a>检查当前企业网盘使用空间是否超出免费空间</p>
+				<p><span>请求地址:</span>"/sc/disk/checkEntDiskSize"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业Id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#TRUE_MARK">CommConstants.TRUE_MARK</a>：企业网盘使用空间超出免费空间</li>
+							<li><a href="../status/CommConstants.htm#FALSE_MARK">CommConstants.FALSE_MARK</a>：企业网盘使用空间未超出免费空间</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取企业网盘已使用空间"></a>取企业网盘已使用空间</p>
+				<p><span>请求地址:</span>"/sc/shareDisk/getShareDiskUsedSizeByEntId"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>企业Id</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li>企业网盘已使用空间，long型，单位KB</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

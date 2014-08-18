@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.ProductKeyMapper">
+
+    <resultMap id="ProductKeyResultMap" type="ProductKey">
+    	<id property="key" column="prod_key" />
+        <result property="sales" column="sales" />
+        <result property="used" column="is_used" />
+        <result property="free" column="is_free" />
+        <result property="createTime" column="create_time" />
+    </resultMap>
+
+	<sql id="SelectKeyColumn">
+        SELECT prod_key, sales, is_used, is_free, create_time
+  		FROM product_key
+	</sql>
+	
+    <insert id="addKey" parameterType="ProductKey">
+		INSERT INTO product_key(prod_key, sales, is_used, is_free, create_time) 
+		VALUES (#{key}, #{sales}, 0, #{free}, now())
+    </insert>
+    
+    <update id="updateKey" parameterType="ProductKey">
+    	UPDATE product_key 
+		SET is_used = #{used}
+		WHERE prod_key = #{key}
+    </update>
+    
+    <select id="getKey" parameterType="String" resultMap="ProductKeyResultMap">
+        <include refid="SelectKeyColumn"/>
+  		WHERE prod_key = #{key}
+    </select>
+	
+	<select id="getKeyBySales" parameterType="String" resultMap="ProductKeyResultMap">
+        <include refid="SelectKeyColumn"/>
+  		WHERE sales = #{sales}
+    </select>
+    
+    <select id="getFreeKeys" resultMap="ProductKeyResultMap">
+        <include refid="SelectKeyColumn"/>
+  		WHERE is_free = 1
+    </select>
+    
+    <select id="getRandomPayedKey" resultMap="ProductKeyResultMap">
+        <include refid="SelectKeyColumn"/>
+  		WHERE is_free = 0 and is_used = 0
+  		LIMIT 0, 1
+    </select>
+
+</mapper>

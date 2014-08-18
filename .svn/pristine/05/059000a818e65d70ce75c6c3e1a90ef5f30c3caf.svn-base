@@ -1,0 +1,323 @@
+body {
+      font-family:"宋体",Arial;
+}
+
+
+
+/**
+* 上导航
+*/
+.navbar-inverse .navbar-inner {
+  background-color: #2B7FBE;
+  background-image: linear-gradient(to bottom, #2B7FBE, #2B7FBE);
+  background-repeat: repeat-x;
+  border-color: #2B7FBE;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2B7FBE',endColorstr='#2B7FBE',GradientType=0);
+}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    background-color: #006084;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.navbar .nav > li > a {
+  color: #FFFFFF;
+  float: none;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #00739D;
+}
+
+.navbar .nav-logo {
+  width: 130px;
+  height: 59px;
+  background-image: url("../img/logreg/LOGO.png");
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+}
+.navbar .span2 {
+  margin-left: 0;
+}
+.navbar li {
+  font-family: "Microsoft YaHei" !important;
+  font-size: 16px;
+  line-height: 59px;
+}
+.navbar li.span1 {
+  width: 100px;
+}
+.navbar ul > li + li + li {
+  margin-left: 15px;
+}
+.navbar .brand {
+  font-family: "Microsoft YaHei" !important;
+  font-size: 14px;
+  float: right;
+  margin-right: 40px;
+}
+.navbar .brand span a {
+  color: #FFFFFF;
+  line-height: 59px;
+  filter:Alpha(Opacity="60",FinishOpacity="60",Style="0");
+  -moz-opacity:0.6;    
+  opacity:0.6; 
+}
+
+/**
+* 底部
+*/
+.footer {
+  height: 126px;
+  background-color: #EBEBEB;
+  color: #7E7E7E;
+  font-size: 12px;
+  border-top: 1px solid #ECECEC;
+}
+.footer .container > div {
+  width: 475px;
+  margin:0 auto;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+.footer .container > div p {
+  line-height: 35px;
+}
+.footer .container > div > p {
+  width: 475px;
+  margin:0 auto;
+}
+.footer .container > div > p span {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.footer .container > div > p span  a {
+  color: #7e7e7e;
+}
+.footer .container > div > p + p {
+  width: 320px;
+  margin:0 auto;
+}
+.footer .container > div > p + p span {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.content {
+  margin-bottom: 65px;
+}
+
+/**
+ * 登陆
+ */
+.log-cont {
+  height: 650px;
+}
+
+.log-title .span4 > div {
+  font-family: "Microsoft YaHei" !important;
+  font-size: 24px;
+  color: #7c7c7d;
+  line-height: 140px;
+  margin-left: 23px;
+}
+.log-title .span3 > div {
+  font-size: 12px;
+  color: #a5a6a6;
+  line-height: 140px;
+}
+
+.login {
+  margin-top: 85px;
+}
+.login .log-pic {
+  width: 460px;
+  height: 320px;
+  background-image: url("../img/logreg/15g.png");
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+.login .login-pane {
+  width: 320px;
+  height: 303px;
+  border-color: #B7B8B8;
+  border-style: solid;
+  border-width: 1px;
+}
+.login .login-pane > div {
+  margin-top: 10px;
+}
+.login .login-pane #errorTip {
+  width: 320px;
+  height: 20px;
+  color: red;
+  text-align: center;
+}
+.login .login-pane .checkbox {
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.login .login-pane .checkbox a {
+  margin-left: 70px;
+}
+.login .login-pane > div > form + div {
+  width: 320px;
+  margin-top: -4px;
+  text-align: center;
+}
+.login .login-pane form button {
+  margin-left: -50px;
+  width: 270px;
+  height: 40px;
+  font-family: "Microsoft YaHei" !important;
+  font-size: 18px;
+}
+
+.login-pane .form-horizontal .control-label {
+  width: 55px;
+}
+.login-pane .form-horizontal .controls {
+  margin-left: 70px;
+}
+
+/**
+ * 注册
+ */
+.reg-cont {
+  display: none;
+  height: 650px;
+}
+
+.reg-reason {
+  color: #4d5b60;
+}
+.reg-cont .reg-reason > div {
+  margin-top: 100px;
+}
+
+.reg-cont .reg-reason > div .span1 > div {
+  width: 48px;
+  height: 48px;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+.reg-reason .pic-one {
+  background-image: url("../img/logreg/1.png");
+}
+.reg-reason .pic-two {
+  background-image: url("../img/logreg/2.png");
+}
+.reg-reason .pic-three {
+  background-image: url("../img/logreg/3.png");
+}
+
+.reg-cont .reg-reason > div .span4 > p {
+  font-size: 24px;
+  font-family: "Microsoft YaHei" !important;
+}
+.reg-cont .reg-reason > div .span4 > p + p {
+  font-size: 14px;
+  font-family:"宋体",Arial !important;
+}
+
+
+.reg-pane {
+  /*border:#909090 1px solid;*/
+  filter:progid:DXImageTransform.Microsoft.Shadow(color='#909090',direction=120,strength=4);/*ie*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=120, Color='#909090')";
+  -moz-box-shadow: 2px 2px 10px #909090;/*firefox*/
+  -webkit-box-shadow: 2px 2px 10px #909090;/*safari或chrome*/
+  box-shadow:0px 0px 10px #909090;/*opera或ie9*/
+
+  /*filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr="#FFFFFF",endcolorstr="#FFFFFF",gradientType=0);
+  -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr="#FFFFFF",endcolorstr="#FFFFFF",gradientType=0);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));*/
+
+}
+
+
+.reg-pane > .reg-title > span {
+  font-family: "Microsoft YaHei" !important;
+  font-size: 24px;
+  color: #7c7c7d;
+  line-height: 60px;
+  margin-left: 20px;
+}
+.reg-pane > .reg-title > span + span {
+  font-family:"宋体",Arial !important;
+  font-size: 12px;
+  color: #a5a6a6;
+  line-height: 60px;
+  margin-right: 15px;
+  float: right;
+}
+
+.reg-pane > .reg-title + div {
+  margin-left: 20px;
+  margin-bottom: 25px;
+  color: #c6c6c6;
+}
+.reg-pane form #entName + span + span {
+  padding-left: 0px;
+  margin-left: -5px;
+}
+.reg-pane form button {
+  width: 320px;
+  height: 33px;
+  margin-left: -30px;
+  margin-top: 10px;
+  font-family: "Microsoft YaHei" !important;
+  font-size: 18px;
+}
+.reg-pane form + div {
+  width: 160px;
+  font-size: 12px;
+  margin-left: 260px;
+  padding-bottom: 20px;
+}
+.reg-pane .reg-check {
+  font-size: 12px;
+  margin-top: -7px;
+}
+
+
+.reg-pane .form-horizontal .control-label {
+  width: 90px;
+}
+.reg-pane .form-horizontal .controls {
+  margin-left: 100px;
+}
+.reg-pane .form-horizontal .controls .help-inline {
+  font-size: 12px;
+  color: #C6C6C6;
+}
+
+.reg-pane .form-horizontal .controls #VerCode {
+  width: 70px;
+}
+.reg-pane .form-horizontal .controls .code-image {
+  width: 82px;
+  height: 32px;
+}
+.reg-pane .form-horizontal .controls .code-image + span {
+  color: #0088CC;
+  cursor: pointer;
+}
+
+
+.reg-pane .help-inline .error, .reg-pane .help-inline .name-error {
+  font-size: 12px;
+  color: #333333;
+  background-color: #FFEAE9;
+  border: 1px solid #FD5757;
+  border-radius: 3px 3px 3px 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 0px;
+}
+.reg-pane .right-tip {
+  font-size: 12px;
+  color: #51A351;
+  margin-bottom: 0px;
+}

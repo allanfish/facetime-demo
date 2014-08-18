@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3><i class="icon-share"></i>共享设置</h3>
+</div>
+<table id="fileShareZone">
+    <tr>
+        <td><i name='file-icon' class="file-icon"></i><span name="name"></span></td>
+        <td><span name="updateTime"></span></td>
+        <td><span name="size">56KB</span></td>
+    </tr>
+</table>
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="control-group hide">
+            <label class="control-label">访问权限: </label>
+
+            <div class="controls">
+                <input type="radio" name="permission"/>预览
+                <input type="radio" name="permission"/>预览，下载
+                <input type="radio" name="permission"/>预览，下载， 本地交互
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">到期时间：</label>
+
+            <div class="controls">
+
+                <span class='checkbox-sprite false' name="checkExpireDate">
+                    <input type="checkbox" style='visibility:hidden' checked=false/>
+                </span>
+
+                <div class="input-append date datepicker" data-date="0d" data-date-format="yyyy-mm-dd"
+                     data-provide="datepicker">
+                    <input size="16" type="text" value="" name="expireDate" class="input input-medium"
+                           readonly><span
+                        class="add-on"><i class="icon-th"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">设置下载次数: </label>
+
+            <div class="controls">
+                  <span class='checkbox-sprite false' name="checkDownloadAmt">
+                    <input type="checkbox" style='visibility:hidden' checked=false/>
+                </span>
+                <input type="text" name="downloadAmt" class="input input-mini" readonly/><span
+                    class="help-inline">次</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">设置访问密码: </label>
+
+            <div class="controls">
+                  <span class='checkbox-sprite false' name="checkPassword">
+                    <input type="checkbox" style='visibility:hidden' checked=false/>
+                </span>
+                <input type="password" name="password" class="input input-mini" readonly/><span class="help-inline">（访问密码不能小于6位）</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"></label>
+
+            <div class="controls"></div>
+        </div>
+    </form>
+    <div class="sharelink-url hide">
+        <label class='label-info'>外链地址  </label>
+        <textarea name="linkinfo" id="" cols="60" rows="3" readonly></textarea>
+        <button class="btn btn-primary">复制</button>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" id="generatebtn" data-loading-text="正在保存..." autocomplete="off"> 生成外链</button>
+    <a href="#" class="btn" data-dismiss="modal"> 关闭</a>
+</div>

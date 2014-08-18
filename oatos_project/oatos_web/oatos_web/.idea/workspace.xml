@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" name="Default" comment="获得个人收藏夹文件列表">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-deepmodel" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-deepmodel/deep-model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-deepmodel/deep-model.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/oatos_web.iml" />
+      <change type="DELETED" beforePath="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\js\myapp\utils\SimpleDateFormat.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$" afterPath="$PROJECT_DIR$" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/EntFileDTO.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/EntFileDTO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/collection/file/EntFileListDTO.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/collection/file/EntFileListDTO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFileTree.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFileTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFolderSelectTree.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFolderSelectTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFolderTree.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFolderTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileItemView.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileItemView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qycloud/web/service/file/FileRoutingUploadService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qycloud/web/service/file/FileRoutingUploadService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileShareView.html" afterPath="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileShareView.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileShareView.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileShareView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/qycloud/web/service/FlexService.java" afterPath="$PROJECT_DIR$/src/main/java/com/qycloud/web/service/FlexService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonFileTree.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonFileTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonFolderTree.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonFolderTree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonalRecycleView.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonalRecycleView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/collection/file/RecycleFileListDTO.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/collection/file/RecycleFileListDTO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/RecycleItemView.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/RecycleItemView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/RecycleView.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/RecycleView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/RecycleView.tpl" afterPath="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/RecycleView.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/user/SettingDTO.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/user/SettingDTO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/ShareLinkDTO.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/ShareLinkDTO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/user/UserLayout.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/user/UserLayout.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/website/css/file.css" afterPath="$PROJECT_DIR$/src/main/webapp/assets/website/css/file.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/filerouter.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/filerouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frags/version.html" afterPath="$PROJECT_DIR$/src/main/webapp/frags/version.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/webconfig.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/webconfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/webrouter.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/webrouter.js" />
+    </list>
+    <ignored path="oatos_web.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/index.html" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369649401573" ignored="false" />
+    <file path="/webinit.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369796472470" ignored="false" />
+    <file path="/a.coffee" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369183137858" ignored="false" />
+    <file path="/a.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369193261964" ignored="false" />
+    <file path="/a.less" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369183174563" ignored="false" />
+    <file path="/a.html" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369183175634" ignored="false" />
+    <file path="/webrouter.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369807316517" ignored="false" />
+    <file path="/Dummy.txt" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369645458673" ignored="false" />
+    <file path="/UploadManagerView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369186134496" ignored="false" />
+    <file path="/UploadItemView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369476217314" ignored="false" />
+    <file path="/UploadItemView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369488616618" ignored="false" />
+    <file path="/util.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369185734456" ignored="false" />
+    <file path="/FileTopView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369292133557" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/webapp/assets/js/logreg/util.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369190640732" ignored="false" />
+    <file path="/resturl.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369817779694" ignored="false" />
+    <file path="/EntFileTable.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369813011187" ignored="false" />
+    <file path="/EntFolderTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795454235" ignored="false" />
+    <file path="/PersonFolderTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795416148" ignored="false" />
+    <file path="/filerouter.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795206635" ignored="false" />
+    <file path="/FileTopView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369194460667" ignored="false" />
+    <file path="/EntFileTable.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369734344430" ignored="false" />
+    <file path="/RecycleView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369810080028" ignored="false" />
+    <file path="/app.events.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369743977561" ignored="false" />
+    <file path="/header.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369650840736" ignored="false" />
+    <file path="/EntFileDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795639464" ignored="false" />
+    <file path="/FileItemView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369735087160" ignored="false" />
+    <file path="/a.dummy" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795433853" ignored="false" />
+    <file path="/webconfig.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369811854772" ignored="false" />
+    <file path="/fragment.js2" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369296934257" ignored="false" />
+    <file path="$PROJECT_DIR$/target/os/config/config.xml" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369306339674" ignored="false" />
+    <file path="$PROJECT_DIR$/target/os/mobile/version.xml" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369306339674" ignored="false" />
+    <file path="$PROJECT_DIR$/target/antrun/build-main.xml" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369306339674" ignored="false" />
+    <file path="/ChatWindowsView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369307738388" ignored="false" />
+    <file path="/ChatWindowView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369307782471" ignored="false" />
+    <file path="/NewFileView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369363047856" ignored="false" />
+    <file path="/UserInfoView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369380331975" ignored="false" />
+    <file path="/UserInfoView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369382486829" ignored="false" />
+    <file path="/TakePhotoView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369637173337" ignored="false" />
+    <file path="/website.css" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369702729834" ignored="false" />
+    <file path="/UploadManagerView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369475968436" ignored="false" />
+    <file path="/UploadManagerView.html" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369477652295" ignored="false" />
+    <file path="/UploadItemView.html" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369485894689" ignored="false" />
+    <file path="/file.css" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369797476019" ignored="false" />
+    <file path="/mainbox.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369653926532" ignored="false" />
+    <file path="/oatos.css" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369653318634" ignored="false" />
+    <file path="/UploadFileDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369483100070" ignored="false" />
+    <file path="/FileShareView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369806368395" ignored="false" />
+    <file path="/FileShareView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369828442702" ignored="false" />
+    <file path="/UserTreeView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369634253073" ignored="false" />
+    <file path="/FileLeftView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369734356989" ignored="false" />
+    <file path="/DepartUserTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369638387261" ignored="false" />
+    <file path="/DepartmentUserTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369641796142" ignored="false" />
+    <file path="/EntFileTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369733305643" ignored="false" />
+    <file path="/PersonFileTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369733379944" ignored="false" />
+    <file path="/select2.css" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369645514293" ignored="false" />
+    <file path="/demo.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369650749130" ignored="false" />
+    <file path="/settingrouter.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369650491733" ignored="false" />
+    <file path="/DemoView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369650544557" ignored="false" />
+    <file path="/SettingDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369789013136" ignored="false" />
+    <file path="/mainboxview.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369797995311" ignored="false" />
+    <file path="/constants.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369720402259" ignored="false" />
+    <file path="/ErrorType.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369734791802" ignored="false" />
+    <file path="/FileLeftView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369730341667" ignored="false" />
+    <file path="/FileItemView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369731099781" ignored="false" />
+    <file path="/PersonFileDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369732130991" ignored="false" />
+    <file path="/FileDetailView.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369734377465" ignored="false" />
+    <file path="/EntSelectFolderTree.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369738878190" ignored="false" />
+    <file path="/EntFileListDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795327147" ignored="false" />
+    <file path="/MessageView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369791008898" ignored="false" />
+    <file path="/MessageType.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369794514095" ignored="false" />
+    <file path="/RecycleFileListDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369795350509" ignored="false" />
+    <file path="/UserLayout.tpl" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369797929539" ignored="false" />
+    <file path="/UserLayout.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369797779457" ignored="false" />
+    <file path="/FileShareView.html" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369828331082" ignored="false" />
+    <file path="/dummy.xml" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369827863867" ignored="false" />
+    <file path="/ShareFileDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369810786235" ignored="false" />
+    <file path="/PersonalRecycleView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369810209151" ignored="false" />
+    <file path="/RecycleItemView.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369810343865" ignored="false" />
+    <file path="/deep-model.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369812478095" ignored="false" />
+    <file path="/ShareLinkDTO.js" changelist="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" time="1369817453237" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="false" show_ignored="false" />
+  <component name="CommittedChangesCache">
+    <option name="refreshEnabled" value="true" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="oatos_web" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="FileShareView.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileShareView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="54" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.42581424">
+              <folding>
+                <element signature="e#3270#4553#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resturl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/utils/resturl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="56" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webinit.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/webinit.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="136" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntFileTable.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFileTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="113" column="60" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShareLinkDTO.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/ShareLinkDTO.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="20" selection-start="361" selection-end="369" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileShareView.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileShareView.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="16" selection-start="2716" selection-end="2729" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileItemView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileItemView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="176" column="80" selection-start="6743" selection-end="6743" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileItemView.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileItemView.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="25" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileShareView.tpl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/webrouter.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/RecycleView.tpl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/RecycleView.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonalRecycleView.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/RecycleItemView.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/ShareFileDTO.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/webconfig.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/webinit.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-deepmodel/deep-model.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/ShareLinkDTO.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/utils/resturl.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/utils/SimpleDateFormat.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFileTable.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileShareView.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileShareView.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1679" />
+    <option name="height" value="1010" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="false" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates-website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backbone-modelbinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backbone-deepmodel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oatos_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\js\sea\modules\underscore-string" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\js\sea\modules\backbone-deepmodel" />
+      <recent name="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\js\sea\modules\select2" />
+      <recent name="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\website\img" />
+      <recent name="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\website\css" />
+      <recent name="D:\workspace\oatos-work\oatos-new\web_client\oatos_web\src\main\webapp\assets\js\sea\modules\underscore-string" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">C:\Users\sunny\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace\oatos-work\oatos-new\web_client\oatos_web" />
+          <option name="myCopyRoot" value="D:\workspace\oatos-work\oatos-new\web_client\oatos_web" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\workspace\oatos-work\oatos-new\web_client\oatos_web" />
+          <option name="myCopyRoot" value="D:\workspace\oatos-work\oatos-new\web_client\oatos_web" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c1f2635-ea63-42a7-ab09-ae5cab6335d4" name="Default" comment="" />
+      <created>1369182630803</created>
+      <updated>1369182630803</updated>
+    </task>
+    <task id="LOCAL-00001" summary="使用webstorm编辑js. 并格式化">
+      <created>1369184351118</created>
+      <updated>1369184351118</updated>
+    </task>
+    <task id="LOCAL-00002" summary="文件上传功能">
+      <created>1369190668102</created>
+      <updated>1369190668102</updated>
+    </task>
+    <task id="LOCAL-00003" summary="获得个人收藏夹文件列表">
+      <created>1369191309103</created>
+      <updated>1369191309103</updated>
+    </task>
+    <task id="LOCAL-00004" summary="个人收藏RESTFUL">
+      <created>1369192945103</created>
+      <updated>1369192945103</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Failed commit: Default">
+      <created>1369201148103</created>
+      <updated>1369201148103</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Failed commit: Default">
+      <created>1369201478104</created>
+      <updated>1369201478104</updated>
+    </task>
+    <task id="LOCAL-00007" summary="获得个人收藏夹文件列表">
+      <created>1369202358103</created>
+      <updated>1369202358103</updated>
+    </task>
+    <task id="LOCAL-00008" summary="垃圾箱">
+      <created>1369207265105</created>
+      <updated>1369207265105</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix bug">
+      <created>1369297172104</created>
+      <updated>1369297172104</updated>
+    </task>
+    <task id="LOCAL-00010" summary="import underscore.string">
+      <created>1369624473117</created>
+      <updated>1369624473117</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix bugs">
+      <created>1369645462104</created>
+      <updated>1369645462104</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1679" height="1010" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34502923" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32748538" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984577" sideWeight="0.6705744" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2445122" sideWeight="0.6725146" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294263" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2881745" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="使用webstorm编辑js. 并格式化" />
+    <MESSAGE value="文件上传功能" />
+    <MESSAGE value="个人收藏RESTFUL" />
+    <MESSAGE value="Failed commit: Default" />
+    <MESSAGE value="垃圾箱" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="获得个人收藏夹文件列表" />
+    <MESSAGE value="import underscore.string" />
+    <MESSAGE value="fix bugs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="oatos_web" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="oatos_web" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/PersonalRecycleView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="81" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/webconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="80" selection-start="2382" selection-end="2382" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-modelbinder/backbone-modelbinder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="31" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-modelbinder/backbone-collectionbinder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="46" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/backbone-deepmodel/deep-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="67" selection-start="3690" selection-end="3690" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/webinit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="136" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileItemView.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="25" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileItemView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="80" selection-start="6743" selection-end="6743" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/model/file/ShareLinkDTO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="20" selection-start="361" selection-end="369" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/moment/1.6.1/moment-debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="735" column="14" selection-start="25062" selection-end="25068" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/sea/modules/moment/1.6.2/moment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="7928" selection-start="8103" selection-end="8103" vertical-scroll-proportion="0.1875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/utils/resturl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="56" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/EntFileTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="60" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/website/templates-website/file/FileShareView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="16" selection-start="2716" selection-end="2729" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myapp/views/website/file/FileShareView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="54" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.42581424">
+          <folding>
+            <element signature="e#3270#4553#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

@@ -1,0 +1,454 @@
+<!-- ==================== 本地基本功能区 ============= -->
+1: property相关指令:
+<property name="project.name" value="${ant.project.name}"/>
+<property name="base.pack" value="om/hkbea/iphone/mpf"/>
+<property environment="env" />
+<property file="build.properties" />
+<tstamp> <format pattern="yyyyMMdd_HH_mm_ss" property="today"/></tstamp>
+
+2: 目录文件相关指令:
+Directionary:
+1. <mkdir dir="dest"/> | <delete dir="dest"/>
+2. deletes all files and subdirectories of build, including build itself.
+   <delete includeEmptyDirs="true"> <fileset dir="build"/> </delete>
+3. deletes all files and subdirectories of build, without build itself.
+   <delete includeemptydirs="true"> <fileset dir="build" includes="**/*"/> </delete>
+4. deletes the subversion metadata directories under src. Because .svn is on of the default excludes 
+   <delete includeemptydirs="true"> <fileset dir="src" includes="**/.svn" defaultexcludes="false"/> </delete>
+File:
+1. create file or update modify time: 
+    <touch file="dest/test.txt"/> 
+    <touch file="foo"> <mapper type="glob" from="foo" to="bar" /></touch>
+2. <delete file="/lib/ant.jar"/>
+3. move or rename: 
+   <move file="file.orig" tofile="file.moved"/>
+   <move todir="new/dir/to/move/to"><fileset dir="src/dir"/> </move>
+4. Copy: 
+   <copy file="readme.txt" todir="src/dest"/>
+   <copy todir="../new/dir" overwrite="true|false"> <fileset dir="src_dir"/></copy>
+5. Concat:
+   A: Concatenate a series of files to the console:
+      <concat><fileset dir="messages" includes="*important*"/></concat>
+
+   B: Concatenate a single file, appending if the destination file exists:
+   <concat destfile="NOTES" append="true"><filelist dir="notes" files="note.txt"/></concat>
+   C: Concatenate a series of files, update the destination file only if is older that all the source files:
+      <concat destfile="${docbook.dir}/all-sections.xml" force="no">
+       <filelist dir="${docbook.dir}/sections" files="introduction.xml,overview.xml"/>
+       <fileset dir="${docbook.dir}" includes="sections/*.xml" excludes="introduction.xml,overview.xml"/>
+      </concat>
+6. Sync:
+   A: overwrites all files in site with newer files from generated-site, deletes files from site that are not present in generated-site.
+     <sync todir="site"><fileset dir="generated-site"/></sync>
+   B: <sync todir="site"> 
+       <fileset dir="generated-site"/>
+       <preserveintarget> <include name="**/CVS/**"/> </preserveintarget>
+      </sync>
+
+3: 记录日志相关指令:
+A: <compile >
+        <record name="log.txt" action="start"/>
+        <javac ...
+        <record name="log.txt" action="stop"/>
+    <compile/>
+B: <record name="records-simple.log" loglevel="info"/> <record name="ISO.log" loglevel="verbose"/>
+
+4: 条件判断和指定输入参数功能:
+A: <target name="main">
+    <input message="please input your target task:" addproperty="taskname" />
+    <input message="are you sure do this task?(yes,no)" addproperty="do.surce" validargs="yes,no" defaultvalue="no"/>
+    <condition property="do.abort"><equals arg1="${do.surce}" arg2="no" /></condition>
+    <condition property="exit"><equals arg1="${taskname}" arg2="exit" /></condition>
+    <condition property="src.avail"><available filepath="${src.dir}" file="MPF_CFG.properties" /></condition> // filepath不能用通配符*
+    <fail if="do.abort" />
+    <fail if="exit" />
+    <fail if="src.avail" />
+    <ant target="${taskname}" />
+   </target>
+B: 更加复杂的逻辑判断:
+<condition property="tiger.available">
+ <not>
+   <equals arg1="${ant.java.version}" arg2="1.4" />
+ </not>
+</condition>
+<condition property="aspectj.available">
+  <and>
+    <istrue value="${tiger.available}" />
+    <available file="${lib.dir}/aspectj/aspectjtools.jar" />
+  </and>
+</condition>
+ 
+5: ant指令: 可以调用外部Build文件
+A: <ant antfile="subproject/subbuild.xml" target="compile"/>
+
+6: 灵活使用antcall命令:
+   <target name="compileAll" description="compile src and test source folder">
+	<antcall target="compile.template">
+     	<param name="src" value="src" />
+	<param name="dest" value="${build.dir}" />
+	</antcall>
+	<antcall target="compile.template">
+	<param name="src" value="test" />
+	<param name="dest" value="${build.dir}" />
+	</antcall>
+    </target>
+    <target name="compile.template">
+ 	<compiler src="${src}" dest="${dest}" />
+    </target>
+
+7: import another build file:
+A: <import file="../common-targets.xml"/>
+B: When using import like in
+<project default="test">
+  <target name="setUp"><property name="prop" value="in importing"/></target>
+  <import file="nested.xml" as="nested"/>
+  <target name="test" depends="nested.echo"/>
+</project>
+
+8: 执行操作系统命令行:
+<exec executable="${env.CHROME_HOME}/chrome.exe" spawn="true">
+  <arg value="http://localhost:8080/mpf/MPFNewsList_en.jsp" />
+  <arg value="ant/docs/manual/index.html"/>
+</exec>
+
+<!-- ==================== Java交互指令区 ============= -->
+1: javac编译命令:
+A: <javac destdir="@{dest}" srcdir="@{src}" source="1.3" target="1.3" encoding="utf-8" deprecation="off" debug="true" debuglevel="lines,source">
+  <classpath refid="lib.classpath" />
+  <classpath path="${cyb.build.dir}"/></javac>
+B: <javac srcdir="${src}" destdir="${build}" includes="mypackage/p1/**,mypackage/p2/**" excludes="mypackage/p1/testpackage/**" 
+        classpath="xyz.jar" debug="on"/>
+C: <javac destdir="${build}" classpath="xyz.jar" debug="on">
+    <src path="${src}"/>
+    <src path="${src2}"/>
+    <include name="mypackage/p1/**"/>
+    <include name="mypackage/p2/**"/>
+    <exclude name="mypackage/p1/testpackage/**"/>
+  </javac>
+D: If you want to run the javac compiler of a different JDK, you should tell Ant, where to find the compiler and which version of JDK
+   <javac srcdir="${src}" destdir="${build}" fork="yes" executable="/opt/java/jdk1.1/bin/javac" compiler="javac1.1" taskname="javac1.4"/>
+E: If you want to activate other compiler options like lint:
+   <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="libraries"> 
+     <compilerarg value="-Xlint"/>
+   </javac> 
+
+2: java运行指令:
+A: <java classname="org.apache.catalina.startup.Bootstrap" fork="true">
+	 <classpath refid="tomcat.classpath" />
+	 <jvmarg value="-Dcatalina.home=${tomcat.home}" />
+	 <arg line="@{cmd}" />
+	</java>
+B: java jar="dist/test.jar" fork="true" failonerror="true" maxmemory="128m" >
+         <arg value="-h"/>
+         <classpath>
+           <pathelement location="dist/test.jar"/>
+           <pathelement path="${java.class.path}"/>
+         </classpath>
+       </java>
+
+3: junit指令:
+   <junit dir="${basedir}" forkmode="perBatch" printsummary="yes" haltonfailure="yes" haltonerror="yes">
+  	<!-- Must go first to ensure any jndi.properties files etc take precedence  -->
+	<jvmarg line="-Djava.awt.headless=true -Xmx256m -XX:MaxPermSize=128m" />
+  	<classpath refid="lib.classpath" />
+
+	<formatter type="plain" usefile="false" />
+	<formatter type="xml" usefile="yes" />
+	<batchtest fork="yes" todir="${basedir}/test">
+      	  <fileset dir="${build.dir}">
+	    <include name="**/*Test.class" />
+	  </fileset>
+	</batchtest>
+   </junit>
+4: junitreport指令:
+<junitreport todir="${basedir}/test">
+   <fileset dir="${basedir}/test">
+      <include name="TEST-*.xml" />
+      <exclude name="**/*.java" />
+   </fileset>
+   <report todir="${basedir}/report" />
+</junitreport>  
+
+5: jar打包指令:
+A: <jar jarfile="${basedir}/dest/${project.name}.jar" encoding="utf-8">
+    <fileset dir="${build.dir}" includes="com/**/*.*,*.*"/>
+</jar>
+B: <jar destfile="${dist}/lib/app.jar" basedir="${build}/classes" includes="mypackage/test/**" excludes="**/Test.class"/>
+C: <jar destfile="test.jar" basedir=".">
+    <include name="build"/>
+    <manifest>
+      <!-- Who is building this jar? -->
+      <attribute name="Built-By" value="${user.name}"/>
+      <!-- Information about the program itself -->
+      <attribute name="Implementation-Vendor" value="ACME inc."/>
+      <attribute name="Implementation-Title" value="GreatProduct"/>
+      <attribute name="Implementation-Version" value="1.0.0beta2"/>
+      <!-- details -->
+      <section name="common/MyClass.class">
+        <attribute name="Sealed" value="false"/>
+      </section>
+    </manifest>
+  </jar>
+
+6: javadoc指令:
+   <javadoc destdir="docs/api" author="true" version="true" use="true" windowtitle="Test API">
+    <fileset dir="src" defaultexcludes="yes">
+      <include name="com/dummy/test/**"/>
+      <exclude name="com/dummy/test/doc-files/**"/>
+    </fileset>
+    <doctitle><![CDATA[<h1>Test</h1>]]></doctitle>
+    <bottom><![CDATA[<i>Copyright &#169; 2000 Dummy Corp. All Rights Reserved.</i>]]></bottom>
+    <tag name="todo" scope="all" description="To do:"/>
+    <group title="Group 1 Packages" packages="com.dummy.test.a*"/>
+    <group title="Group 2 Packages" packages="com.dummy.test.b*:com.dummy.test.c*"/>
+    <link offline="true" href="http://java.sun.com/j2se/1.5.0/docs/api/" packagelistLoc="C:\tmp"/>
+    <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
+  </javadoc>
+
+7: native2ascii指令: 
+<native2ascii encoding="UTF-8" src="native/japanese" dest="src" includes="**/*.java"/>
+
+<!-- ==================== 服务器交互高级功能区 ============= -->
+1: 通过CMD方式与Tomcat交互:
+ A: 启动: 
+	<exec dir="${tomcat.home}/bin" executable="cmd.exe">
+	   <arg value="/c startup.bat" /> | <arg value="/c shutdown.bat" />
+   </exec>
+    停止: <exec executable="${tomcat.home}/bin/shutdown.bat" spawn="true" />
+ 
+ B: 通过Java方式与tomcat交互:
+     <java classname="org.apache.catalina.startup.Bootstrap" fork="true">
+		<classpath refid="tomcat.classpath" />
+		<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+		<arg line="start|stop" />
+     </java>
+     DEBUG:
+     <java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+	 <jvmarg value="-Dcatalina.home=${tomcat.home}" />
+	 <jvmarg value="-Xdebug" />
+	 <jvmarg value="-Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n" />
+     </java>
+
+ C: 通过tomcat-ant.jar方式与Tomcat交互:
+        <classpath id="tomcat-ant.lib">
+		<path location="${tomcat.dir}/server/lib/catalina-ant.jar" />
+	</classpath>
+	<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="tomcat-ant.lib" />
+	<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="tomcat-ant.lib" />
+	<taskdef name="install" classname="org.apache.catalina.ant.InstallTask" classpathref="tomcat-ant.lib" />
+	<taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="tomcat-ant.lib" />
+	<taskdef name="list" classname="org.apache.catalina.ant.ListTask" classpathref="tomcat-ant.lib" />
+	<taskdef name="start" classname="org.apache.catalina.ant.StartTask" classpathref="tomcat-ant.lib" />
+	<taskdef name="stop" classname="org.apache.catalina.ant.StopTask" classpathref="tomcat-ant.lib" />
+         
+        <deploy url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}" path="/${context-path}" 
+	        war="file:${dist}/${context-path}.war" />
+	<undeploy url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}" path="/${context-path}" />
+	<reload url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}" path="/${context-path}" />
+	<start url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}" path="/${context-path}" />
+	<stop url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}" path="/${context-path}" />
+	<list url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}"/>
+
+D: 通过XML文件的方式部署应用:
+<target name="deploy">
+    <echo message="安装Web应用" />
+   <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="classpath.catalina" />
+   <deploy url="${manager.url}" username="${manager.username}" password="${manager.password}" path="/${deploy.name}"  
+           config="D:\AutoBuilder\build\student\web\context.xml" />
+   </target> 
+   context.xml描述的项目目录位于Tomcat外的目录： <Context path="/student" docBase="D:/AutoBuilder/build/student/web" debug="0"/></target>
+ 
+3: 执行JDBC操作:
+A: 通过外部的sql文件:
+   <sql driver="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@192.168.171.24:1521:ibkuat" userid="ibk" password="ibk"
+        classpathref="lib.classpath"
+     print="true">
+    <transaction src="db/query.sql" />
+   </sql>
+B: <sql driver="org.database.jdbcDriver" url="jdbc:database-url" userid="sa" password="pass" src="data.sql"/>
+C: <sql...>insert into table some_table values(1,2,3,4); truncate table some_other_table; </sql>
+D: <sql...><transaction  src="data1.sql"/> <transaction  src="data3.sql"/> <transaction>truncate table table1;</transaction></sql>
+E: 注意, 不要在build中插入违法的数据: 以下错误浪费了我2小时
+java.lang.NullPointerException
+      [java] 	at com.hkbea.iphone.mpf.service.NewsDaoImpl.fillBean(NewsDaoImpl.java:127)
+      [sql] e6e22a90-f30d-49f7-a92b-b25217c9b422,2011-03-23 00:00:00.0,english,ä¸­ææ°é»
+      [sql] 4664646,null,hello,good
+
+4: 服务器交互: SSH方式
+=> SSH命令需要下载:jsch-0.1.44.jar
+A: 运行服务器命令:
+   <sshexec host="${ftp.server}" port="22"username="root" password="ibk123" trust="true" command="jrun stop;jrun start" />
+   TIP:当该用户不是root时, 要通过<sshexec... command="/usr/ibk/uxprod/java/bin/jrun stop;"/>才能看到是访问拒绝错误.
+B: 本地与服务器文件交互:
+   ssh.token=${ftp.user}:${ftp.pwd}@${ftp.server}
+   1. From local dir to remote dir: 
+      <scp trust="true" todir="${ssh.token}:${upload.servlets.dir}" verbose="true"> 
+       <fileset dir="${src.dir}" includes="MPFNewsUploadAction.java"/>
+      </scp>
+   2. From remote dir to local dir:
+      <scp trust="true"
+	   file="${ftp.user}:${ftp.pwd}@${ftp.server}:${ftp.class.dir}/${base.package}/*"
+	   todir="./classes/com/hkbea/iphone" />
+   3. verbose: 用处很大, 用于把每一个操作关联的文件都打印出来.
+
+5: 通过FTP方式与服务器交互:
+0: 确认common-net.jar, common-net-ftp.jar已经导入程序或者配置到ANT runtime.
+1. action include:put, del, get, list, mkdir, rmdir, site.
+2. put:
+<ftp action="put" server="192.168.24.111" password="ibk123" userid="root" remotedir="${ftp.class.dir}" depends="true">
+  <fileset dir="${build.dir}">
+    <include name="com/hkbea/iphone/mpf/**/*.class" />
+  </fileset>
+</ftp>
+3. <ftp action="del" server="${ftp.server}" userid="${ftp.user}" password="${ftp.pwd}" remotedir="${ftp.resource.dir}">
+   <fileset>
+    <include name="MPF_**.*" />
+   </fileset>
+   </ftp>
+   
+4. get:
+ <ftp action="get"
+       server="ftp.apache.org"
+       userid="anonymous"
+       password="me@myorg.com">
+    <fileset dir="htdocs/manual">
+      <include name="**/*.html"/>
+    </fileset>
+  </ftp>
+Logs in to ftp.apache.org as anonymous and recursively downloads all .html files from default directory for that user 
+into the htdocs/manual directory on the local machine.
+
+6: 打包相关命令:
+A: war:
+   <war destfile="${dist}/${context-path}.war" webxml="${meta}/web.xml">
+	<classes dir="${build}">
+	 <exclude name="**/*Test.*" />
+	 <exclude name="**/Test*.*" />
+	 <exclude name="hibernate.cfg.xml" />
+	</classes>
+	<lib dir="${lib}" />
+	<fileset dir="${web}" />
+	  <zipfileset dir="${war-config}" prefix="WEB-INF/classes" />
+	</war>
+B: zip:
+<zip zipfile="${migration.dir}/${project.name}_${today}.zip" encoding="utf-8">
+   <zipfileset prefix="${ftp.java.dir}" dir="${src.dir}">
+ 	<include name="${base.package}/**/*.java" />
+   </zipfileset>
+   <zipfileset prefix="${ftp.class.dir}" dir="./classes">
+	<include name="**/*.class" />
+   </zipfileset>
+   <zipfileset prefix="${ftp.cfg.dir}" dir="${src.dir}">
+	<include name="*.properties" />
+   </zipfileset>
+   <zipfileset prefix="${ftp.jsp.dir}" dir="${web.content.dir}">
+	<include name="MPFNews*.jsp" />
+   </zipfileset>
+   <zipfileset prefix="${ftp.resource.dir}" dir="${web.content.dir}/resource">
+        <include name="*.png" />
+	<include name="*.html" />
+	<include name="*.pdf" />
+   </zipfileset>
+</zip>
+TIP: <zipfileset> 功能等同于<fileset>, 就是可以指定打包目录的前缀, 或者全路径
+
+7: macrodef自定义指令: 通过<attribute>,<element>来传递参数
+A: <macrodef name="ssh.exec" description="execute remote ssh cmd">
+     <attribute name="cmd" description="which cmd to exec" />
+     <sequential>
+	<sshexec host="${ftp.server}" port="22" username="root" password="ibk123" trust="true" command="@{cmd}" />
+     </sequential>
+   </macrodef>
+B: <macrodef name="ftp.put">
+     <attribute name="remotedir" />
+     <attribute name="localdir" />
+     <attribute name="patternid" />
+     <sequential>
+	<ftp action="put" server="${ftp.server}" password="${ftp.user}" userid="${ftp.pwd}" remotedir="@{remotedir}" depends="true">
+	     <fileset dir="@{localdir}">
+		<patternset refid="@{patternid}" />
+	     </fileset>
+	</ftp>
+     </sequential>
+   </macrodef>
+
+8: 发送邮件email:
+<mail mailhost="smtp.myisp.com" mailport="1025" subject="Test build" messagemimetype="text/html">
+      <from address="config@myisp.com" />
+      <replyto address="me@myisp.com" />
+      <to address="all@xyz.com" />
+      <message>The ${buildname} nightly build has completed</message>
+      <attachments>
+	<fileset dir="dist" includes="**/*.zip"/></attachments>
+</mail>
+
+9: ANT功能小结:
+1. 与服务器交互, 如ftp, sshexec, telnet命令等
+2. 与数据库交互, 如sql命令等.
+3. 与本地文件系统交互, 如mkdir, touch, delete, copy, move.
+4. 与java交互: javac, java, javadoc, classpath, junit, junit
+5. 与邮件服务器交互:mail.
+6. 打包压缩: jar/unjar, zip/unzip, war/unwar, tar/untar.
+7. 文件选择和过滤: fileset, include, exclude, zipfileset, pattenset, path. 
+    1. <fileset dir="${src.dir}">
+	<include name="**/*.java"/>
+        <exclude name="**/*.txt"/>
+      // 此时会在目标目录中生成对应的目录和文件
+    2. <zipfileset dir=${src.dir} prefix="./build" | fullpath="./build/">
+         <include|exclude name=""/>
+        // 可以指定要拷贝到的目录, 或者指定完整路径
+    3. <filter token="resource.path" value="./resource"/>
+    4. <mapper id="class.cp" type="glob" from="*.class" to="${base.package}/*.class"></mapper>
+8. 扩展插件:junit, findbugs, pmd, checkstyle, svn, antcontrib.
+
+<!-- ==================== 插件集成功能区 ============= -->
+
+1: 继承步骤:
+1. 下载指定插件.
+2. 找到与ant继承jar包, 如findbugs-ant.jar, tomcat-ant.jar, pmd.jar.
+3. 如果在eclipse环境下, 通过preferences->ant->runtime->classpath->Ant Home Entries添加外部集成包.
+4. 设置***.home路径和该插件的classpath.libr.
+5. 应用taskdef指令:<taskdef name="findbugs" classname="*" classpathref="findbugs.lib" />
+6. 尽情享受Ant和插件带给你的强大功能吧.
+
+2: findbugs集成:
+   <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="findbugs.lib" />
+   <target name="findbugs" description="run find bugs program">
+      <findbugs home="${findbugs.home}" output="html|xml" outputFile="${dest.dir}/bugs.html|bugs.xml" stylesheet="fancy-hist.xsl" 
+                warningsproperty="bugs.present">
+		<auxClasspath refid="lib.classpath" />
+		<sourcePath path="${src.dir}" />
+		<class location="${build.dir}" />
+       </findbugs>
+   </target>
+
+3: pmd集成:
+   <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.lib"/>
+   <target name="pmd" description="Run pmd ">
+  	<pmd shortFilenames="true">
+	<ruleset>rulesets/internal/all-java.xml</ruleset>
+	<formatter type="xml" toFile="${dest.dir}/pmd.xml" linkPrefix="http://pmd.sourceforge.net/xref/" />
+	<fileset dir="${src.dir}">
+	  <include name="**/*.java" />
+	</fileset>
+	</pmd>
+	// 用于生成可读的html文件
+       <xslt in="${dest.dir}/pmd.xml" style="${pmd.home}/etc/xslt/corley-pmd-report.xslt" out="${dest.dir}/pmd.html" />
+	</target>
+
+4: contrib集成:
+
+1. 将ant-contrib.jar加入到ANT_HOME/lib.
+2. <project name="mpf" default="main" basedir="." xmlns:antcontrib="antlib:net.sf.antcontrib">
+3. <taskdef uri="antlib:net.sf.antcontrib" resource="net/sf/antcontrib/antcontrib.properties" classpath="${ant.library.dir}" />
+4. <for list="${java.files}" param="afile">
+       <sequential>
+	  <echo message="compiling @{afile}" />
+	</sequential>
+    </for>
+
+5: svn集成:
+1. 将svnant.jar, svnClientAdapter.jar, svnjavahl.jar, svnkit.jar导入ANT_HOME/lib.
+2. <taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" />
+3. <svn username="${svnant.repository.user}" password="${svnant.repository.passwd}">
+   <checkout url="${svnant.latest.url}" revision="HEAD" destPath="trunk" /></svn>

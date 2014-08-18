@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<project name="AntDemo" default="main" basedir=".">
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="web.content.dir" value="${basedir}/WebContent" />
+	<property name="web.info.dir" value="${web.content.dir}/WEB-INF" />
+	<property name="build.dir" value="${web.info.dir}/classes" />
+	<property name="dest.dir" value="dest" />
+	<property name="lib.dir" value="${web.info.dir}/lib" />
+	<property name="work.dir" value="${basedir}/work" />
+
+	<!-- tomcat about dir -->
+	<property environment="env" />
+	<property name="tomcat.home" value="${env.CATALINA_HOME}" />
+	<property name="tomcat.webapps.dir" value="${env.CATALINA_HOME}/webapps" />
+
+
+	<!-- ftp dir -->
+	<property name="ftp.java.dir" value="/usr/opt/project/IBank/BEA/src/com/excelhk/ibank/appobj" />
+	<property name="ftp.cfg.dir" value="/usr/ibk/uxprod/java/cfg" />
+	<property name="ftp.jsp.dir" value="/usr/ibk/uxprod/homepage/Html/jsp" />
+	<property name="ftp.resource.dir" value="/usr/ibk/uxprod/homepage/Html/resource" />
+	<property name="base.package" value="com/hkbea/iphone/mpf" />
+	<property name="findbugs.home" value="D:\My_Resource\My_Apache\findbugs-1.3.9" />
+	<property name="java.files" value="${base.package}/NewsBean.java,${base.package}/LatestNewsDao.java" />
+	<property name="pmd.home" value="D:\My_Resource\My_Pratices\pmd\pmd-4.2.5" />
+
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
+	</taskdef>
+
+	<target name="findbugs" depends="compile.src" description="run find bugs program">
+		<findbugs home="${findbugs.home}" output="xml" outputFile="${dest.dir}/find.xml" warningsproperty="bugs.present">
+			<class location="${build.dir}" />
+			<sourcePath path="${src.dir}" />
+			<auxClasspath refid="lib.classpath" />
+		</findbugs>
+		<echo message="${bugs.present}" />
+	</target>
+
+	<path id="pmd.lib">
+		<fileset dir="${pmd.home}/lib" includes="**/*.jar" />
+	</path>
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.lib" />
+
+	<target name="pmd" description="Run pmd ">
+		<pmd shortFilenames="true">
+			<ruleset>rulesets/internal/all-java.xml</ruleset>
+			<formatter type="xml" toFile="${dest.dir}/pmd.xml" linkPrefix="http://pmd.sourceforge.net/xref/" />
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</pmd>
+	</target>
+
+	<!-- ================================= target: test.contrib ================================= -->
+	<target name="test.contrib" description="description">
+		<for list="${java.files}" param="afile">
+			<sequential>
+				<echo message="compiling @{afile}" />
+			</sequential>
+		</for>
+	</target>
+	<mapper id="class.cp" type="glob" from="*.class" to="${base.package}/*.class">
+	</mapper>
+
+	<target name="ftp.deploy" description="deploy project to ftp server">
+		<echo message="put java files to ftp" />
+		<ftp action="put" server="192.168.24.111" password="ibk123" userid="root" remotedir="${ftp.java.dir}" depends="true">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</ftp>
+
+		<echo message="put cfg files to ftp " />
+		<ftp action="put" server="192.168.24.111" password="ibk123" userid="root" remotedir="${ftp.cfg.dir}" depends="true">
+			<fileset dir="${src.dir}">
+				<include name="*.properties" />
+				<include name="*.xml" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</ftp>
+
+		<echo message="put jsp files to ftp" />
+		<ftp action="put" server="192.168.24.111" password="ibk123" userid="root" remotedir="${ftp.jsp.dir}" depends="true">
+			<fileset dir="${web.content.dir}">
+				<include name="*.jsp" />
+			</fileset>
+		</ftp>
+
+		<echo message="put resource files to ftp" />
+		<ftp action="put" server="192.168.24.111" password="ibk123" userid="root" remotedir="${ftp.resource.dir}" depends="true">
+			<fileset dir="${web.content.dir}/resource">
+				<include name="*.png" />
+				<include name="*.pdf" />
+			</fileset>
+		</ftp>
+	</target>
+
+	<!--Ant target: like Java method -->
+	<target name="main">
+		<echo message="build facetime framework" />
+		<antcall target="toCall">
+			<param name="name" value="yufei" />
+			<param name="age" value="23" />
+		</antcall>
+	</target>
+
+	<!--allcall: 如同depends依赖于其他的target, 它还可以传入参数. -->
+	<target name="toCall">
+		<echo message="I am ${name} and ${age} years old." />
+	</target>
+
+
+	<condition property="tiger.available">
+		<not>
+			<equals arg1="${ant.java.version}" arg2="1.4" />
+		</not>
+	</condition>
+
+	<condition property="aspectj.available">
+		<and>
+			<istrue value="${tiger.available}" />
+			<available file="${lib.dir}/aspectj/aspectjtools.jar" />
+		</and>
+	</condition>
+
+	<!--Compile src folder java files and resource -->
+	<target name="compile.src" description="compile src folder">
+		<compiler src="${src.dir}" dest="${build.dir}" />
+	</target>
+
+	<!--Compile test folder java files and resource -->
+	<target name="compile.test" depends="compile.src" description="compile test folder">
+		<compiler src="test" dest="bin" />
+	</target>
+
+	<!--灵活运用macrodef, antcall指令实现编译模板化 -->
+	<target name="compileAll" description="compile src and test source folder">
+		<antcall target="compile.template">
+			<param name="src" value="src" />
+			<param name="dest" value="${build.dir}" />
+		</antcall>
+		<antcall target="compile.template">
+			<param name="src" value="test" />
+			<param name="dest" value="${build.dir}" />
+		</antcall>
+	</target>
+
+	<!-- 作为Compiler指定的模板target, 不能执行 -->
+	<target name="compile.template">
+		<compiler src="${src}" dest="${dest}" />
+	</target>
+
+
+	<!-- jar cmd: 生产编译后的Jar文件 -->
+	<target name="jar.classes" depends="compile.src" description="jar class files and resource">
+		<delete dir="${basedir}/dest" />
+		<mkdir dir="${basedir}/dest" />
+
+		<jar jarfile="${basedir}/dest/${ant.project.name}.jar" encoding="utf-8">
+			<fileset dir="${build.dir}">
+				<include name="com/**/*.*" />
+				<include name="*.*" />
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- zip cmd:来打包源文件和文档 -->
+	<target name="zip.src" description="zip source files">
+		<zip zipfile="${basedir}/db/${ant.project.name}.src.zip" encoding="utf-8">
+			<fileset dir="${src.dir}">
+				<patternset refid="src.pattern" />
+			</fileset>
+			<patternset id="src.pattern">
+				<include name="**/*.java" />
+				<include name="*.properties" />
+				<include name="*.txt" />
+				<include name="*.xml" />
+			</patternset>
+			<zipfileset dir="${web.content.dir}" prefix="WebContent">
+				<include name="*.jsp" />
+				<include name="*.html" />
+				<include name="**/*.png" />
+				<exclude name="**/*.jar" />
+			</zipfileset>
+			<fileset dir="${basedir}">
+				<include name="build.xml" />
+				<include name="readme.txt" />
+			</fileset>
+		</zip>
+	</target>
+
+	<!-- ================================= target: war ================================= -->
+	<target name="war" description="war project">
+		<war destfile="${dest.dir}/${ant.project.name}.war">
+			<zipfileset dir="${web.content.dir}" prefix="WebContent" />
+		</war>
+	</target>
+
+
+	<!--Global var: use to specify classpath -->
+	<path id="lib.classpath">
+		<pathelement path="${build.dir}" />
+		<fileset dir="${lib.dir}">
+			<include name="**.jar" />
+			<exclude name="**.java" />
+		</fileset>
+	</path>
+
+	<!--java.lang.NoClassDefFoundError: org/apache/juli/logging/LogFactory -->
+	<path id="tomcat.classpath">
+		<fileset dir="${tomcat.home}/bin">
+			<include name="tomcat-juli.jar" />
+		</fileset>
+	</path>
+
+	<!--Run junit test for facetime -->
+	<target name="junit" depends="compile.src" description="auto-run junit">
+		<junit dir="${basedir}" forkmode="perBatch" printsummary="yes" haltonfailure="no" haltonerror="yes">
+			<!-- Must go first to ensure any jndi.properties files etc take precedence -->
+			<jvmarg line="-Djava.awt.headless=true -Xmx256m -XX:MaxPermSize=128m" />
+			<classpath refid="lib.classpath" />
+			<classpath path="${build.dir}" />
+
+			<formatter type="xml" usefile="yes" />
+			<batchtest fork="yes" todir="${dest.dir}">
+				<fileset dir="${build.dir}">
+					<include name="**/Test*.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	<!-- ================================= target: junit.report ================================= -->
+	<target name="junit.report" depends="junit" description="generate junit report">
+		<junitreport todir="${dest.dir}">
+			<fileset dir="${dest.dir}">
+				<include name="TEST-*.xml" />
+				<exclude name="**/*.java" />
+			</fileset>
+			<report todir="${dest.dir}" />
+		</junitreport>
+	</target>
+
+
+	<!--Clean dest and bin folder -->
+	<target name="clean" depends="" description="description">
+		<delete dir="${tomcat.webapps.dir}/${ant.project.name}" />
+		<delete dir="${tomcat.home}/work/Catalina/localhost/${ant.project.name}" />
+		<mkdir dir="${tomcat.webapps.dir}/${ant.project.name}" />
+
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}" />
+
+	</target>
+
+	<target name="clean_test" description="clean test result">
+		<delete dir="${basedir}/test">
+			<include name="*.txt" />
+			<include name="*.xml" />
+		</delete>
+
+		<delete dir="${basedir}/junit.report" />
+		<mkdir dir="${basedir}/junit.report" />
+	</target>
+
+	<target name="deployFacetime" depends="compileAll,jar.classes,zip.src">
+		<deplyFaceTime project="${ant.project.name}" destdir="dest" />
+	</target>
+
+
+	<target name="tomcat.start" description="startup tomcat in console">
+		<java classname="org.apache.catalina.startup.Bootstrap" fork="true">
+			<classpath>
+				<pathelement location="${tomcat.home}/bin/bootstrap.jar" />
+				<pathelement location="${tomcat.home}/bin/tomcat-juli.jar" />
+			</classpath>
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+			<arg line="start" />
+		</java>
+	</target>
+
+	<target name="tomcat.stop" description="startup tomcat in console">
+		<java classname="org.apache.catalina.startup.Bootstrap" fork="true">
+			<classpath>
+				<pathelement location="${tomcat.home}/bin/bootstrap.jar" />
+				<pathelement location="${tomcat.home}/bin/tomcat-juli.jar" />
+			</classpath>
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+			<arg line="stop" />
+		</java>
+	</target>
+
+	<target name="tomcat.debug">
+		<java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+			<jvmarg value="-Xdebug" />
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n" />
+		</java>
+	</target>
+
+
+	<!-- ================================= target: start.chrome ================================= -->
+	<target name="chrome.run" depends="" description="start chrome brower">
+		<exec executable="${env.CHROME_HOME}/chrome.exe" spawn="true">
+			<arg value="http://localhost:8081/mpf/MPFNewsList.jsp" />
+		</exec>
+	</target>
+
+	<!-- test run local app -->
+	<target name="run.tomcat">
+		<exec dir="${tomcat.home}/bin" executable="cmd.exe">
+			<arg value="/c startup.bat" />
+		</exec>
+	</target>
+	<target name="stop.tomcat">
+		<exec dir="${tomcat.home}/bin" executable="cmd.exe">
+			<arg value="/c shutdown.bat" />
+		</exec>
+	</target>
+
+	<!-- ================================= target: deploy.file ================================= -->
+	<target name="deploy.file" depends="" description="generate tomcat deploy file ">
+		<java classname="com.facetime.utils.DeployFileGenerator" fork="yes">
+			<classpath>
+				<path refid="lib.classpath" />
+				<pathelement location="${build.dir}" />
+			</classpath>
+			<arg value="${ant.project.name}" />
+			<arg value="${basedir}" />
+			<arg value="${work.dir}" />
+			<arg value="${tomcat.home}/conf/Catalina/localhost/${ant.project.name}.xml" />
+		</java>
+	</target>
+
+	<target name="restart.tomcat">
+		<exec dir="${tomcat.home}/bin" executable="cmd.exe">
+			<arg value="/c shutdown.bat" />
+		</exec>
+		<exec dir="${tomcat.home}/bin" executable="cmd.exe">
+			<arg value="/c startup.bat" />
+		</exec>
+	</target>
+
+	<target name="insert.news.en" description="insert a new record to db">
+		<java classname="com.hkbea.iphone.mpf.BlobInsertTest" fork="true">
+			<classpath>
+				<path refid="lib.classpath" />
+				<pathelement location="${build.dir}" />
+			</classpath>
+			<arg value="BEA Trustees Reduces Management Fees for MPF Constituent Funds\r\n" />
+			<arg value="${web.content.dir}/item.html" />
+		</java>
+	</target>
+	<target name="insert.news.zh" description="insert a new record to db">
+		<java classname="com.hkbea.iphone.mpf.BlobInsertTest" fork="true">
+			<classpath>
+				<path refid="lib.classpath" />
+				<pathelement location="${build.dir}" />
+			</classpath>
+			<arg value="你還是亂碼嗎?" />
+			<arg value="${web.content.dir}/item_zh.html" />
+		</java>
+	</target>
+	<target name="insert.news.all" description="insert a new record to db">
+		<java classname="com.hkbea.iphone.mpf.AllContentInsertTest" fork="true">
+			<classpath>
+				<path refid="lib.classpath" />
+				<pathelement location="${build.dir}" />
+			</classpath>
+			<arg value="hello world ?" />
+			<arg value="你還是亂碼嗎?" />
+			<arg value="${web.content.dir}/item.html" />
+			<arg value="${web.content.dir}/item_zh.html" />
+		</java>
+	</target>
+
+	<!-- target: deploy current project -->
+	<target name="deploy" depends="clean, compile.src" description="deploy ${ant.project.name} to tomcat">
+		<copy todir="${tomcat.webapps.dir}/${ant.project.name}" encoding="utf-8">
+			<fileset dir="${web.content.dir}">
+				<exclude name="**/el**.jar" />
+				<exclude name="**/jsp**.jar" />
+				<exclude name="**/jasper**.jar" />
+				<exclude name="**/servlet**.jar" />
+				<exclude name="**/tomcat-*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+
+	<target name="ftp.jar" depends="" description="deploy jar to ftp">
+		<deployJar project="${ant.project.name}" destdir="${basedir}/dest" />
+	</target>
+
+	<!-- = = = = = = = = = = = = = = = = = macrodef: deply shop.jar to ftp = 
+		= = = = = = = = = = = = = = = = -->
+	<macrodef name="deployJar" description="deploy jar to ftp">
+		<attribute name="project" description="which project to deply" />
+		<attribute name="destdir" description="which folder to load jar files" />
+		<sequential>
+			<javac destdir="@{destdir}" target="1.6" encoding="utf-8" deprecation="off" source="1.6" failonerror="yes" debug="true" debuglevel="lines,source">
+				<classpath refid="lib.classpath" />
+				<src path="src/com" />
+			</javac>
+			<ftp action="put" server="192.168.24.111" password="ibk123" userid="root" remotedir="/root" depends="true">
+				<fileset dir="@{destdir}">
+					<include name="**/*.jar" />
+					<include name="**/*.zip" />
+				</fileset>
+			</ftp>
+		</sequential>
+	</macrodef>
+
+
+	<!--user def compiler command -->
+	<macrodef name="compiler">
+		<attribute name="src" description="which src to compile" />
+		<attribute name="dest" description="which folder to store compiled files" />
+		<sequential>
+			<echo message="starting compile @{src}..." />
+			<echo>starting compile @{src} java files </echo>
+			<javac destdir="@{dest}" source="1.4" target="1.4" encoding="utf-8" deprecation="off" debug="true" debuglevel="lines,source">
+				<classpath refid="lib.classpath" />
+				<src path="@{src}/com" />
+			</javac>
+
+			<echo>starting copy @{src} cfg files</echo>
+			<copy todir="@{dest}" overwrite="true">
+				<fileset dir="@{src}">
+					<include name="*.properties" />
+					<include name="*.xml" />
+					<include name="*.txt" />
+					<exclude name="**/*.java" />
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+</project>
+

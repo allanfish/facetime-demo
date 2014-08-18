@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qycloud.oatos.server.dao.RolePermissionMapper">
+
+    <resultMap id="RolePermissionResultMap" type="RolePermission">
+        <result property="folderId" column="folder_id" />
+        <result property="roleId" column="role_id" />
+        <result property="list" column="list" />
+        <result property="read" column="read" />
+        <result property="write" column="write" />
+        <result property="download" column="download" />
+        <result property="upload" column="create_sub" />
+        <result property="delete" column="delete_sub" />
+        <result property="share" column="move" />
+        <result property="local" column="local" />
+    </resultMap>
+
+    <insert id="addRolePermisssion" parameterType="RolePermission">
+      	INSERT INTO role_permissions (folder_id, role_id, list, `read`, `write`, download, create_sub, delete_sub, move, local) 
+		VALUES (#{folderId}, #{roleId}, #{list}, #{read}, #{write}, #{download}, #{upload}, #{delete}, #{share}, #{local});
+    </insert>
+
+	<update id="updateRolePermisssions">
+		replace into role_permissions (folder_id, role_id, list, `read`, `write`, download, create_sub, delete_sub, move, local)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.folderId}, #{item.roleId}, #{item.list}, #{item.read}, #{item.write}, #{item.download}, #{item.upload}, #{item.delete}, #{item.share}, #{item.local})
+		</foreach>		
+	</update>
+
+	<select id="getRolePermisssionsByEntId" parameterType="long" resultMap="RolePermissionResultMap">
+		SELECT a.folder_id, a.role_id, a.list, a.`read`, a.`write`, a.download, a.create_sub, a.delete_sub, a.move, a.local
+		FROM role_permissions a join role b on a.role_id = b.role_id
+    	WHERE b.ent_id = #{entId}
+    </select>
+
+    <delete id="deletePermissionByRoleId" parameterType="long">
+		DELETE FROM role_permissions WHERE role_id = #{roleId}
+	</delete>
+
+	<select id="getRolePermisssionsByUserIdAndFolderId" parameterType="map" resultMap="RolePermissionResultMap">
+		SELECT a.folder_id, a.role_id, a.list, a.`read`, a.`write`, a.download, a.create_sub, a.delete_sub, a.move, a.local
+		FROM role_permissions a 
+		INNER JOIN user_role b on a.role_id = b.role_id
+    	WHERE b.user_id = #{userId} AND a.folder_id = #{folderId}
+    </select>
+
+    <insert id="copyParentRolePermisssionToChildFolder" parameterType="map">
+		INSERT INTO role_permissions (folder_id, role_id, list, `read`, `write`, download, create_sub, delete_sub, move, local)
+		SELECT #{folderId}, role_id, list, `read`, `write`, download, create_sub, delete_sub, move, local
+		FROM role_permissions WHERE folder_id = #{parentFolderId}
+    </insert>
+
+    <select id="getRolePermisssionsByUserId" parameterType="long" resultMap="RolePermissionResultMap">
+		SELECT a.folder_id, a.role_id, a.list, a.`read`, a.`write`, a.download, a.create_sub, a.delete_sub, a.move, a.local
+		FROM role_permissions a 
+		INNER JOIN user_role b on a.role_id = b.role_id
+    	WHERE b.user_id = #{userId}
+    </select>
+
+</mapper>

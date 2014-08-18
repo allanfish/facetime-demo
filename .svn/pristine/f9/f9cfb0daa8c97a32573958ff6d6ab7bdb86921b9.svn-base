@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/url.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h2>个人收藏夹REST服务</h2>
+		<div class="ul-fun">
+			<h4>功能列表:</h4>
+			<ul>
+					<li><a href="#添加个人收藏夹文件列表">添加个人收藏夹文件列表</a></li>
+					<li><a href="#取消个人收藏夹文件列表">取消个人收藏夹文件列表</a></li>
+					<li><a href="#获得个人收藏夹文件列表">获得个人收藏夹文件列表</a></li>
+			</ul>
+		</div>
+
+		<div>
+				<p class="p-fun"><a name="添加个人收藏夹文件列表"></a>添加个人收藏夹文件列表</p>
+				<p><span>请求地址:</span>"/sc/favoriteFile/addFavoriteFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FavoriteFilesDTO.htm">FavoriteFilesDTO</a> 个人收藏文件夹DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK">CommConstants.OK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="取消个人收藏夹文件列表"></a>取消个人收藏夹文件列表</p>
+				<p><span>请求地址:</span>"/sc/favoriteFile/delFavoriteFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li><a href="../dto/FavoriteFilesDTO.htm">FavoriteFilesDTO</a> 个人收藏文件夹DTO</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../status/CommConstants.htm#OK">CommConstants.OK</a> OK</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+				<p class="p-fun"><a name="获得个人收藏夹文件列表"></a>获得个人收藏夹文件列表</p>
+				<p><span>请求地址:</span>"/sc/favoriteFile/getFavoriteFile"</p>
+				<p><span>参数:</span></p>
+				<ul>
+							<li>userId用户ID</li>
+				</ul>
+				<p><span>正常返回:</span></p>
+				<ul>
+							<li><a href="../dto/ShareFilesDTO.htm">ShareFilesDTO</a> 企业网盘文件列表DTO</li>
+				</ul>
+				<p><span>异常返回:</span>
+				</p>
+				<ul>
+							<li>error500：系统错误</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

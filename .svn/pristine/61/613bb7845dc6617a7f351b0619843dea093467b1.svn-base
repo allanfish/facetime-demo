@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SWFUpload Example - Single Uploader</title>
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../swfupload.js"></script>
+<script type="text/javascript" src="../jquery.swfupload.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#swfupload-control').swfupload({
+		upload_url: "http://localhost:8080/app/file/upload/test",
+		file_post_name: "file" , // 对应controller中的参数
+		file_size_limit : "10240",
+		file_types : "*.*",
+		file_types_description : "All Files",
+		file_upload_limit : "0",
+		flash_url : "../swfupload.swf",
+		
+		// button_image_url : '../img/TestImageNoText_65x29.png',
+		button_width : 65,
+		button_height : 29,
+		button_placeholder : $('#button')[0],
+		button_text: '<span class="theFont">添加新文件</span>',
+		button_text_style: ".theFont { font-size: 13px;font-color:red }",
+		//button_text_left_padding: 12,
+		//button_text_top_padding: 3,
+		debug: true,
+		custom_settings : {something : "here"}
+	})
+		.bind('swfuploadLoaded', function(event){
+			$('#log').append('<li>Loaded</li>');
+		})
+		.bind('fileQueued', function(event, file){
+			$('#log').append('<li>File queued - '+file.name+'</li>');
+			// start the upload since it's queued
+			$(this).swfupload('startUpload');
+		})
+		.bind('fileQueueError', function(event, file, errorCode, message){
+			$('#log').append('<li>File queue error - '+message+'</li>');
+		})
+		.bind('fileDialogStart', function(event){
+			$('#log').append('<li>File dialog start</li>');
+		})
+		.bind('fileDialogComplete', function(event, numFilesSelected, numFilesQueued){
+			$('#log').append('<li>File dialog complete</li>');
+		})
+		.bind('uploadStart', function(event, file){
+			$('#log').append('<li>Upload start - '+file.name+'</li>');
+		})
+		.bind('uploadProgress', function(event, file, bytesLoaded){
+			$('#log').append('<li>Upload progress - '+bytesLoaded+'</li>');
+		})
+		.bind('uploadSuccess', function(event, file, serverData){
+			$('#log').append('<li>Upload success - '+file.name+'</li>');
+		})
+		.bind('uploadComplete', function(event, file){
+			$('#log').append('<li>Upload complete - '+file.name+'</li>');
+			// upload has completed, lets try the next one in the queue
+			$(this).swfupload('startUpload');
+		})
+		.bind('uploadError', function(event, file, errorCode, message){
+			$('#log').append('<li>Upload error - '+message+'</li>');
+		});
+	
+});	
+
+</script>
+</head>
+<body>
+
+<div id="swfupload-control">
+	<ol id="log"></ol>
+	<input type="button" id="button" value="hello" style="border: 1px solid gray;" />
+</div>
+
+</body>
+</html>

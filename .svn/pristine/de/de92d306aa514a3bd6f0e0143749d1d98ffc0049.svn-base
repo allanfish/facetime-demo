@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../css/dto.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+		<h3>ViewFileDTO</h3>
+		<p><span>说明:</span>浏览文件dto</p>
+		<p><span>父类:</span></p>
+		<ul>
+			<li><a href="FileDTO.htm">FileDTO</a></li>
+		</ul>
+		<p><span>字段说明:</span></p>
+		<div class="div-field">
+			<ul>
+				<li>属性名</li>
+				<li>类型</li>
+				<li class="r">说明</li>
+								<li>userName</li>
+								<li>String</li>
+								<li class="r">用户名</li>
+								<li>fromId</li>
+								<li>long</li>
+								<li class="r">文件所有者id企业网盘文件为企业id；个人网盘文件为用户id</li>
+								<li>currentPage</li>
+								<li>int</li>
+								<li class="r">当前页码</li>
+								<li>saved</li>
+								<li>boolean</li>
+								<li class="r">是否保存</li>
+								<li class="b">checkPermission</li>
+								<li class="b">boolean</li>
+								<li class="b r">是否检查权限</li>
+			</ul>
+		</div>
+
+		<div class="enum">
+			<p><span>枚举字段说明:</span></p>
+			<div class="enum-fie">
+				<p>
+							<span>无</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

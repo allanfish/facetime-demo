@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0046)http://10.25.45.69/wiki/Wiki.jsp?page=Booklist -->
+<html id="top" xmlns="http://www.w3.org/1999/xhtml" xmlns:jspwiki="http://www.jspwiki.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+    Wiki：Booklist
+  </title>
+  
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" media="screen, projection, print" type="text/css" href="./Wiki：Booklist_files/jspwiki.css">
+
+<link rel="stylesheet" type="text/css" media="print" href="./Wiki：Booklist_files/jspwiki_print.css">
+<!-- INCLUDERESOURCES (stylesheet) -->
+
+<!-- INCLUDERESOURCES (inlinecss) -->
+
+
+
+<noscript>
+&lt;style type="text/css"&gt;
+#hiddenmorepopup { display:block; }
+&lt;/style&gt;
+</noscript>
+
+
+<script type="text/javascript" src="./Wiki：Booklist_files/mootools.js"></script><link type="text/css" rel="stylesheet" href="data:text/css,">
+<script type="text/javascript" src="./Wiki：Booklist_files/prettify.js"></script>
+<script type="text/javascript" src="./Wiki：Booklist_files/jspwiki-common.js"></script>
+<script type="text/javascript" src="./Wiki：Booklist_files/jspwiki-commonstyles.js"></script>
+<!-- INCLUDERESOURCES (script) -->
+
+
+
+
+
+<meta name="wikiContext" content="view">
+<meta name="wikiBaseUrl" content="http://10.25.45.69/wiki/">
+<meta name="wikiPageUrl" content="/wiki/Wiki.jsp?page=%23%24%25">
+<meta name="wikiEditUrl" content="/wiki/Edit.jsp?page=Booklist">
+<meta name="wikiJsonUrl" content="/wiki/JSON-RPC">
+<meta name="wikiPageName" content="Booklist">
+<meta name="wikiUserName" content="10.13.46.29">
+<meta name="wikiTemplateUrl" content="/wiki/templates/default/">
+<meta name="wikiApplicationName" content="Wiki">
+
+<script type="text/javascript">//<![CDATA[
+/* Localized javascript strings: LocalizedStrings[] */
+var LocalizedStrings = {
+"javascript.favs.show":"单击显示收藏夹",
+"javascript.sbox.clone.suffix":"-New",
+"javascript.sort.click":"单击排序",
+"javascript.slimbox.error":"<h2>错误</h2> 您的请求有问题。<br />请重试",
+"javascript.edit.findandreplace.nomatch":"未找到匹配项！",
+"javascript.expand":"单击扩展",
+"javascript.prefs.areyousure":"如果没有单击“保存用户首选项”按钮，前面所做的更改将丢失。是否要退出此页面？",
+"javascript.sectionediting.label":"段落概览",
+"javascript.quick.edit":"[编辑]",
+"javascript.slimbox.previous":"&laquo;上一个",
+"javascript.filter.all":"（全部）",
+"javascript.quick.edit.title":"编辑段落 {0}...",
+"javascript.sort.ascending":"升序。单击反转排序顺序",
+"javascript.edit.startOfPage":"（页面开始）",
+"javascript.slimbox.info":"图像 {0}（共 {1} 个）",
+"javascript.slimbox.next":"下一个&raquo;",
+"javascript.edit.allsections":"（全部）",
+"javascript.slimbox.directLink":"到目标的直接链接",
+"javascript.sort.descending":"降序。单击反转排序顺序",
+"javascript.collapse":"单击折叠",
+"javascript.favs.hide":"单击隐藏收藏夹",
+"javascript.edit.toolbar.makeSelection":"请先进行选择。",
+"javascript.edit.areyousure":"如果没有单击“保存”按钮所做的更改将丢失。是否要退出此页面？",
+"javascript.category.title":"单击显示类别 [{0}] ...",
+"javascript.slimbox.close":"关闭 &#215;",
+"javascript.edit.resize":"拖动来调整文本区的大小",
+"javascript.slimbox.remoteRequest":"远程请求 {0}（共 {1} 个）",
+"javascript.group.validName":"请为新组指定有效的名称",
+"javascript.slimbox.close.title":"关闭 [Esc]",
+"javascript.tip.default.title":"更多..."
+};
+
+
+/* INCLUDERESOURCES (jsfunction) */
+
+//]]></script>
+
+
+<link rel="search" href="http://10.25.45.69/wiki/Wiki.jsp?page=FindPage" title="Search Wiki">
+<link rel="help" href="http://10.25.45.69/wiki/Wiki.jsp?page=TextFormattingRules" title="Help">
+
+ <link rel="start" href="http://10.25.45.69/wiki/Wiki.jsp?page=Main" title="Front page">
+<link rel="alternate stylesheet" type="text/css" href="./Wiki：Booklist_files/jspwiki_print.css" title="Print friendly">
+<link rel="alternate stylesheet" type="text/css" href="./Wiki：Booklist_files/jspwiki.css" title="Standard">
+<link rel="shortcut icon" type="image/x-icon" href="http://10.25.45.69/wiki/images/favicon.ico">
+
+<link rel="icon" type="image/x-icon" href="http://10.25.45.69/wiki/images/favicon.ico">
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head>
+
+<body class="view" screen_capture_injected="true">
+
+<div id="wikibody" class="fav-left">
+ 
+  
+
+
+
+
+
+
+<div id="header">
+
+  <div class="titlebox"></div>
+
+  <div class="applicationlogo"> 
+    <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Main" title="转到主页 Main ">主页</a>
+  </div>
+
+  <div class="companylogo"></div>
+
+
+
+
+
+
+
+
+			<div class="userbox">
+
+  
+    <span class="username anonymous">
+      您好（匿名访客）
+    </span>
+  
+  
+  
+
+  
+  
+  
+    
+      <a href="http://10.25.45.69/wiki/Login.jsp?redirect=Booklist" class="action login" title="登录或注册为新用户">登录</a>
+    
+  
+  
+  
+  
+
+  
+  
+    <a href="http://10.25.45.69/wiki/UserPreferences.jsp?redirect=Booklist" class="action prefs" accesskey="p" title="管理首选项 [ p ]">我的首选项(<span class="accesskey">P</span>)
+    </a>
+  
+  
+
+  <div class="clearbox"></div>
+
+</div>
+
+  <div class="pagename">Booklist</div>
+
+  <div class="searchbox">
+
+
+
+
+
+
+<form action="http://10.25.45.69/wiki/Search.jsp" class="wikiform" id="searchForm" accept-charset="UTF-8">
+
+  <div style="position:relative">
+  <input onblur="if( this.value == &#39;&#39; ) { this.value = this.defaultValue }; return true; " onfocus="if( this.value == this.defaultValue ) { this.value = &#39;&#39;}; return true; " type="text" value="快速导航" name="query" id="query" size="20" accesskey="f" autocomplete="off">
+  <button type="submit" name="searchSubmit" id="searchSubmit" value="转到！" title="转到！"></button>
+  </div>
+  <div id="searchboxMenu" style="visibility: hidden; zoom: 1; opacity: 0; " visibility="visible">
+    <div id="searchTools">
+      <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#" id="quickView" class="action" onclick="SearchBox.navigate( &#39;/wiki/Wiki.jsp?page=__PAGEHERE__&#39;,&#39;查看选定页面&#39; );" title="查看选定页面">查看</a>
+      <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#" id="quickEdit" class="action" onclick="SearchBox.navigate( &#39;/wiki/Edit.jsp?page=__PAGEHERE__&#39;,&#39;编辑选定页面&#39; );" title="编辑选定页面">编辑</a>
+      <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#" id="quickClone" class="action" onclick="return SearchBox.navigate( &#39;/wiki/Edit.jsp?page=__PAGEHERE__&#39;, &#39;复制选定页面&#39;, true );" title="复制选定页面">复制</a>
+      <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#" id="advancedSearch" class="action" onclick="SearchBox.navigate( &#39;http://10.25.45.69/wiki/Search.jsp?query=__PAGEHERE__&#39;,&#39;Booklist&#39; )" title="高级搜索 [ f ]">查找</a>
+    </div>
+    <div id="searchResult">
+	  快速搜索
+      <span id="searchTarget">（输入提示）</span>
+      <span id="searchSpin" class="spin" style="position:absolute;display:none;"></span>
+	  <div id="searchOutput"></div>
+    </div>
+    <div id="recentSearches" style="display:none;">
+      最近的搜索
+      <span><a href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#" id="recentClear">（清除）</a></span>
+    </div>
+  </div>
+
+</form></div>
+
+  <div class="breadcrumbs">浏览记录：&nbsp;<a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=Main">Main</a></div>
+
+</div>
+
+  <div id="content">
+
+    <div id="page">
+      
+
+
+
+
+
+<div id="actionsTop" class="pageactions"> 
+  <ul>
+
+    
+    
+    
+
+    
+    <li id="morebutton" href="#">
+      <a href="http://10.25.45.69/wiki/Wiki.jsp?page=MoreMenu" class="action more">更多...</a>
+    <ul id="morepopup" style="visibility: hidden; zoom: 1; opacity: 0; ">
+     
+       	
+     
+       
+     
+    
+       
+     
+       <li>
+       
+       <a class="action rawpage wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist&skin=raw" title="查看页面源代码">查看页面源代码
+       </a>
+       
+       
+       </li>
+      
+        
+  
+      
+      
+      
+
+      
+	  <li class="separator">
+        <div id="moremenu"></div>
+      </li>
+  </ul></li>
+
+  </ul>
+</div>
+
+      
+
+
+
+
+
+
+
+
+<div class="tabmenu">
+
+  
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+
+
+
+  <a class="activetab" id="menu-pagecontent" accesskey="v">查看</a>
+
+  
+
+  
+  <a id="menu-attach" accesskey="a">附件</a>
+  
+    
+  <a id="menu-info" href="http://10.25.45.69/wiki/PageInfo.jsp?page=Booklist" accesskey="i">信息</a>
+    
+  
+
+</div>
+<div class="tabs">
+
+  <div id="pagecontent">
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="section-Booklist-_E5_80_9F_E9_98_85_E8_A7_84_E5_88_99">借阅规则<a class="hashlink" href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#section-Booklist-_E5_80_9F_E9_98_85_E8_A7_84_E5_88_99">#</a></h2>
+1、每人每次仅限借阅1本图书；<br>
+<p>2、每次借阅时间为14天，即2个自然周；<br>
+</p>
+<p>3、逾期不归还图书者，会受到不断的邮件及电话骚扰，总之就是所能想象的各种手段~<br>
+</p>
+<p>4、遗失、损坏或在图书上乱涂乱画书者，按原价赔偿或购买相同的书籍归还。<br>
+</p>
+<p>5、续借：归还图书后两个工作日内没有其他同事借阅的，可以续借，期限仍然为14天。但续借的次数会根据图书的类型和内容适当的限制。
+</p>
+<p>
+</p><p>
+</p><table class="wikitable" border="1"><tbody><tr class="odd"><th>序号</th><th>书籍名称</th><th>数量</th><th>作者</th><th>状态</th><th>借阅人</th><th>到期时间</th></tr>
+<tr><td>1</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=JavaScript">悟透JavaScript</a></td><td>1</td><td>李战</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>2</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=JavaCoreI">JAVA核心技术（卷I：基础知识）</a></td><td>1</td><td>Cay S. Horstmann,Gray Cornell</td><td>在库</td><th></th><td></td></tr>
+<tr><td>3</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=JavaCoreII">JAVA核心技术（卷II：高级特性）</a></td><td>1</td><td>Cay S. Horstmann,Gray Cornell</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>4</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=EstimatingSoftwareCosts">软件项目估计</a></td><td>1</td><td>Capers Jones</td><td>在库</td><th></th><td></td></tr>
+<tr><td>5</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=UML">系统分析师UML实务手册</a></td><td>1</td><td>邱郁慧</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>6</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=TheSoftwareDevelopmentEdge">软件开发的边界</a></td><td>1</td><td>Joe Marasco</td><td>在库</td><th></th><td></td></tr>
+<tr><td>7</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=BestPracticeOfSoftwareRequirement">软件需求最佳实践</a></td><td>1</td><td>徐锋</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>8</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=ProveYourself">用结果证明自己的能力</a></td><td>1</td><td>梁素娟,廉勇</td><td>在库</td><th></th><td></td></tr>
+<tr><td>9</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=EstimatingSoftwareCosts-BlackBox">软件估算-“黑匣子”揭秘</a></td><td>1</td><td>Steve McConnell</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>10</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=Hacker">黑客新型攻击防范</a></td><td>1</td><td>Markus Jakobsson,Zulfilkar Ramzan</td><td>在库</td><th></th><td></td></tr>
+<tr><td>11</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=HeadFirstOOAD">深入浅出面向对象分析与设计（中文版）</a></td><td>1</td><td>McLaughlin,Pollice&amp;West</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>12</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=DesignPatternsExplained2">设计模式解析（第2版）</a></td><td>1</td><td>Alan Shalloway,James R. Trott</td><td>在库</td><th></th><td></td></tr>
+<tr><td>13</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=SCRUM">SCRUM敏捷软件开发</a></td><td>1</td><td>Mike Cohn</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>14</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=SearchPattern">搜索模式</a></td><td>1</td><td>Peter Morville,Jeffery Callender</td><td>在库</td><th></th><td></td></tr>
+<tr><td>15</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=RefactoringToPatterns">重构与模式</a></td><td>1</td><td>Joshua Kerievsky</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>16</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=AnalysisPatternsReusableObjectModels">分析模式-可复用的对象模型</a></td><td>1</td><td>Martin Fowler</td><td>在库</td><th></th><td></td></tr>
+<tr><td>17</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=JoelOnSoftware">软件随想录-Joel谈软件</a></td><td>1</td><td>Joel Spolsky</td><td>外借</td><td>陈莹</td><td>2011-2-28</td></tr>
+<tr class="odd"><td>18</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=SoftwareDesignAndPatterns">软件设计精要与模式</a></td><td>1</td><td>张逸</td><td>在库</td><th></th><td></td></tr>
+<tr><td>19</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=MicroSoft360">微软360度-成功与成长</a></td><td>1</td><td>张奭,方敏,欧琼等</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>20</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=InsuranceGlossary">保险术语</a></td><td>1</td><td>保险业标准化技术委员会</td><td>在库</td><th></th><td></td></tr>
+<tr><td>21</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=PeopleWare">人件（第2版）</a></td><td>1</td><td>Tom DeMarco,Timothy Lister</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>22</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=HowToAsk">学会提问—批判性思维指南</a></td><td>1</td><td>布朗,基利</td><td>在库</td><th></th><td></td></tr>
+<tr><td>23</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=CodeComplete">代码大全（第二版)</a></td><td>1</td><td>Steve McConnell</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>24</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=UMLAndPatterns">UML和模式应用</a></td><td>1</td><td>Larman,C.</td><td>在库</td><th></th><td></td></tr>
+<tr><td>25</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=JoelOnSoftwareDev">Joel谈优秀软件开发方法</a></td><td>1</td><td>Joel Spolsky</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>26</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=Man-Month">人月神话</a></td><td>1</td><td>eder ick P.Brooks Jr.</td><td>外借</td><td>朱昇</td><td>2011-3-31</td></tr>
+<tr><td>27</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=HeadfirstDesignPatterns">Head First 设计模式</a></td><td>1</td><td>Eric Freeman</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>28</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=DHDesignPatterns">大话设计模式</a></td><td>1</td><td>程杰</td><td>在库</td><th></th><td></td></tr>
+<tr><td>29</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=AntiPatterns">反模式：危机中软件、架构和项目重构</a></td><td>1</td><td>William J.Brown</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>30</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=CleanCode">代码整洁之道</a></td><td>1</td><td>Martin Fowler</td><td>在库</td><th></th><td></td></tr>
+<tr><td>31</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=TechLeader">技术领导之路——全面解决问题的途径</a></td><td>1</td><td>Gerald M. Weinberg</td><td>外借</td><td>熊波</td><td>2011-4-1</td></tr>
+<tr class="odd"><td>32</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=PerfectSoftware">完美软件——对软件测试的各种幻想</a></td><td>1</td><td>Gerald M. Weinberg</td><td>在库</td><th></th><td></td></tr>
+<tr><td>33</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=Refactoring">重构：改善既有代码的设计</a></td><td>1</td><td>Martin Fowler</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>34</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=PPT">说服力-让你的PPT会说话</a></td><td>1</td><td>张志,刘俊,包翔</td><td>外借</td><td>罗璇</td><td>2011-3-25</td></tr>
+<tr><td>35</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=JudgmentAndDecision">决策与判断</a></td><td>1</td><td>Scott Plous</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>36</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=INFLUENCE">影响力-你为什么会说“是”</a></td><td>1</td><td>罗伯特.B.西奥迪尼</td><td>在库</td><th></th><td></td></tr>
+<tr><td>37</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=Ruby">Ruby编程语言</a></td><td>1</td><td>David Flanagan,Yukibiro Matsumoto</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>38</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=SoftwareRequirementPatterns">软件需求模式</a></td><td>1</td><td>Stephen Withall</td><td>在库</td><th></th><td></td></tr>
+<tr><td>39</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=DreamingInCode">梦断代码</a></td><td>1</td><td>Scott Rosenberg</td><td>在库</td><th></th><td></td></tr>
+<tr class="odd"><td>40</td><td><a class="wikipage" href="http://10.25.45.69/wiki/Wiki.jsp?page=GOOSG">测试驱动的面向对象软件开发</a></td><td>1</td><td>Steve Freeman,Nat Pryce</td><td>在库</td><th></th><td></td></tr>
+<tr><td>41</td><td>J2EE核心模式</td><td>1</td><td>Deepak Alur,John Crupi,Dan Malks</td><td>在库</td><th></th></tr>
+<tr class="odd"><td>42</td><td>J2EE应用开发实践</td><td>1</td><th></th><td>外借</td><td>蒋治国</td><td>2011-2-18</td></tr>
+</tbody></table>
+
+
+
+
+
+
+        
+  </div>
+
+
+  
+
+  
+  <div id="attach" class="hidetab">
+
+    
+
+
+
+
+
+
+
+
+
+
+<div id="addattachment">
+<h3>添加新附件</h3>
+
+
+<div class="formhelp">只有授权的用户才能上传新附件。</div>
+
+</div>
+
+
+
+  </div>
+
+  
+    
+  <div id="info" class="hidetab">
+
+  </div>
+
+    
+  
+
+<div style="clear:both;"></div>
+</div>
+
+      
+
+
+
+
+
+
+
+<div id="actionsBottom" class="pageactions"> 
+    
+
+    <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Booklist#top" class="action quick2top" title="转到顶部">«</a>
+
+    
+       该页面（修订版 38）最后由 Administrator 在 <a href="http://10.25.45.69/wiki/Diff.jsp?page=Booklist&r1=38&r2=37">18-Mar-2011 09:16</a> 修改。
+    
+
+    
+
+   
+
+  
+
+   
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div id="favorites">
+
+  
+
+
+
+
+
+
+<div class="userbox">
+
+  
+    <span class="username anonymous">
+      您好（匿名访客）
+    </span>
+  
+  
+  
+
+  
+  
+  
+    
+      <a href="http://10.25.45.69/wiki/Login.jsp?redirect=Booklist" class="action login" title="登录或注册为新用户">登录</a>
+    
+  
+  
+  
+  
+
+  
+  
+    <a href="http://10.25.45.69/wiki/UserPreferences.jsp?redirect=Booklist" class="action prefs" accesskey="p" title="管理首选项 [ p ]">我的首选项(<span class="accesskey">P</span>)
+    </a>
+  
+  
+
+  <div class="clearbox"></div>
+
+</div>
+  
+  <div id="hiddenmorepopup">
+  
+  </div>
+  
+  
+
+  
+
+  
+
+  
+  <div class="leftmenu">
+    <dl><dt>技术分享</dt><dd><a class="wikipage" href="./Wiki：Booklist_files/Wiki：Booklist.htm">部门图书馆</a></dd></dl>
+<dl><dt>职业发展</dt><dd>MTS技能模型</dd></dl>
+
+    
+  </div>
+  
+  <div class="leftmenufooter">
+    开发二部wiki
+
+    
+  </div>
+
+  
+
+  
+  
+  <div class="wikiversion">JSPWiki v2.8.4
+  <span class="rssfeed">
+    
+  </span>
+  </div>  
+  
+</div>
+
+	<div class="clearbox"></div>
+  </div>
+
+  
+
+
+
+
+
+ 
+<div id="footer">
+
+  <div class="applicationlogo"> 
+    <a href="http://10.25.45.69/wiki/Wiki.jsp?page=Main" title="转到主页 Main ">主页</a>
+  </div>
+
+  <div class="companylogo"></div>
+
+  <div class="copyright"></div>
+
+  <div class="wikiversion">
+    JSPWiki v2.8.4
+  </div>
+
+  <div class="rssfeed">
+    
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+</body></html>

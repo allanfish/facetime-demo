@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>OATOS登陆注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="assets/website/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/website/css/login-register.css">
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="brand">
+            <span id="showReg"><a href="#">注册</a></span>
+            <span id="showLog"><a href="#">登陆</a></span>
+          </div>
+          <div class="nav-collapse collapse">
+            <ul class="nav row">
+              <li class="span2"><a href="#" class="nav-logo"></a></li>
+              <li class="span1 offset2"><a href="#">产品介绍</a></li>
+              <li class="span1"><a href="#">私有云</a></li>
+              <li class="span1"><a href="#">下载中心</a></li>
+              <li class="span1"><a href="#">帮助中心</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container content">
+      <div class="log-cont">
+        <div class="row log-title">
+          <div class="span4">
+            <div>
+              登陆OATOS
+            </div>
+          </div>
+          <div class="span3 offset5">
+            <div>
+              服务热线: 400-030-1108
+            </div>
+          </div>
+        </div>
+        <div class="row login">
+          <div class="span6">
+            <div class="log-pic"></div>
+          </div>
+          <div class="span5 offset1">
+            <div class="login-pane">
+              <div>
+                <div class="control-group" id="errorTip"></div>
+                <form class="bs-docs-example form-horizontal" id="logForm">
+                  <div class="control-group">
+                    <label for="inputEntName" class="control-label">名称:</label>
+                    <div class="controls">
+                      <input type="text" placeholder="EnterpriseName" id="logEntName" name="logEntName">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputAccount" class="control-label">账号:</label>
+                    <div class="controls">
+                      <input type="text" placeholder="Account" id="logAccount" name="logAccount">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputPassword" class="control-label">密码:</label>
+                    <div class="controls">
+                      <input type="password" placeholder="Password" id="logPassword" name="logPassword">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <label class="checkbox">
+                        <input type="checkbox" id="httpsCheck" name="httpsCheck"> 使用HTTPS
+                        <a href="#">忘记密码</a>
+                      </label>
+                      <button class="btn btn-info" type="submit" id="loginBtn">登 录</button>
+                    </div>
+                  </div>
+                </form>
+                <div>
+                  <a href="#">立即注册</a> 获取OATOS永久免费服务
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reg-cont">
+        <div class="row">
+          <div class="span5">
+            <div class="reg-reason">
+              <div class="row">
+                <div class="span1">
+                  <div class="pic-one"></div>
+                </div>
+                <div class="span4">
+                  <p>提升企业竞争力之选</p>
+                  <p>提高办公效率，促进业务增长</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span1">
+                  <div class="pic-two"></div>
+                </div>
+                <div class="span4">
+                  <p>更简单愉悦的办公体验</p>
+                  <p>文件存取、沟通与写作更加简单</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span1">
+                  <div class="pic-three"></div>
+                </div>
+                <div class="span4">
+                  <p>超过5000万用户的选择</p>
+                  <p>更多用户正在不断加入...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span7">
+            <div class="reg-pane">
+              <div class="reg-title">
+                <span>注册OATOS</span>
+                <span>服务热线: 400-030-1108</span>
+              </div>
+              <div>
+               ------------------------------------------------------------------------
+              </div>
+              <form class="bs-docs-example form-horizontal" id="regForm">
+                <div class="control-group">
+                  <label for="inputEntName" class="control-label">企业名称:</label>
+                  <div class="controls">
+                    <input type="text" placeholder="EnterpriseName" id="entName" name="entName">
+                    <span class="help-inline">公司或项目名称</span>
+                    <span class="help-inline"></span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputAccount" class="control-label">管理员账号:</label>
+                  <div class="controls">
+                    <input type="text" placeholder="AdminAccount" id="adminAccount" name="adminAccount">
+                    <span class="help-inline">管理员的账号</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputPassword" class="control-label">管理员密码:</label>
+                  <div class="controls">
+                    <input type="password" placeholder="Password" id="password" name="password">
+                    <span class="help-inline">6-20位数字、字母、符号混合</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputConfirmPassword" class="control-label">确认密码:</label>
+                  <div class="controls">
+                    <input type="password" placeholder="confirmPassword" id="confirmPassword" name="confirmPassword">
+                    <span class="help-inline">请再次输入密码</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputAdminName" class="control-label">管理员姓名:</label>
+                  <div class="controls">
+                    <input type="text" placeholder="AdminName" id="adminName" name="adminName">
+                    <span class="help-inline">您将是系统管理员</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputEmail" class="control-label">管理员邮箱:</label>
+                  <div class="controls">
+                    <input type="text" placeholder="Email" id="email" name="email">
+                    <span class="help-inline">填写您的常用邮箱</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputPhone" class="control-label">联系电话:</label>
+                  <div class="controls">
+                    <input type="text" placeholder="PhoneNumber" id="phoneNumber" name="phoneNumber">
+                    <span class="help-inline">手机或座机号码</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="inputCode" class="control-label">验证码:</label>
+                  <div class="controls">
+                    <input type="text" placeholder="VerificationCode" maxlength="4" id="VerCode" name="VerCode">
+                    <img class="code-image" src="validationCodeServlet.png" >
+                    <span class="help-inline">换一张</span>
+                    <span class="help-inline"></span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <label class="checkbox reg-check">
+                      <input type="checkbox" id="agreeCheck" name="agreeCheck"> 我已经阅读并同意<a href="">《OATOS服务条款》</a>
+                      <span class="help-inline"></span>
+                    </label>
+                    <button class="btn btn-success" type="submit" id="regBtn">立即注册</button>
+                  </div>
+                </div>
+              </form>
+              <div><span>已有OATOS账号</span> <span><a href="#">立即登录</a></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="container">
+            <div>
+              <p>
+                <span><a href="">关于我们</a></span>
+                |<span><a href="">企业网盘</a></span>
+                |<span><a href="">OATOS Server</a></span>
+                |<span><a href="">互动社区</a></span>
+                |<span><a href="">关注OATOS</a></span>
+                |<span><a href="">服务条款</a></span>
+              </p>
+              <p><span>粤ICP证010221号</span><span>深圳企业云科技有限公司</span><span>版权所有</span></p>
+            </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="assets/js/lib/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="assets/js/logreg/util.js" type="text/javascript"></script>
+    <script src="assets/js/logreg/jquery.cookie.js" type="text/javascript"></script>
+    <script src="assets/js/logreg/jquery.json-2.4.min.js" type="text/javascript"></script>
+    <script src="assets/js/logreg/crypto-sha256.js" type="text/javascript"></script>
+    <script src="assets/js/logreg/security.js" type="text/javascript"></script>
+    <script src="assets/js/logreg/logreg.js" type="text/javascript"></script>
+  </body>
+</html>
